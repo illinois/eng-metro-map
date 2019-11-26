@@ -1,3 +1,4 @@
+{"Majors": [
 {
   "title": "Accountancy, BS",
   "college": "bus",
@@ -83,7 +84,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Actuarial Science, BSLAS",
   "college": "las",
@@ -143,7 +144,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Advertising, BS",
   "college": "media",
@@ -193,7 +194,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Aerospace Engineering, BS",
   "college": "engineering",
@@ -352,17 +353,42 @@
       ]
     },
     {
+      "title": "A minimum of six courses is required, as follows:",
+      "hours": 18.0,
+      "courses": []
+    },
+    {
+      "title": "Social and Behavioral Sciences",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Humanities & the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "The Grainger College of Engineering Liberal Education course list, or from the campus General Education lists for Social and Behavioral Sciences or Humanities and the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Completion of the third semester or equivalent of a non-primary language is required. Completion of three years of a single language in high school satisfies this requirement.",
+      "hours": 0,
+      "courses": []
+    },
+    {
       "title": "Free electives. Additional unrestricted course work, subject to certain exceptions as noted by the College, so that there are at least 128 credit hours earned toward the degree.",
       "hours": 6.0,
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Aerospace Engineering, BS-MS",
   "college": "engineering",
   "courses": []
-}
+},
 {
   "title": "African American Studies, BALAS",
   "college": "las",
@@ -387,7 +413,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Agricultural & Biological Engineering: Agricultural Engineering, BS",
   "college": "eng_aces",
@@ -692,7 +718,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural & Biological Engineering: Biological Engineering, BS",
   "college": "eng_aces",
@@ -975,7 +1001,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural & Consumer Economics: Agri-Accounting, BS",
   "college": "aces",
@@ -1091,7 +1117,7 @@
     "ACE 447",
     "ACCY 303"
   ]
-}
+},
 {
   "title": "Agricultural & Consumer Economics: Agribusiness Markets & Management, BS",
   "college": "aces",
@@ -1211,7 +1237,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural & Consumer Economics: Consumer Economics & Finance, BS",
   "college": "aces",
@@ -1338,7 +1364,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural & Consumer Economics: Environmental Economics & Policy, BS",
   "college": "aces",
@@ -1458,7 +1484,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural & Consumer Economics: Farm Management, BS",
   "college": "aces",
@@ -1572,7 +1598,7 @@
     "ACE 432",
     "ACE 444"
   ]
-}
+},
 {
   "title": "Agricultural & Consumer Economics: Finance in Agribusiness, BS",
   "college": "aces",
@@ -1695,7 +1721,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural & Consumer Economics: Financial Planning, BS",
   "college": "aces",
@@ -1809,7 +1835,7 @@
     "FIN 230",
     "ACE 445"
   ]
-}
+},
 {
   "title": "Agricultural & Consumer Economics: Policy, International Trade & Development, BS",
   "college": "aces",
@@ -1929,7 +1955,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural & Consumer Economics: Public Policy & Law, BS",
   "college": "aces",
@@ -2076,7 +2102,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural & Biological Engineering, BS and Agricultural & Biological Engineering, BSAG",
   "college": "eng_aces",
@@ -2242,7 +2268,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Agricultural Communications: Advertising, BS",
   "college": "aces_media",
@@ -2487,7 +2513,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural Communications: Journalism, BS",
   "college": "aces_media",
@@ -2732,7 +2758,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural Leadership, Education, & Communications: Agricultural Communications - Advertising, BS",
   "college": "aces",
@@ -3008,7 +3034,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural Leadership, Education, & Communications: Agricultural Communications - Journalism, BS",
   "college": "aces",
@@ -3283,7 +3309,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural Leadership, Education, & Communications: Agricultural Education, BS",
   "college": "aces",
@@ -3450,7 +3476,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural Leadership, Education, & Communications: Organizational & Community Leadership, BS",
   "college": "aces",
@@ -3624,7 +3650,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural Leadership & Science Education: Agricultural Leadership Education, BS",
   "college": "aces",
@@ -3746,7 +3772,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Agricultural Leadership & Science Education: Agricultural Science Education, BS",
   "college": "aces",
@@ -3870,7 +3896,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Animal Sciences: Companion & Equine Science, BS",
   "college": "aces",
@@ -4067,7 +4093,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Animal Sciences: Food Animal Production & Management, BS",
   "college": "aces",
@@ -4242,7 +4268,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Animal Sciences: Science, Pre-Veterinary & Medical, BS",
   "college": "aces",
@@ -4417,7 +4443,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Anthropology, BALAS",
   "college": "las",
@@ -4487,7 +4513,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Anthropology: Archaeology, BALAS",
   "college": "las",
@@ -4580,7 +4606,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Anthropology: Human Evolutionary Biology, BALAS",
   "college": "las",
@@ -4672,7 +4698,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Anthropology: Sociocultural & Linguistic Anthropology, BALAS",
   "college": "las",
@@ -4721,12 +4747,12 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Architectural Studies, BS",
   "college": "faa",
   "courses": []
-}
+},
 {
   "title": "Art & Art History, BFA",
   "college": "faa",
@@ -4793,7 +4819,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Art Education, BFA",
   "college": "faa",
@@ -4877,7 +4903,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Art Undeclared",
   "college": "faa",
@@ -4924,7 +4950,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Asian American Studies, BALAS",
   "college": "las",
@@ -4944,7 +4970,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Astronomy, BSLAS",
   "college": "las",
@@ -4985,7 +5011,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Atmospheric Sciences, BSLAS",
   "college": "las",
@@ -5010,7 +5036,7 @@
     "ATMS 313",
     "ATMS 314"
   ]
-}
+},
 {
   "title": "Biochemistry, BS",
   "college": "las",
@@ -5145,7 +5171,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Bioengineering, BS",
   "college": "engineering",
@@ -5275,12 +5301,37 @@
       ]
     },
     {
+      "title": "A minimum of six courses is required, as follows:",
+      "hours": 18.0,
+      "courses": []
+    },
+    {
+      "title": "Social and Behavioral Sciences",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Humanities & the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "The Grainger College of Engineering Liberal Education course list, or from the campus General Education lists for Social and Behavioral Sciences or Humanities and the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Completion of the third semester or equivalent of a non-primary language is required. Completion of three years of a single language in high school satisfies this requirement.",
+      "hours": 0,
+      "courses": []
+    },
+    {
       "title": "Free electives. Additional unrestricted course work, subject to certain exceptions as noted by the College, so that there are at least 128 credit hours earned toward the degree.",
       "hours": 6.0,
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Biology: Biology Teacher Education, BSLAS",
   "college": "las",
@@ -5338,7 +5389,7 @@
     "SPED 405",
     "EDPR 442"
   ]
-}
+},
 {
   "title": "Chemical Engineering, BS",
   "college": "las",
@@ -5418,7 +5469,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Chemical Engineering: Biomolecular Engineering, BS",
   "college": "las",
@@ -5489,7 +5540,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Chemistry, BS",
   "college": "las",
@@ -5579,7 +5630,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Chemistry: Environmental Chemistry, BS",
   "college": "las",
@@ -5684,7 +5735,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Chemistry, BSLAS",
   "college": "las",
@@ -5730,7 +5781,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Chemistry: Chemistry Teaching, BSLAS",
   "college": "las",
@@ -5861,7 +5912,7 @@
     "SPED 405",
     "EDPR 442"
   ]
-}
+},
 {
   "title": "Civil Engineering, BS",
   "college": "engineering",
@@ -6428,12 +6479,17 @@
       "courses": []
     },
     {
+      "title": "Completion of the third semester or equivalent of a non-primary language is required. Completion of three years of a single language in high school satisfies this requirement.",
+      "hours": 0,
+      "courses": []
+    },
+    {
       "title": "Free electives. Additional unrestricted course work, subject to certain exceptions as noted by the College, so that there are at least 128 credit hours earned toward the degree.",
       "hours": 6.0,
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Classics, BALAS",
   "college": "las",
@@ -6452,7 +6508,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Classics: Classical Archaeology, BALAS",
   "college": "las",
@@ -6478,7 +6534,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Classics: Classical Civilization, BALAS",
   "college": "las",
@@ -6494,7 +6550,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Classics: Greek, BALAS",
   "college": "las",
@@ -6526,7 +6582,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Classics: Latin, BALAS",
   "college": "las",
@@ -6557,7 +6613,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Communication, BALAS",
   "college": "las",
@@ -6585,7 +6641,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Community Health: Health Education & Promotion, BS",
   "college": "ahs",
@@ -6686,7 +6742,7 @@
     "CHLH 380",
     "CHLH 485"
   ]
-}
+},
 {
   "title": "Community Health: Health Planning & Administration, BS",
   "college": "ahs",
@@ -6786,7 +6842,7 @@
     "CHLH 380",
     "CHLH 485"
   ]
-}
+},
 {
   "title": "Community Health: Rehabilitation Studies, BS",
   "college": "ahs",
@@ -6886,7 +6942,7 @@
     "CHLH 380",
     "CHLH 485"
   ]
-}
+},
 {
   "title": "Comparative Literature: World Literature, BALAS",
   "college": "las",
@@ -6934,7 +6990,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Computer Engineering, BS",
   "college": "engineering",
@@ -7462,12 +7518,37 @@
     "ECE 445",
     "ECE 496",
     {
+      "title": "A minimum of six courses is required, as follows:",
+      "hours": 18.0,
+      "courses": []
+    },
+    {
+      "title": "Social and Behavioral Sciences",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Humanities & the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "The Grainger College of Engineering Liberal Education course list, or from the campus General Education lists for Social and Behavioral Sciences or Humanities and the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Completion of the third semester or equivalent of a non-primary language is required. Completion of three years of a single language in high school satisfies this requirement.",
+      "hours": 0,
+      "courses": []
+    },
+    {
       "title": "Free electives. Additional unrestricted course work, subject to certain exceptions as noted by the College, so that there are at least 128 credit hours earned toward the degree. At least seven credit hours must be taken for a grade.",
       "hours": 12.0,
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Computer Science & Advertising, BS",
   "college": "eng_media",
@@ -7513,7 +7594,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Computer Science & Animal Sciences, BS",
   "college": "eng_aces",
@@ -7693,7 +7774,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Computer Science & Anthropology, BSLAS",
   "college": "eng_las",
@@ -7754,7 +7835,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Computer Science & Astronomy, BSLAS",
   "college": "eng_las",
@@ -7800,7 +7881,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Computer Science & Chemistry, BSLAS",
   "college": "eng_las",
@@ -7862,7 +7943,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Computer Science & Crop Sciences, BS",
   "college": "eng_aces",
@@ -7990,7 +8071,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Computer Science & Economics, BSLAS",
   "college": "eng_las",
@@ -8028,7 +8109,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Computer Science & Geography & Geographic Information Science, BSLAS",
   "college": "eng_las",
@@ -8112,7 +8193,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Computer Science & Linguistics, BSLAS",
   "college": "eng_las",
@@ -8158,7 +8239,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Computer Science & Music, BS",
   "college": "eng_faa",
@@ -8259,7 +8340,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Computer Science & Philosophy, BSLAS",
   "college": "eng_las",
@@ -8317,7 +8398,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Computer Science, BS",
   "college": "engineering",
@@ -8529,12 +8610,37 @@
       "courses": []
     },
     {
+      "title": "A minimum of six courses is required, as follows:",
+      "hours": 18.0,
+      "courses": []
+    },
+    {
+      "title": "Social and Behavioral Sciences",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Humanities & the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "The Grainger College of Engineering Liberal Education course list, or from the campus General Education lists for Social and Behavioral Sciences or Humanities and the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Completion of the third semester or equivalent of a non-primary language is required. Completion of three years of a single language in high school satisfies this requirement.",
+      "hours": 0,
+      "courses": []
+    },
+    {
       "title": "Free electives. Additional unrestricted course work, subject to certain exceptions as noted by the College, so that there are at least 128 credit hours earned toward the degree.",
       "hours": 18.0,
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Crafts: Metal, BFA",
   "college": "faa",
@@ -8616,7 +8722,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Creative Writing, BALAS",
   "college": "las",
@@ -8705,7 +8811,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Crop Sciences: Agroecology, BS",
   "college": "aces",
@@ -8836,7 +8942,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Crop Sciences: Biological Sciences, BS",
   "college": "aces",
@@ -8971,7 +9077,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Crop Sciences: Crop Agribusiness, BS",
   "college": "aces",
@@ -9113,7 +9219,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Crop Sciences: Crops, BS",
   "college": "aces",
@@ -9250,7 +9356,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Crop Sciences: Horticultural Food Systems, BS",
   "college": "aces",
@@ -9377,7 +9483,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Crop Sciences: Plant Biotechnology and Molecular Biology, BS",
   "college": "aces",
@@ -9508,7 +9614,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Crop Sciences: Plant Protection, BS",
   "college": "aces",
@@ -9638,7 +9744,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Dance, BA",
   "college": "faa",
@@ -9810,7 +9916,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Dance, BFA",
   "college": "faa",
@@ -9954,7 +10060,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Early Childhood Education, BS",
   "college": "education",
@@ -10059,7 +10165,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Earth, Society, & Environmental Sustainability: Science of the Earth System (SES), BSLAS",
   "college": "las",
@@ -10099,7 +10205,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Earth, Society, & Environmental Sustainability: Society and the Environment (SAE), BSLAS",
   "college": "las",
@@ -10138,7 +10244,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "East Asian Languages & Cultures, BALAS",
   "college": "las",
@@ -10169,7 +10275,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "East Asian Languages & Cultures: Teaching East Asian Languages, BALAS",
   "college": "las",
@@ -10282,7 +10388,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Econometrics & Quantitative Economics, BSLAS",
   "college": "las",
@@ -10329,7 +10435,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Economics, BALAS",
   "college": "las",
@@ -10362,7 +10468,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Electrical Engineering, BS",
   "college": "engineering",
@@ -10880,12 +10986,37 @@
       ]
     },
     {
+      "title": "A minimum of six courses is required, as follows:",
+      "hours": 18.0,
+      "courses": []
+    },
+    {
+      "title": "Social and Behavioral Sciences",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Humanities & the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "The Grainger College of Engineering Liberal Education course list, or from the campus General Education lists for Social and Behavioral Sciences or Humanities and the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Completion of the third semester or equivalent of a non-primary language is required. Completion of three years of a single language in high school satisfies this requirement.",
+      "hours": 0,
+      "courses": []
+    },
+    {
       "title": "Free electives. Additional unrestricted course work, subject to certain exceptions as noted by the College, so that there are at least 128 credit hours earned toward the degree. At least seven credit hours must be taken for a grade.",
       "hours": 12.0,
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Elementary Education, BS",
   "college": "education",
@@ -10980,7 +11111,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Engineering Mechanics, BS",
   "college": "engineering",
@@ -11090,12 +11221,37 @@
       ]
     },
     {
+      "title": "A minimum of six courses is required, as follows:",
+      "hours": 18.0,
+      "courses": []
+    },
+    {
+      "title": "Social and Behavioral Sciences",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Humanities & the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "The Grainger College of Engineering Liberal Education course list, or from the campus General Education lists for Social and Behavioral Sciences or Humanities and the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Completion of the third semester or equivalent of a non-primary language is required. Completion of three years of a single language in high school satisfies this requirement.",
+      "hours": 0,
+      "courses": []
+    },
+    {
       "title": "Free electives. Additional unrestricted course work, subject to certain exceptions as noted by the College, so that there are at least 128 credit hours earned toward the degree.",
       "hours": 6.0,
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Engineering Physics, BS",
   "college": "engineering",
@@ -11276,6 +11432,31 @@
     "ECE 110",
     "ECE 444",
     {
+      "title": "A minimum of six courses is required, as follows:",
+      "hours": 18.0,
+      "courses": []
+    },
+    {
+      "title": "Social and Behavioral Sciences",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Humanities & the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "The Grainger College of Engineering Liberal Education course list, or from the campus General Education lists for Social and Behavioral Sciences or Humanities and the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Completion of the third semester or equivalent of a non-primary language is required. Completion of three years of a single language in high school satisfies this requirement.",
+      "hours": 0,
+      "courses": []
+    },
+    {
       "title": "",
       "hours": 0,
       "courses": [
@@ -11285,7 +11466,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "English: English Concentration, BALAS",
   "college": "las",
@@ -11322,7 +11503,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "English: English Teaching, BALAS",
   "college": "las",
@@ -11371,7 +11552,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "English: Topics in English, BALAS",
   "college": "las",
@@ -11405,7 +11586,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Finance, BS",
   "college": "bus",
@@ -11517,7 +11698,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Food Science & Human Nutrition: Dietetics, BS",
   "college": "aces",
@@ -11662,7 +11843,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Food Science & Human Nutrition: Food Science, BS",
   "college": "aces",
@@ -11799,7 +11980,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Food Science & Human Nutrition: Hospitality Management, BS",
   "college": "aces",
@@ -11918,7 +12099,7 @@
     "FSHN 443",
     "PSYC 245"
   ]
-}
+},
 {
   "title": "Food Science & Human Nutrition: Human Nutrition, BS",
   "college": "aces",
@@ -12053,7 +12234,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Teaching of French, BA",
   "college": "las",
@@ -12092,7 +12273,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "French: French Commercial Studies, BALAS",
   "college": "las",
@@ -12116,7 +12297,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "French: French Studies, BALAS",
   "college": "las",
@@ -12156,7 +12337,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Gender & Women's Studies, BALAS",
   "college": "las",
@@ -12177,7 +12358,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Geography & Geographic Information Science: General Geography, BALAS",
   "college": "las",
@@ -12217,7 +12398,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Geography & Geographic Information Science: Human Geography, BALAS",
   "college": "las",
@@ -12294,7 +12475,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Geography & Geographic Information Science: Geographic Information Science, BSLAS",
   "college": "las",
@@ -12391,7 +12572,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Geography & Geographic Information Science: Physical Geography, BSLAS",
   "college": "las",
@@ -12493,7 +12674,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Geology, BS",
   "college": "las",
@@ -12573,7 +12754,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Geology: Environmental Geology, BS",
   "college": "las",
@@ -12669,7 +12850,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Geology: Geophysics, BS",
   "college": "las",
@@ -12740,7 +12921,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Geology, BSLAS",
   "college": "las",
@@ -12773,7 +12954,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Geology: Earth & Environmental Sciences, BSLAS",
   "college": "las",
@@ -12807,7 +12988,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Geology: Earth Science Teaching, BSLAS",
   "college": "las",
@@ -12912,7 +13093,7 @@
     "SPED 405",
     "EDPR 442"
   ]
-}
+},
 {
   "title": "Germanic Studies: German Business & Commercial Studies, BALAS",
   "college": "las",
@@ -12943,7 +13124,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Germanic Studies: German Culture & Literature, BALAS",
   "college": "las",
@@ -12975,7 +13156,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Germanic Studies: German Linguistics, BALAS",
   "college": "las",
@@ -13009,7 +13190,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Germanic Studies: Scandinavian Studies, BALAS",
   "college": "las",
@@ -13058,7 +13239,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Teaching of German, BA",
   "college": "las",
@@ -13096,7 +13277,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Global Studies, BALAS",
   "college": "las",
@@ -13142,11 +13323,52 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Graphic Design, BFA",
   "college": "faa",
   "courses": [
+    "FAA 101",
+    "ARTF 101",
+    "ARTE 101",
+    "ARTH 110",
+    {
+      "title": "Select one Drawing course:",
+      "hours": 3.0,
+      "courses": [
+        "ARTF 102",
+        "ARTF 104",
+        "ARTF 106"
+      ]
+    },
+    {
+      "title": "Select one course in 2D Category:",
+      "hours": 3.0,
+      "courses": [
+        "ARTD 151",
+        "ARTD 160",
+        "ARTS 205",
+        "ARTS 251"
+      ]
+    },
+    {
+      "title": "Select one course in 3D Category:",
+      "hours": 3.0,
+      "courses": [
+        "ARTD 101",
+        "ARTS 201",
+        "ARTS 280"
+      ]
+    },
+    {
+      "title": "Select one course in 4D Category:",
+      "hours": 3.0,
+      "courses": [
+        "ARTS 241",
+        "ARTS 243",
+        "ARTS 244"
+      ]
+    },
     "ARTD 218",
     "ARTD 222",
     "ARTD 251",
@@ -13171,7 +13393,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "History of Art, BALAS",
   "college": "las",
@@ -13357,7 +13579,7 @@
     "ARTH 447",
     "ARTH 495"
   ]
-}
+},
 {
   "title": "History, BALAS",
   "college": "las",
@@ -13406,7 +13628,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "History: Social Science: History Teaching, BALAS",
   "college": "las",
@@ -13504,7 +13726,7 @@
     "SPED 405",
     "EDPR 442"
   ]
-}
+},
 {
   "title": "Human Development & Family Studies: Child & Adolescent Development, BS",
   "college": "aces",
@@ -13639,7 +13861,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Human Development & Family Studies: Family Studies, BS",
   "college": "aces",
@@ -13774,7 +13996,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Industrial Design, BFA",
   "college": "faa",
@@ -13862,7 +14084,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Industrial Engineering, BS",
   "college": "engineering",
@@ -14000,12 +14222,17 @@
       "courses": []
     },
     {
+      "title": "Completion of the third semester or equivalent of a non-primary language is required. Completion of three years of a single language in high school satisfies this requirement.",
+      "hours": 0,
+      "courses": []
+    },
+    {
       "title": "Free electives. Additional unrestricted course work, subject to certain exceptions as noted by the College, so that there are at least 128 credit hours earned toward the degree.",
       "hours": 7.0,
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Information Sciences, BS",
   "college": "ischool",
@@ -14052,7 +14279,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Information Systems, BS",
   "college": "bus",
@@ -14153,7 +14380,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Innovation, Leadership & Engineering Entrepreneurship (ILEE), BS",
   "college": "engineering",
@@ -14171,7 +14398,7 @@
     "TE 466",
     "TE 230"
   ]
-}
+},
 {
   "title": "Instrumental Music, BMUS",
   "college": "faa",
@@ -14276,7 +14503,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Integrative Biology, BSLAS",
   "college": "las",
@@ -14354,7 +14581,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Integrative Biology: Honors Integrative Biology, BSLAS",
   "college": "las",
@@ -14422,7 +14649,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Interdisciplinary Health Sciences: Health & Aging, BS",
   "college": "ahs",
@@ -14538,7 +14765,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Interdisciplinary Health Sciences: Health Behavior Change, BS",
   "college": "ahs",
@@ -14657,7 +14884,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Interdisciplinary Health Sciences: Health Diversity, BS",
   "college": "ahs",
@@ -14777,7 +15004,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Interdisciplinary Studies: Jewish Studies, BALAS",
   "college": "las",
@@ -14809,7 +15036,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Interdisciplinary Studies: Medieval Studies, BALAS",
   "college": "las",
@@ -14883,7 +15110,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Italian, BALAS",
   "college": "las",
@@ -14924,7 +15151,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Jazz Performance, BMUS",
   "college": "faa",
@@ -15040,7 +15267,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Journalism, BS",
   "college": "media",
@@ -15107,7 +15334,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Journalism, MJ",
   "college": "ate-majors",
@@ -15177,7 +15404,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Kinesiology, BS",
   "college": "ahs",
@@ -15293,7 +15520,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Kinesiology: Teacher Certification, BS",
   "college": "ahs",
@@ -15313,12 +15540,12 @@
     "EDPR 438",
     "EDPR 442"
   ]
-}
+},
 {
   "title": "Landscape Architecture, BLA",
   "college": "faa",
   "courses": []
-}
+},
 {
   "title": "Teaching of Latin, BA",
   "college": "las",
@@ -15341,7 +15568,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Latin American Studies, BALAS",
   "college": "las",
@@ -15365,7 +15592,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Latina/Latino Studies, BALAS",
   "college": "las",
@@ -15438,7 +15665,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Learning & Education Studies, BS",
   "college": "education",
@@ -15548,7 +15775,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Learning & Education Studies: Applied Learning Science, BS (AppLeS)",
   "college": "education",
@@ -15700,7 +15927,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Learning & Education Studies: Digital Environments for Learning, Teaching & Agency, BS (DELTA)",
   "college": "education",
@@ -15846,7 +16073,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Learning & Education Studies: Educational Equality & Cultural Understanding, BS",
   "college": "education",
@@ -15991,7 +16218,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Learning & Education Studies: Workplace Training & Development, BS",
   "college": "education",
@@ -16128,7 +16355,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Linguistics, BALAS",
   "college": "las",
@@ -16169,7 +16396,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Lyric Theatre: Creative, BMA",
   "college": "faa",
@@ -16295,7 +16522,7 @@
     "THEA 454",
     "THEA 455"
   ]
-}
+},
 {
   "title": "Lyric Theatre: Performance, BMA",
   "college": "faa",
@@ -16431,7 +16658,7 @@
     "THEA 360",
     "THEA 361"
   ]
-}
+},
 {
   "title": "Management: General Management, BS",
   "college": "bus",
@@ -16514,7 +16741,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Management: International Business, BS",
   "college": "bus",
@@ -16629,7 +16856,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Marketing, BS",
   "college": "bus",
@@ -16725,7 +16952,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Materials Science & Engineering, BS",
   "college": "engineering",
@@ -17398,22 +17625,47 @@
     "PHYS 486",
     "PHYS 487",
     {
+      "title": "A minimum of six courses is required, as follows:",
+      "hours": 18.0,
+      "courses": []
+    },
+    {
+      "title": "Social and Behavioral Sciences",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Humanities & the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "The Grainger College of Engineering Liberal Education course list, or from the campus General Education lists for Social and Behavioral Sciences or Humanities and the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Completion of the third semester or equivalent of a non-primary language is required. Completion of three years of a single language in high school satisfies this requirement.",
+      "hours": 0,
+      "courses": []
+    },
+    {
       "title": "Free electives. Additional unrestricted course work, subject to certain exceptions as noted by the College, so that there are at least 128 credit hours earned toward the degree.",
       "hours": 6.0,
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Materials Science & Engineering, BS and Engineering: Energy Systems, MEng",
   "college": "engineering",
   "courses": []
-}
+},
 {
   "title": "Materials Science & Engineering, BS and Materials Engineering, MEng",
   "college": "engineering",
   "courses": []
-}
+},
 {
   "title": "Mathematics & Computer Science, BSLAS",
   "college": "eng_las",
@@ -17465,7 +17717,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Mathematics, BSLAS",
   "college": "las",
@@ -17508,9 +17760,9 @@
       "courses": []
     }
   ]
-}
+},
 {
-  "title": "Mathematics, BSLAS",
+  "title": "Mathematics: Applied Mathematics , BSLAS",
   "college": "las",
   "courses": [
     "MATH 241",
@@ -17529,29 +17781,25 @@
     {
       "title": "Approved supporting coursework or any minor",
       "hours": 12.0,
-      "courses": []
-    },
-    {
-      "title": "Select a total of two courses from two of the following three lists:",
-      "hours": 6.0,
       "courses": [
-        "MATH 402",
-        "MATH 403",
-        "MATH 423",
-        "MATH 481",
         "MATH 441",
         "MATH 446",
         "MATH 448",
-        "MATH 453"
+        "CS 357",
+        "MATH 442",
+        "MATH 489",
+        "MATH 412",
+        "MATH 413",
+        "MATH 482"
       ]
     },
     {
-      "title": "Two additional 400- or 500-level Math courses",
-      "hours": 6.0,
+      "title": "One additional 400- or 500-level Math course",
+      "hours": 3.0,
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Mathematics: Graduate Preparation, BSLAS",
   "college": "las",
@@ -17597,7 +17845,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Mathematics: Operations Research, BSLAS",
   "college": "las",
@@ -17627,7 +17875,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Mathematics: Mathematics Teaching, BSLAS",
   "college": "las",
@@ -17673,7 +17921,7 @@
     "SPED 405",
     "EDPR 442"
   ]
-}
+},
 {
   "title": "Mechanical Engineering, BS",
   "college": "engineering",
@@ -18225,12 +18473,17 @@
       "courses": []
     },
     {
+      "title": "Completion of the third semester or equivalent of a non-primary language is required. Completion of three years of a single language in high school satisfies this requirement.",
+      "hours": 0,
+      "courses": []
+    },
+    {
       "title": "Free electives. Additional unrestricted course work, subject to certain exceptions as noted by the College, so that there are at least 128 credit hours earned toward the degree.",
       "hours": 6.0,
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Media & Cinema Studies, BS",
   "college": "media",
@@ -18311,7 +18564,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Middle Grades Education, BS",
   "college": "education",
@@ -18636,7 +18889,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Molecular & Cellular Biology, BSLAS",
   "college": "las",
@@ -18710,7 +18963,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Molecular & Cellular Biology: Honors, BSLAS",
   "college": "las",
@@ -18789,7 +19042,7 @@
     "MCB 298",
     "MCB 298"
   ]
-}
+},
 {
   "title": "Music Composition, BMUS",
   "college": "faa",
@@ -18905,7 +19158,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Music Education: Choral Music, BME",
   "college": "faa",
@@ -19053,7 +19306,7 @@
     "MUS 181",
     "MUS 252"
   ]
-}
+},
 {
   "title": "Music Education: Elementary General Music, BME",
   "college": "faa",
@@ -19207,7 +19460,7 @@
     "MUS 437",
     "MUS 449"
   ]
-}
+},
 {
   "title": "Music Education: Instrumental Music, BME",
   "college": "faa",
@@ -19353,7 +19606,7 @@
     "MUS 333",
     "MUS 344"
   ]
-}
+},
 {
   "title": "Music Education: Technology, BME",
   "college": "faa",
@@ -19525,7 +19778,7 @@
     "MUS 437",
     "MUS 447"
   ]
-}
+},
 {
   "title": "Music, BA",
   "college": "faa",
@@ -19621,7 +19874,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Musicology, BMUS",
   "college": "faa",
@@ -19740,7 +19993,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Music-Open Studies, BMUS",
   "college": "faa",
@@ -19842,7 +20095,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Natural Resources & Environmental Sciences: Ecosystem Stewardship & Restoration Ecology, BS",
   "college": "aces",
@@ -20016,7 +20269,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Natural Resources & Environmental Sciences: Environmental Science & Management, BS",
   "college": "aces",
@@ -20194,7 +20447,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Natural Resources & Environmental Sciences: Fish, Wildlife & Conservation Biology, BS",
   "college": "aces",
@@ -20372,7 +20625,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Natural Resources & Environmental Sciences: Human Dimensions of the Environment, BS",
   "college": "aces",
@@ -20550,7 +20803,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Nuclear, Plasma, & Radiological Engineering, BS",
   "college": "engineering",
@@ -20740,12 +20993,17 @@
       "courses": []
     },
     {
+      "title": "Completion of the third semester or equivalent of a non-primary language is required. Completion of three years of a single language in high school satisfies this requirement.",
+      "hours": 0,
+      "courses": []
+    },
+    {
       "title": "Free electives. Additional unrestricted course work, subject to certain exceptions as noted by the College, so that there are at least 128 credit hours earned toward the degree.",
       "hours": 6.0,
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Operations Management, BS",
   "college": "bus",
@@ -20831,7 +21089,7 @@
     "BADM 446",
     "BADM 199"
   ]
-}
+},
 {
   "title": "Philosophy, BALAS",
   "college": "las",
@@ -20854,7 +21112,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Photography, BFA",
   "college": "faa",
@@ -20928,7 +21186,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Engineering Physics, BS",
   "college": "engineering",
@@ -21109,6 +21367,31 @@
     "ECE 110",
     "ECE 444",
     {
+      "title": "A minimum of six courses is required, as follows:",
+      "hours": 18.0,
+      "courses": []
+    },
+    {
+      "title": "Social and Behavioral Sciences",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Humanities & the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "The Grainger College of Engineering Liberal Education course list, or from the campus General Education lists for Social and Behavioral Sciences or Humanities and the Arts",
+      "hours": 6.0,
+      "courses": []
+    },
+    {
+      "title": "Completion of the third semester or equivalent of a non-primary language is required. Completion of three years of a single language in high school satisfies this requirement.",
+      "hours": 0,
+      "courses": []
+    },
+    {
       "title": "",
       "hours": 0,
       "courses": [
@@ -21118,7 +21401,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Physics, BS (LAS Specialized Curriculum)",
   "college": "las",
@@ -21184,7 +21467,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Physics, BSLAS (Sciences & Letters)",
   "college": "las",
@@ -21235,7 +21518,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Physics: Physics Teaching, BSLAS",
   "college": "las",
@@ -21314,7 +21597,7 @@
     "SPED 405",
     "EDPR 442"
   ]
-}
+},
 {
   "title": "Political Science: Citizen Politics, BALAS",
   "college": "las",
@@ -21377,7 +21660,7 @@
     "PS 456",
     "PS 494"
   ]
-}
+},
 {
   "title": "Political Science: Civic Leadership, BALAS",
   "college": "las",
@@ -21437,7 +21720,7 @@
     "PS 376",
     "PS 494"
   ]
-}
+},
 {
   "title": "Political Science: General Political Science, BALAS",
   "college": "las",
@@ -21464,7 +21747,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Political Science: International Relations, BALAS",
   "college": "las",
@@ -21528,7 +21811,7 @@
     "PS 480",
     "PS 494"
   ]
-}
+},
 {
   "title": "Political Science: Law & Power, BALAS",
   "college": "las",
@@ -21578,7 +21861,7 @@
     "PS 413",
     "PS 494"
   ]
-}
+},
 {
   "title": "Political Science: Public Policy and Democratic Institutions, BALAS",
   "college": "las",
@@ -21634,7 +21917,7 @@
     "PS 457",
     "PS 494"
   ]
-}
+},
 {
   "title": "Political Science: World Politics, BALAS",
   "college": "las",
@@ -21697,7 +21980,7 @@
     "PS 457",
     "PS 494"
   ]
-}
+},
 {
   "title": "Portuguese, BALAS",
   "college": "las",
@@ -21718,7 +22001,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Psychology: Behavioral Neuroscience, BSLAS",
   "college": "las",
@@ -21791,7 +22074,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Psychology: Clinical/Community Psychology, BSLAS",
   "college": "las",
@@ -21894,7 +22177,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Psychology: Cognitive Neuroscience, BSLAS",
   "college": "las",
@@ -21972,7 +22255,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Psychology: Cognitive Psychology, BSLAS",
   "college": "las",
@@ -22048,7 +22331,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Psychology: Developmental Psychology, BSLAS",
   "college": "las",
@@ -22119,7 +22402,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Psychology: Diversity Science, BSLAS",
   "college": "las",
@@ -22198,7 +22481,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Psychology: Intradisciplinary Psychology, BSLAS",
   "college": "las",
@@ -22267,7 +22550,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Psychology: Organizational Psychology, BSLAS",
   "college": "las",
@@ -22339,7 +22622,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Psychology: Personality Psychology, BSLAS",
   "college": "las",
@@ -22412,7 +22695,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Psychology: Social Psychology, BSLAS",
   "college": "las",
@@ -22489,7 +22772,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Recreation, Sport & Tourism: Recreation Management, BS",
   "college": "ahs",
@@ -22615,7 +22898,7 @@
     "RST 317",
     "RST 441"
   ]
-}
+},
 {
   "title": "Recreation, Sport & Tourism: Sport Management, BS",
   "college": "ahs",
@@ -22746,7 +23029,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Recreation, Sport & Tourism: Tourism Management, BS",
   "college": "ahs",
@@ -22872,7 +23155,7 @@
     "RST 350",
     "RST 450"
   ]
-}
+},
 {
   "title": "Religion, BALAS",
   "college": "las",
@@ -22897,7 +23180,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Russian, East European, & Eurasian Studies, BALAS",
   "college": "las",
@@ -22922,7 +23205,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Slavic Studies: Czech Studies, BALAS",
   "college": "las",
@@ -22946,7 +23229,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Slavic Studies: Polish Studies, BALAS",
   "college": "las",
@@ -22981,7 +23264,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Slavic Studies: Russian Language, Literature, and Culture, BALAS",
   "college": "las",
@@ -23006,7 +23289,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Slavic Studies: South Slavic Studies, BALAS",
   "college": "las",
@@ -23030,7 +23313,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Slavic Studies: Ukrainian Studies, BALAS",
   "college": "las",
@@ -23056,7 +23339,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Social Work, BSW",
   "college": "socw",
@@ -23174,7 +23457,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Sociology, BALAS",
   "college": "las",
@@ -23203,7 +23486,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Teaching of Spanish, BA",
   "college": "las",
@@ -23237,7 +23520,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Spanish, BALAS",
   "college": "las",
@@ -23255,7 +23538,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Special Education, BS",
   "college": "education",
@@ -23354,7 +23637,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Speech & Hearing Science, BS",
   "college": "ahs",
@@ -23437,7 +23720,7 @@
     "SHS 320",
     "SHS 450"
   ]
-}
+},
 {
   "title": "Speech & Hearing Science: Audiology, BS",
   "college": "ahs",
@@ -23519,7 +23802,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Speech & Hearing Science: Cultural-Linguistic Diversity, BS",
   "college": "ahs",
@@ -23605,7 +23888,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Speech & Hearing Science: Neuroscience of Communication, BS",
   "college": "ahs",
@@ -23689,7 +23972,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Speech & Hearing Science: Speech-Language Pathology, BS",
   "college": "ahs",
@@ -23772,7 +24055,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Statistics & Computer Science, BSLAS",
   "college": "eng_las",
@@ -23829,7 +24112,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Statistics, BSLAS",
   "college": "las",
@@ -23862,7 +24145,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Strategic Business Development & Entrepreneurship, BS",
   "college": "bus",
@@ -23896,7 +24179,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Studio Art: General Studio Art, BASA",
   "college": "faa",
@@ -23992,7 +24275,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Studio Art: New Media, BASA",
   "college": "faa",
@@ -24081,7 +24364,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Studio Art: Painting, BASA",
   "college": "faa",
@@ -24168,7 +24451,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Studio Art: Printmaking, BASA",
   "college": "faa",
@@ -24249,7 +24532,7 @@
     "ARTS 455",
     "ARTS 454"
   ]
-}
+},
 {
   "title": "Studio Art: Sculpture, BASA",
   "college": "faa",
@@ -24338,7 +24621,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Studio Art: General Studio Art, BFASA",
   "college": "faa",
@@ -24454,7 +24737,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Studio Art: New Media, BFASA",
   "college": "faa",
@@ -24571,7 +24854,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Studio Art: Painting, BFASA",
   "college": "faa",
@@ -24687,7 +24970,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Studio Art: Printmaking, BFASA",
   "college": "faa",
@@ -24804,7 +25087,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Studio Art: Sculpture, BFASA",
   "college": "faa",
@@ -24922,7 +25205,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Supply Chain Management, BS",
   "college": "bus",
@@ -25015,7 +25298,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Systems Engineering & Design, BS",
   "college": "engineering",
@@ -25329,12 +25612,17 @@
       "courses": []
     },
     {
+      "title": "Completion of the third semester or equivalent of a non-primary language is required. Completion of three years of a single language in high school satisfies this requirement.",
+      "hours": 0,
+      "courses": []
+    },
+    {
       "title": "Free electives. Additional unrestricted course work, subject to certain exceptions as noted by the College, so that there are at least 128 credit hours earned toward the degree.",
       "hours": 6.0,
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Middle Grades Education, BS",
   "college": "education",
@@ -25659,7 +25947,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Biology: Biology Teacher Education, BSLAS",
   "college": "las",
@@ -25717,7 +26005,7 @@
     "SPED 405",
     "EDPR 442"
   ]
-}
+},
 {
   "title": "Teaching of French, BA",
   "college": "las",
@@ -25756,7 +26044,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Teaching of German, BA",
   "college": "las",
@@ -25794,7 +26082,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Teaching of Latin, BA",
   "college": "las",
@@ -25817,7 +26105,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Teaching of Spanish, BA",
   "college": "las",
@@ -25851,7 +26139,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Technical Systems Management, BS",
   "college": "eng_aces",
@@ -26028,7 +26316,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Theatre: Acting, BFA",
   "college": "faa",
@@ -26129,7 +26417,7 @@
     "THEA 477",
     "THEA 478"
   ]
-}
+},
 {
   "title": "Theatre: Costume Design & Technology, BFA",
   "college": "faa",
@@ -26222,7 +26510,7 @@
     "THEA 447",
     "THEA 449"
   ]
-}
+},
 {
   "title": "Theatre: Lighting Design, BFA",
   "college": "faa",
@@ -26316,7 +26604,7 @@
     "THEA 451",
     "THEA 453"
   ]
-}
+},
 {
   "title": "Theatre: Scenic Design, BFA",
   "college": "faa",
@@ -26408,7 +26696,7 @@
     "THEA 446",
     "THEA 456"
   ]
-}
+},
 {
   "title": "Theatre: Scenic Technology, BFA",
   "college": "faa",
@@ -26502,7 +26790,7 @@
     "THEA 446",
     "THEA 453"
   ]
-}
+},
 {
   "title": "Theatre: Sound Design & Technology, BFA",
   "college": "faa",
@@ -26597,7 +26885,7 @@
     "THEA 459",
     "THEA 456"
   ]
-}
+},
 {
   "title": "Theatre: Stage Management, BFA",
   "college": "faa",
@@ -26688,7 +26976,7 @@
     "THEA 453",
     "THEA 456"
   ]
-}
+},
 {
   "title": "Theatre: Theatre Studies, BFA",
   "college": "faa",
@@ -26789,7 +27077,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Urban Studies & Planning, BA",
   "college": "faa",
@@ -26822,7 +27110,7 @@
     },
     "UP 401"
   ]
-}
+},
 {
   "title": "Urban Studies & Planning: Global Cities, BA",
   "college": "faa",
@@ -26860,7 +27148,7 @@
       "courses": []
     }
   ]
-}
+},
 {
   "title": "Urban Studies & Planning: Policy & Planning, BA",
   "college": "faa",
@@ -26902,7 +27190,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Urban Studies & Planning: Social Justice, BA",
   "college": "faa",
@@ -26937,7 +27225,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Urban Studies & Planning: Sustainability, BA",
   "college": "faa",
@@ -26975,7 +27263,7 @@
       ]
     }
   ]
-}
+},
 {
   "title": "Voice, BMUS",
   "college": "faa",
@@ -27097,4 +27385,4 @@
       "courses": []
     }
   ]
-}
+}]}

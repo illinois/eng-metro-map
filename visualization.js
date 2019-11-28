@@ -1,12 +1,15 @@
 // read in data and call visualize
 $(function() {
   d3.json("CSMap.JSON").then(function(data) {
-    visualize(data);
+    d3.csv("colors/majorcolors.csv").then(function(d) {
+      visualize(data, d);
+    })
   })
 })
 
-var visualize = function(data) {
+var visualize = function(data, colors) {
   console.log(data);
+  console.log(colors);
 
   var vis = d3.select('#chart').attr('transform', 'translate(20, 20)');
   var links = vis.selectAll('.link').data(data.links);
@@ -60,6 +63,9 @@ var visualize = function(data) {
     return d.target.x;
   }).attr('y2', function(d) {
     return d.target.y;
+  })
+  .attr('stroke', function(d) {
+    return colors.find(element => element.Title == d.label).Color;
   });
 
   nodes.enter().append('g').attr('class', 'node').append('circle').attr('r', 5).attr('transform', function(d) {

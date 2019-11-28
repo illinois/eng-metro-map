@@ -1,7 +1,11 @@
-.node text { font: 12px sans-serif; }
+.node {
+  fill: white;
+  stroke: black;
+  stroke-width: 3;
+}
 
 .link {
   fill: none;
   stroke: #04bee4;
-  stroke-width: 2px;
+  stroke-width: 3;
 }

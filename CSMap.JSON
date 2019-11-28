@@ -1,45 +1,20 @@
-{ "name": "invisible-root",
-  "children": [
-    {
-      "name": "Computer Science, BS",
-      "children": [
-        {
-  		    "name": "CS 100",
-          "children": [
-            {
-              "name": "ENG 100",
-              "children": [
-                {
-                  "name": "MATH 221",
-                  "children": [
-                    {
-                      "name": "MATH 231",
-                      "children": [
-                        {
-                          "name": "MATH 241",
-                          "children": [
-                            {
-                              "name": "MATH 415"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Computer Engineering, BS",
-      "children": [
-        {
-          "name": "ENG 100"
-        }
-      ]
-    }
-  ]
+{ "nodes": [{
+    "name": "CS 100"
+  },
+  {
+    "name": "ENG 100"
+  },
+  {
+    "name": "MATH 221"
+  }],
+  "links": [{
+    "source": "CS 100",
+    "target": "ENG 100",
+    "label": "Computer Science"
+  },
+  {
+    "source": "ENG 100",
+    "target": "MATH 221",
+    "label": "Computer Science"
+  }]
 }

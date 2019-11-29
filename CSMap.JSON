@@ -7,7 +7,7 @@
   {
     "name": "MATH 221"
   }],
-  "links": [{
+  "edges": [{
     "source": "CS 100",
     "target": "ENG 100",
     "label": "Computer Science"

@@ -37,27 +37,16 @@ var visualize = function(data, colors) {
     edge.target.edges.push(edge.source);
   });
 
-  // Compute positions based on distance from root
-  var setPosition = function(node, i, j, depth) {
-    if (!depth) {
-      depth = 0;
-    }
-
-    if (!node.x) {
-      node.x = (i + 1) * 40;
-      node.y = (depth + 1) * 40;
-
-      if (depth <= 1) {
-        node.edges.forEach(function(d, i2) {
-          setPosition(d, i2, j, depth + 1);
-        });
+  // Compute positions based for nodes based on the major they are a part of
+  // major # (i) corresponds to y position, course # (j) corresponds to x position
+  for (let i = 0; i < data.majors.length; i++) {
+    for (let j = 0; j < data.majors[i].courses.length; j++) {
+      if (!nodesDict[data.majors[i].courses[j]].x) { // only set positions for nodes that haven't been set
+        nodesDict[data.majors[i].courses[j]].x = (j + 1) * 40;
+        nodesDict[data.majors[i].courses[j]].y = (i + 1) * 40;
       }
-
     }
-  };
-
-  // set position for each node
-  nodes.enter().each(setPosition);
+  }
 
   // render edges
   edges.enter().append('line').attr('class', 'edge').attr('x1', function(d) {
@@ -76,7 +65,7 @@ var visualize = function(data, colors) {
       return '#000';
     }
 
-    return colors.find(element => element.Title == d.label).Color;
+    return found.Color;
   });
 
   // render nodes
@@ -85,4 +74,7 @@ var visualize = function(data, colors) {
   }).append('title').text(function(d) {
       return d.name;
   });
+
+  // simple tooltip to display node's name
+  
 }

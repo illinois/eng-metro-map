@@ -57,9 +57,17 @@ class node:
         self.name = name
 
 
-# list to save edges, dictionary to save nodes
+# class for majors/lines
+class major:
+    def __init__(self, name, courses):
+        self.name = name
+        self.courses = courses
+
+
+# list to save edges, dictionary to save nodes, list to save lines
 edges = []
 nodes = {}
+majors = []
 
 # load in prereqs csv from https://github.com/illinois/prerequisites-dataset (so we only do this once)
 prereqs = dict()
@@ -104,6 +112,9 @@ for entry in os.scandir("majors"):
         # sort courses by prereq
         courses = sort_courses_by_prereqs(courses, prereqs)
 
+        # add major to lines
+        majors.append(major(major_title, courses))
+
         # add each course to nodes (if dne), and add an edge to the next node
         for x in range(0, len(courses)):
             if courses[x] not in nodes:
@@ -113,5 +124,5 @@ for entry in os.scandir("majors"):
                 edges.append(edge(courses[x], courses[x + 1], major_title))
 
 # create json file
-final = json.dumps({'nodes': [n.__dict__ for n in list(nodes.values())], 'edges': [e.__dict__ for e in edges]})
+final = json.dumps({'nodes': [n.__dict__ for n in list(nodes.values())], 'edges': [e.__dict__ for e in edges], 'majors': [m.__dict__ for m in majors]})
 open("graph.json", "a").write(final)

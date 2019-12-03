@@ -9,9 +9,8 @@ $(function() {
 
 var visualize = function(data, colors) {
   console.log(data);
-  console.log(colors);
 
-  var vis = d3.select('#chart').attr('transform', 'translate(20, 20)');
+  var vis = d3.select('#chart').append("svg").attr('transform', 'translate(20, 20)').append("g");
   var edges = vis.selectAll('.edge').data(data.edges);
   var nodes = vis.selectAll('.node').data(data.nodes);
 
@@ -48,6 +47,16 @@ var visualize = function(data, colors) {
     }
   }
 
+  // simple tooltip to display node's name
+  var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "<strong>" + d[name] + "</strong>";
+  });
+
+  vis.call(tip);
+
   // render edges
   edges.enter().append('line').attr('class', 'edge').attr('x1', function(d) {
     return d.source.x;
@@ -73,8 +82,7 @@ var visualize = function(data, colors) {
     return 'translate(' + d.x + ', ' + d.y + ')';
   }).append('title').text(function(d) {
       return d.name;
-  });
-
-  // simple tooltip to display node's name
-  
+  })
+  .on('mouseover', tip.show)
+  .on('mouseout', tip.hide);
 }

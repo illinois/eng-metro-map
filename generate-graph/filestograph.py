@@ -173,32 +173,41 @@ def balancedEdgeLength(G): # penalizing stations with degree two that have incid
     return sum
 
 
-def lineStraightness(G):
+def lineStraightness(G): # Edges that form part of a line should, where possible, be collinear either side of each station that the line passes through
     pass
 
-def octilinearity(G):
+
+def octilinearity(G): # Each edge should be drawn horizontally, vertically, or diagonally at 45 degree
     pass
+
 
 def calcStationCriteria(G): # The criteria evaluate to a lower value when improved
-    pass
+    return 30000*angularResolution(G) + 50*edgeLength(G) + 45*balancedEdgeLength(G) + 220*lineStraightness(G) + 9250*octilinearity(G)
+
 
 def findLowestStationCriteria(G):
     pass
 
+
 def clusterOverlengthEdges(G): # return a list
     pass
+
 
 def clusterBends(G): # return a list
     pass
 
+
 def clusterPartitions(G): # return a list
     pass
+
 
 def moveStation(v):
     pass
 
+
 def moveCluster(p):
     pass
+
 
 # create an initial layout -- assign x and y coordinates to graph on a grid
 

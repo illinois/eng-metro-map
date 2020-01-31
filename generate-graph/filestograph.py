@@ -129,12 +129,9 @@ for entry in os.scandir("majors"):
                 G.add_edge(courses[x], courses[x + 1], major=major_title)
                 edges.append(edge(courses[x], courses[x + 1], major_title))
 
-# assign x and y coordinates to graph on a grid
-
-
 # graph drawing part:
 
-def angularResolution(n): # The angles of incident edges at each station should be maximized
+def angularResolution_calc(n):
     # neighbors of input node
     E = G.neighbors(n)
 
@@ -148,12 +145,33 @@ def angularResolution(n): # The angles of incident edges at each station should 
     return sum
 
 
-def edgeLength(G):
-    l = 4 # prefered multiple
-    pass
+def angularResolution(G): # The angles of incident edges at each station should be maximized
+    sum = 0
+    for n in G.nodes:
+        sum += angularResolution_calc(n)
+    return sum
 
-def balancedEdgeLength(G):
-    pass
+
+def edgeLength(G): # The edge lengths across the whole map should be approximately equal
+    l = 4 # prefered multiple (grid spacing g assumed as 1)
+
+    sum = 0
+    for e in G.edges:
+        length = math.hypot(e[0]['x'] - e[1]['x'], e[0]['y'] - e[1]['y'])
+        sum += abs((length / l) - 1)
+    return sum
+
+
+def balancedEdgeLength(G): # penalizing stations with degree two that have incident edges with unbalanced lengths
+    sum = 0
+    for n in G.nodes:
+        E = G.edges(n)
+        if len(E) == 2:
+            e_one = math.hypot(E[0][0]['x'] - E[0][1]['x'], E[0][0]['y'] - E[0][1]['y'])
+            e_two = math.hypot(E[1][0]['x'] - E[1][1]['x'], E[1][0]['y'] - E[1][1]['y'])
+            sum += abs(e_one - e_two)
+    return sum
+
 
 def lineStraightness(G):
     pass
@@ -182,7 +200,7 @@ def moveStation(v):
 def moveCluster(p):
     pass
 
-# create an initial layout (with only whole numbers)
+# create an initial layout -- assign x and y coordinates to graph on a grid
 
 # calculate initial layout fitness
 mto = calcStationCriteria(G)

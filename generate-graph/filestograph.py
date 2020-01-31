@@ -131,15 +131,15 @@ for entry in os.scandir("majors"):
 
 # graph drawing part:
 
-def angularResolution_calc(n):
+def angularResolution_calc(n, G):
     # neighbors of input node
     E = G.neighbors(n)
 
     sum = 0
     for i in range(0, len(E) - 1):
-        a = math.hypot(E[i]['x'] - E[i + 1]['x'],  E[i]['y'] - E[i + 1]['y']) # c to b
-        b = math.hypot(n['x'] - E[i]['x'], n['y'] - E[i]['y']) # a to c
-        c = math.hypot(n['x'] - E[i + 1]['x'], n['y'] - E[i + 1]['y']) # a to b
+        a = math.hypot(G[E[i]]]['x'] - G[E[i + 1]]['x'],  G[E[i]]['y'] - G[E[i + 1]]['y']) # c to b
+        b = math.hypot(G[n]['x'] - G[E[i]]['x'], G[n]['y'] - G[E[i]]['y']) # a to c
+        c = math.hypot(G[n]['x'] - G[E[i + 1]]['x'], G[n]['y'] - G[E[i + 1]]['y']) # a to b
         angle = math.acos((b**2 + c**2 - a**2) / (2*b*c))
         sum += abs(((2*math.pi) / len(E)) - angle)
     return sum
@@ -147,8 +147,8 @@ def angularResolution_calc(n):
 
 def angularResolution(G): # The angles of incident edges at each station should be maximized
     sum = 0
-    for n in G.nodes:
-        sum += angularResolution_calc(n)
+    for n in G.nodes():
+        sum += angularResolution_calc(n, G)
     return sum
 
 
@@ -156,29 +156,29 @@ def edgeLength(G): # The edge lengths across the whole map should be approximate
     l = 4 # prefered multiple (grid spacing g assumed as 1)
 
     sum = 0
-    for e in G.edges:
-        length = math.hypot(e[0]['x'] - e[1]['x'], e[0]['y'] - e[1]['y'])
+    for e in G.edges():
+        length = math.hypot(G[e[0]]['x'] - G[e[1]]['x'], G[e[0]]['y'] - G[e[1]]['y'])
         sum += abs((length / l) - 1)
     return sum
 
 
 def balancedEdgeLength(G): # penalizing stations with degree two that have incident edges with unbalanced lengths
     sum = 0
-    for n in G.nodes:
+    for n in G.nodes():
         E = G.edges(n)
         if len(E) == 2:
-            e_one = math.hypot(E[0][0]['x'] - E[0][1]['x'], E[0][0]['y'] - E[0][1]['y'])
-            e_two = math.hypot(E[1][0]['x'] - E[1][1]['x'], E[1][0]['y'] - E[1][1]['y'])
+            e_one = math.hypot(G[E[0][0]]['x'] - G[E[0][1]]['x'], G[E[0][0]]['y'] - G[E[0][1]]['y'])
+            e_two = math.hypot(G[E[1][0]]['x'] - G[E[1][1]]['x'], G[E[1][0]]['y'] - G[E[1][1]]['y'])
             sum += abs(e_one - e_two)
     return sum
 
 
 def lineStraightness(G): # Edges that form part of a line should, where possible, be collinear either side of each station that the line passes through
-    pass
+    return 0
 
 
 def octilinearity(G): # Each edge should be drawn horizontally, vertically, or diagonally at 45 degree
-    pass
+    return 0
 
 
 def calcStationCriteria(G): # The criteria evaluate to a lower value when improved
@@ -186,19 +186,19 @@ def calcStationCriteria(G): # The criteria evaluate to a lower value when improv
 
 
 def findLowestStationCriteria(G):
-    pass
+    return 0
 
 
-def clusterOverlengthEdges(G): # return a list
-    pass
+def clusterOverlengthEdges(G):
+    return []
 
 
 def clusterBends(G): # return a list
-    pass
+    return []
 
 
 def clusterPartitions(G): # return a list
-    pass
+    return []
 
 
 def moveStation(v):
@@ -210,6 +210,11 @@ def moveCluster(p):
 
 
 # create an initial layout -- assign x and y coordinates to graph on a grid
+width = G.number_of_nodes() / 4
+height = 4
+pos = {}
+for n in G.nodes():
+    pos[n] = (0, 0)
 
 # calculate initial layout fitness
 mto = calcStationCriteria(G)

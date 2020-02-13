@@ -23,13 +23,16 @@ var visualize = function(data, colors) {
   .style("height", height + margin.top + margin.bottom)
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-  var edges = vis.selectAll('.edge').data(data.edges);
+
+  var edges = vis.selectAll('.edge').data(data.links);
   var nodes = vis.selectAll('.node').data(data.nodes);
 
   // create dictionary of nodes
   var nodesDict = {};
   nodes.enter().each(function(d) {
-    nodesDict[d.name] = d;
+    d.x = (d.x * 10);
+    d.y = (d.y * 10);
+    nodesDict[d.id] = d;
   });
 
   // link edges to node objects, create list of node's neighbors
@@ -48,25 +51,14 @@ var visualize = function(data, colors) {
     edge.target.sourceEdges.push(edge);
   });
 
-  // Compute positions based for nodes based on the major they are a part of
-  // major # (i) corresponds to y position, course # (j) corresponds to x position
-  for (let i = 0; i < data.majors.length; i++) {
-    for (let j = 0; j < data.majors[i].courses.length; j++) {
-      if (!nodesDict[data.majors[i].courses[j]].x) { // only set positions for nodes that haven't been set
-        nodesDict[data.majors[i].courses[j]].x = (j + 1) * 40;
-        nodesDict[data.majors[i].courses[j]].y = (i + 1) * 40;
-      }
-    }
-  }
-
-  // when there are multiple edges between the same two nodes, assign each edge a number
+  // when there are multiple edges between the same two nodes, assign each edge a new coordinate
   edges.enter().each(function(d) {
     if (d.source.targetEdges) {
       let sharedEdges = d.source.targetEdges.filter(element => element.target == d.target);
 
       if (sharedEdges.length > 1) {
         let coLines = sharedEdges.length;
-        let rank = sharedEdges.findIndex(element => element.label == d.label) + 1;
+        let rank = sharedEdges.findIndex(element => element.major == d.major) + 1;
         let center = Math.ceil(coLines / 2);
 
         if ((coLines % 2) == 0) { // even case
@@ -96,26 +88,9 @@ var visualize = function(data, colors) {
     }
   });
 
-  // TODO: all above needs to exist before rendering -- better way for that?
-
-  // simple tooltip to display node's name
-  // TODO: fix
-  var tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) {
-    return "<strong>" + d[name] + "</strong>";
-  });
-
-  vis.call(tip);
-
   // render edges
   edges.enter().append('line').attr('class', 'edge')
   .attr('x1', function(d) {
-    // if (d.x1) {
-    //   return d.x1;
-    // }
-
     return d.source.x;
   })
   .attr('y1', function(d) {
@@ -126,10 +101,6 @@ var visualize = function(data, colors) {
     return d.source.y;
   })
   .attr('x2', function(d) {
-    // if (d.x2) {
-    //   return d.x2;
-    // }
-
     return d.target.x;
   })
   .attr('y2', function(d) {
@@ -140,7 +111,7 @@ var visualize = function(data, colors) {
     return d.target.y;
   })
   .attr('stroke', function(d) { // make edge color the major's color
-    found = colors.find(element => element.Title == d.label);
+    found = colors.find(element => element.Title == d.major);
 
     if (!found) {
       return '#000';
@@ -167,8 +138,6 @@ var visualize = function(data, colors) {
   .attr('transform', function(d) {
     return 'translate(' + d.x + ', ' + d.y + ')';
   }).append('title').text(function(d) {
-      return d.name;
-  })
-  .on('mouseover', tip.show)
-  .on('mouseout', tip.hide);
+      return d.id;
+  });
 }

@@ -130,8 +130,8 @@ def line_intersection(x1, y1, x2, y2, x3, y3, x4, y4): # return true if the line
     if (denom == 0):
         return False # lines are parallel
 
-    ta = a_num / a_denom
-    tb = b_num / b_denom
+    ta = a_num / denom
+    tb = b_num / denom
 
     if (ta > 1 or ta < 0) or (tb > 1 or tb < 0):
         return False # only intersection is on the infinite line
@@ -291,19 +291,16 @@ def findNewLocation(n, G, height, width, r, mno):
     for x in range((initialx - r), (initialx + (r + 1))):
         for y in range((initialy - r), (initialy + (r + 1))):
             if (x != initialx) and (y != initialy) and (x > 0 and x < height) and (y > 0 and y < height):
-                possible.append((x, y))
+                intersects = False
+                for e in G.edges():
+                    if (n not in e) and point_intersection(x, y, G.nodes[e[0]]['x'], G.nodes[e[0]]['y'], G.nodes[e[1]]['x'], G.nodes[e[1]]['y']): # remove locations with oclusions (point exists on top of existing station or edge not connected to this node)
+                        intersects = True
+                        break
 
-    # remove locations with oclusions (point exists on top of existing station or edge not connected to this node)
-    toremove = []
-    for i in possible:
-        # check if it intersects with an edge that is not already one of the node's edges / a node
-        for e in G.edges():
-            if (n not in e) and point_intersection(i[0], i[1], G.nodes[e[0]]['x'], G.nodes[e[0]]['y'], G.nodes[e[1]]['x'], G.nodes[e[1]]['y']):
-                toremove.append(i)
+                if not intersects:
+                    possible.append((x, y))
 
-    possible = [i for i in possible if i not in toremove]
-
-    # calculate criteria on all possible new locations, saving lowest value/coordinate
+    # calculate criteria on all possible new locations, saving lowest value / coordinate
     lowestCriteria = mno
     newx = initialx
     newy = initialy
@@ -360,22 +357,23 @@ def assign_initial_coordinates(G, height, width): # create an initial layout -- 
 def assign_coordinates(G):
     height = 16
     width = math.floor(G.number_of_nodes() / ((height / 4) - 1)) * 4
+    height += 50
+    width += 50
     G = assign_initial_coordinates(G, height, width)
 
     # calculate initial layout fitness
     mto = calcStationCriteria(G)
 
     running = True
-    r = 8
+    r = 80
 
     while running:
         # stations
         for v in G.nodes():
             mno = calcStationCriteria(G)
             x, y = findNewLocation(v, G, height, width, r, mno)
-            if (x, y) != (G.nodes[v]['x'], G.nodes[v]['y']):
-                G.nodes[v]['x'] = x
-                G.nodes[v]['y'] = y
+            G.nodes[v]['x'] = x
+            G.nodes[v]['y'] = y
 
         # TODO: station clusters
         # P = clusterOverlengthEdges(G) + clusterBends(G) + clusterPartitions(G)
@@ -387,17 +385,11 @@ def assign_coordinates(G):
 
         # TODO: labels
 
-        # TODO: check out cooling vs this
-        # mt = calcStationCriteria(G)
-        # if not mt < mto:
-        #     running = False
-        # else:
-        #     mto = mt
-
-        r -= 1
-
-        if (r == 0):
+        mt = calcStationCriteria(G)
+        if not mt < mto:
             running = False
+        else:
+            mto = mt
 
     return G
 
@@ -434,4 +426,4 @@ G = assign_coordinates(G)
 
 # create json file from graph
 json = json.dumps(json_graph.node_link_data(G))
-open("graph.json", "a").write(json)
+open("graph.json", "w").write(json)

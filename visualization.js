@@ -52,6 +52,7 @@ var visualize = function(data, colors) {
   });
 
   // when there are multiple edges between the same two nodes, assign each edge a new coordinate
+  // TODO: make this work for verticals and stuff
   edges.enter().each(function(d) {
     if (d.source.targetEdges) {
       let sharedEdges = d.source.targetEdges.filter(element => element.target == d.target);

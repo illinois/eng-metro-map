@@ -357,15 +357,13 @@ def assign_initial_coordinates(G, height, width): # create an initial layout -- 
 def assign_coordinates(G):
     height = 16
     width = math.floor(G.number_of_nodes() / ((height / 4) - 1)) * 4
-    height += 50
-    width += 50
     G = assign_initial_coordinates(G, height, width)
 
     # calculate initial layout fitness
     mto = calcStationCriteria(G)
 
     running = True
-    r = 80
+    r = 20
 
     while running:
         # stations
@@ -411,19 +409,21 @@ def assign_coordinates(G):
 # json = json.dumps(json_graph.node_link_data(G))
 # open("graph.json", "a").write(json)
 
-# load in prereqs csv from https://github.com/illinois/prerequisites-dataset (so we only do this once)
-prereqs = {}
-prereq_table = pd.read_csv("uiuc-prerequisites.csv", header = 0)
-for x in range(0, len(prereq_table.index)):
-    prereqs[prereq_table.loc[x, 'Course']] = []
-    for y in range(0, int(prereq_table.loc[x, 'PrerequisiteNumber'])):
-        prereqs[prereq_table.loc[x, 'Course']].append(prereq_table.loc[x, str(y)])
+# # load in prereqs csv from https://github.com/illinois/prerequisites-dataset (so we only do this once)
+# prereqs = {}
+# prereq_table = pd.read_csv("uiuc-prerequisites.csv", header = 0)
+# for x in range(0, len(prereq_table.index)):
+#     prereqs[prereq_table.loc[x, 'Course']] = []
+#     for y in range(0, int(prereq_table.loc[x, 'PrerequisiteNumber'])):
+#         prereqs[prereq_table.loc[x, 'Course']].append(prereq_table.loc[x, str(y)])
+#
+# G = read_in_files("majors", prereqs)
+#
+# # run coordinate algoritm
+# G = assign_coordinates(G)
+#
+# # create json file from graph
+# json = json.dumps(json_graph.node_link_data(G))
+# open("graph.json", "w").write(json)
 
-G = read_in_files("majors", prereqs)
-
-# run coordinate algoritm
-G = assign_coordinates(G)
-
-# create json file from graph
-json = json.dumps(json_graph.node_link_data(G))
-open("graph.json", "w").write(json)
+print(point_intersection(2, 2, 1, 1, 3, 3))

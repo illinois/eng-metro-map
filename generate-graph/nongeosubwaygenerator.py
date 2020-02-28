@@ -5,7 +5,6 @@ import numpy as np
 import itertools
 
 def calc_smallest_angle(x1, y1, x2, y2, x3, y3): # find the smallest angle between meeting line segments where x2, y2 is the vertex
-    # TODO: check that this is radians
     a = np.array([x1, y1])
     b = np.array([x2, y2])
     c = np.array([x3, y3])
@@ -210,12 +209,67 @@ def findNewLocation(n, G, height, width, r, mno):
                     for m in G.nodes(): # check for station / point overlap
                         if (x == G.nodes[m]['x']) and (y == G.nodes[m]['y']):
                             intersects = True
+
+                        for f in G.edges(n): # check for station overlap with new edge
+                            if (point_intersection(G.nodes[m]['x'], G.nodes[m]['y'], x, y, G.nodes[f[1]]['x'], G.nodes[f[1]]['y'])):
+                                intersects = True
+                                break
+
+                        if intersects:
                             break
 
                 if not intersects:
                     possible.append((x, y))
 
-    # TODO: if original node occludes, but list is empty, continue to search for empty spot with no occlusion
+    # if original node occludes, but list is empty, continue to search for empty spot with no occlusion
+    if nodeOcc and not possible:
+        visited = {}
+        queue = []
+
+        visited[(initialx, initialy)] = True
+        queue.append((initialx, initialy))
+
+        while queue:
+            s = queue.pop(0)
+            intersects = False
+
+            for e in G.edges(): # check for edge / point overlap
+                if (n not in e) and (point_intersection(s[0], s[1], G.nodes[e[0]]['x'], G.nodes[e[0]]['y'], G.nodes[e[1]]['x'], G.nodes[e[1]]['y'])):
+                    intersects = True
+                    break
+
+            if not intersects:
+                for m in G.nodes(): # check for station / point overlap
+                    if (s[0] == G.nodes[m]['x']) and (s[1] == G.nodes[m]['y']):
+                        intersects = True
+
+                    for f in G.edges(n): # check for station overlap with new edge
+                        if (point_intersection(G.nodes[m]['x'], G.nodes[m]['y'], s[0], s[1], G.nodes[f[1]]['x'], G.nodes[f[1]]['y'])):
+                            intersects = True
+                            break
+
+                    if intersects:
+                        break
+
+            if not intersects:
+                return s[0], s[1]
+
+            if (s[0] - 1) > 0:
+                queue.append((s[0] - 1, s[1]))
+                visited[(s[0] - 1, s[1])] = True
+
+            queue.append((s[0], s[1] + 1))
+            visited[(s[0], s[1] + 1)] = True
+
+            queue.append((s[0] + 1, s[1]))
+            visited[(s[0] + 1, s[1])] = True
+
+            if (s[1] - 1) > 0:
+                queue.append((s[0], s[1] - 1))
+                visited[(s[0], s[1] - 1)] = True
+
+        print("no spot found!!!")
+        return initialx, initialy
 
     # calculate criteria on all possible new locations, saving lowest value / coordinate
 
@@ -325,6 +379,7 @@ def assign_coordinates(G):
 
     running = True
     r = 50
+    counter = 0
 
     while running:
         # stations
@@ -345,9 +400,10 @@ def assign_coordinates(G):
         # TODO: labels
 
         mt = calcStationCriteria(G)
-        if not mt < mto:
+        if not mt < mto or counter == 200:
             running = False
         else:
             mto = mt
+            counter += 1
 
     return G

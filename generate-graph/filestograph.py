@@ -45,7 +45,7 @@ def sort_courses_by_prereqs(courses, prereqs):
 
 
 def read_in_files(foldr_name, prereqs):
-    G = nx.MultiDiGraph()
+    G = nx.MultiGraph()
 
     for entry in os.scandir("majors"):
         if entry.path.endswith(".txt"):
@@ -92,38 +92,35 @@ def read_in_files(foldr_name, prereqs):
     return G
 
 
-# TESTING
-# create graph
-G = nx.MultiDiGraph()
+# # TESTING
+# # create graph
+# G = nx.MultiGraph()
+#
+# # add some test nodes
+# G.add_node("MATH 221")
+# G.add_node("MATH 231")
+# G.add_node("MATH 241")
+# G.add_edge("MATH 221", "MATH 231", major="Every engineering ever")
+# G.add_edge("MATH 231", "MATH 241", major="Every engineering ever")
+# G.add_edge("MATH 221", "MATH 231", major="Stats")
+# G.add_edge("MATH 231", "MATH 241", major="Stats")
+# G.add_edge("MATH 231", "MATH 241", major="Math?")
+# G = assign_coordinates(G)
+# print(G.nodes(data=True))
 
-# add some test nodes
-G.add_node("MATH 221")
-G.add_node("MATH 231")
-G.add_node("MATH 241")
-G.add_edge("MATH 221", "MATH 231", major="Every engineering ever")
-G.add_edge("MATH 231", "MATH 241", major="Every engineering ever")
-G.add_edge("MATH 221", "MATH 231", major="Stats")
-G.add_edge("MATH 231", "MATH 241", major="Stats")
-G.add_edge("MATH 231", "MATH 241", major="Math?")
+# load in prereqs csv from https://github.com/illinois/prerequisites-dataset (so we only do this once)
+prereqs = {}
+prereq_table = pd.read_csv("uiuc-prerequisites.csv", header = 0)
+for x in range(0, len(prereq_table.index)):
+    prereqs[prereq_table.loc[x, 'Course']] = []
+    for y in range(0, int(prereq_table.loc[x, 'PrerequisiteNumber'])):
+        prereqs[prereq_table.loc[x, 'Course']].append(prereq_table.loc[x, str(y)])
+
+G = read_in_files("majors", prereqs)
+
+# run coordinate algoritm
 G = assign_coordinates(G)
-print(G.nodes(data=True))
-# G = assign_coordinates(G)
-# json = json.dumps(json_graph.node_link_data(G))
-# open("graph.json", "a").write(json)
 
-# # load in prereqs csv from https://github.com/illinois/prerequisites-dataset (so we only do this once)
-# prereqs = {}
-# prereq_table = pd.read_csv("uiuc-prerequisites.csv", header = 0)
-# for x in range(0, len(prereq_table.index)):
-#     prereqs[prereq_table.loc[x, 'Course']] = []
-#     for y in range(0, int(prereq_table.loc[x, 'PrerequisiteNumber'])):
-#         prereqs[prereq_table.loc[x, 'Course']].append(prereq_table.loc[x, str(y)])
-#
-# G = read_in_files("majors", prereqs)
-#
-# # run coordinate algoritm
-# G = assign_coordinates(G)
-#
-# # create json file from graph
-# json = json.dumps(json_graph.node_link_data(G))
-# open("graph.json", "w").write(json)
+# create json file from graph
+json = json.dumps(json_graph.node_link_data(G))
+open("graph.json", "w").write(json)

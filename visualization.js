@@ -30,8 +30,8 @@ var visualize = function(data, colors) {
   // create dictionary of nodes
   var nodesDict = {};
   nodes.enter().each(function(d) {
-    d.x = (d.x * 10);
-    d.y = (d.y * 10);
+    d.x = (d.x * 5);
+    d.y = (d.y * 5);
     nodesDict[d.id] = d;
   });
 

@@ -400,7 +400,7 @@ def assign_coordinates(G):
         # TODO: labels
 
         mt = calcStationCriteria(G)
-        if not mt < mto or counter == 200:
+        if not mt < mto or counter == 2000:
             running = False
         else:
             mto = mt

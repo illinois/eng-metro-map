@@ -92,22 +92,6 @@ def read_in_files(foldr_name, prereqs):
     return G
 
 
-# # TESTING
-# # create graph
-# G = nx.MultiGraph()
-#
-# # add some test nodes
-# G.add_node("MATH 221")
-# G.add_node("MATH 231")
-# G.add_node("MATH 241")
-# G.add_edge("MATH 221", "MATH 231", major="Every engineering ever")
-# G.add_edge("MATH 231", "MATH 241", major="Every engineering ever")
-# G.add_edge("MATH 221", "MATH 231", major="Stats")
-# G.add_edge("MATH 231", "MATH 241", major="Stats")
-# G.add_edge("MATH 231", "MATH 241", major="Math?")
-# G = assign_coordinates(G)
-# print(G.nodes(data=True))
-
 # load in prereqs csv from https://github.com/illinois/prerequisites-dataset (so we only do this once)
 prereqs = {}
 prereq_table = pd.read_csv("uiuc-prerequisites.csv", header = 0)

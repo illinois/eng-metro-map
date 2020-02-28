@@ -166,15 +166,6 @@ def edgeCrossings(G): # edges should cross each other as little as possible, so 
     return sum
 
 
-def nodeOcclusion(G): # nodes should not cross edges that are not their own -- NEW
-    sum = 0
-    for n in G.nodes():
-        for e in G.edges():
-            if (n not in e) and point_intersection(G.nodes[n]['x'], G.nodes[n]['y'], G.nodes[e[0]]['x'], G.nodes[e[0]]['y'], G.nodes[e[1]]['x'], G.nodes[e[1]]['y']):
-                sum += 1
-    return sum
-
-
 def octilinearity(G): # Each edge should be drawn horizontally, vertically, or diagonally at 45 degree
     sum = 0
     for e in G.edges():
@@ -187,25 +178,64 @@ def calcStationCriteria(G): # The criteria evaluate to a lower value when improv
     return 30000*angularResolution(G) + 50*edgeLength(G) + 45*balancedEdgeLength(G) + 220*lineStraightness(G) + 100*edgeCrossings(G) + 9250*octilinearity(G)
 
 
+def nodeOcclusion(n, G): # determine whether node crosses an edge that is not its own
+    for e in G.edges():
+        if (n not in e) and (point_intersection(G.nodes[n]['x'], G.nodes[n]['y'], G.nodes[e[0]]['x'], G.nodes[e[0]]['y'], G.nodes[e[1]]['x'], G.nodes[e[1]]['y'])):
+            return True
+    return False
+
+
 def findNewLocation(n, G, height, width, r, mno):
+    # save initial x and y coordinates
     initialx = G.nodes[n]['x']
     initialy = G.nodes[n]['y']
+
+    # determine whether initial coordinates are on top of other node's edge -- if so they MUST change
+    nodeOcc = nodeOcclusion(n, G)
 
     # create a list of new locations in radius that are in bounds
     possible = []
     for x in range((initialx - r), (initialx + (r + 1))):
         for y in range((initialy - r), (initialy + (r + 1))):
-            if (x != initialx) and (y != initialy) and (x > 0 and x < height) and (y > 0 and y < height):
+            if (x != initialx) and (y != initialy) and (x > 0 and x < width) and (y > 0 and y < height):
+                # remove locations with oclusions (point exists on top of existing station or edge not connected to this node)
                 intersects = False
-                for e in G.edges():
-                    if (n not in e) and point_intersection(x, y, G.nodes[e[0]]['x'], G.nodes[e[0]]['y'], G.nodes[e[1]]['x'], G.nodes[e[1]]['y']): # remove locations with oclusions (point exists on top of existing station or edge not connected to this node)
+
+                for e in G.edges(): # check for edge / point overlap
+                    if (n not in e) and (point_intersection(x, y, G.nodes[e[0]]['x'], G.nodes[e[0]]['y'], G.nodes[e[1]]['x'], G.nodes[e[1]]['y'])):
                         intersects = True
                         break
 
                 if not intersects:
+                    for m in G.nodes(): # check for station / point overlap
+                        if (x == G.nodes[m]['x']) and (y == G.nodes[m]['y']):
+                            intersects = True
+                            break
+
+                if not intersects:
                     possible.append((x, y))
 
+    # TODO: if original node occludes, but list is empty, continue to search for empty spot with no occlusion
+
     # calculate criteria on all possible new locations, saving lowest value / coordinate
+
+    if nodeOcc:
+        G.nodes[n]['x'] = possible[0][0]
+        G.nodes[n]['y'] = possible[0][1]
+        lowestCriteria = calcStationCriteria(G)
+        newx = possible[0][0]
+        newy = possible[0][1]
+
+        for p in range(1, len(possible)):
+            G.nodes[n]['x'] = possible[p][0]
+            G.nodes[n]['y'] = possible[p][1]
+            criteria = calcStationCriteria(G)
+
+            if (criteria < lowestCriteria):
+                lowestCriteria = criteria
+                newx = possible[p][0]
+                newy = possible[p][1]
+
     lowestCriteria = mno
     newx = initialx
     newy = initialy

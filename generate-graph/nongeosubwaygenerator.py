@@ -239,36 +239,62 @@ def moveCluster(p): # TODO
     pass
 
 
-def assign_initial_coordinates(G, height, width): # create an initial layout -- assign x and y coordinates to graph on a grid
-    # TODO: randomize start positions / put nodes with the most neighbors at the center?
-    xpos = {}
-    ypos = {}
-    x = 4
-    y = 4
-    for n in G.nodes():
-        xpos[n] = x
-        ypos[n] = y
+def assign_initial_coordinates(G): # create an initial layout
+    generated_postitions = nx.spring_layout(G, iterations=80, center=[1, 1])
+    positions = {}
 
-        if (x == width):
-            x = 4
-            y += 4
+    for node, pos in generated_postitions.items():
+        x = int(round((pos[0] * 100), 0))
+        y = int(round((pos[1] * 100), 0))
+
+        if (x, y) in positions.values():
+            visited = {}
+            queue = []
+
+            visited[(x, y)] = True
+            queue.append((x, y))
+
+            while queue:
+                s = queue.pop(0)
+
+                if s not in positions.values():
+                    positions[node] = (x, y)
+                    break
+
+                if (s[0] - 1) > 0:
+                    queue.append((s[0] - 1, s[1]))
+                    visited[(s[0] - 1, s[1])] = True
+
+                queue.append((s[0], s[1] + 1))
+                visited[(s[0], s[1] + 1)] = True
+
+                queue.append((s[0] + 1, s[1]))
+                visited[(s[0] + 1, s[1])] = True
+
+                if (s[1] - 1) > 0:
+                    queue.append((s[0], s[1] - 1))
+                    visited[(s[0], s[1] - 1)] = True
         else:
-            x += 4
+            positions[node] = (x, y)
+
+    xpos = {k:v[0] for (k, v) in positions.items()}
+    ypos = {k:v[1] for (k, v) in positions.items()}
+    height = max(xpos.values())
+    width = max(ypos.values())
+
     nx.set_node_attributes(G, xpos, 'x')
     nx.set_node_attributes(G, ypos, 'y')
-    return G
+    return G, height, width
 
 
 def assign_coordinates(G):
-    height = 16
-    width = math.floor(G.number_of_nodes() / ((height / 4) - 1)) * 4
-    G = assign_initial_coordinates(G, height, width)
+    G, height, width = assign_initial_coordinates(G)
 
     # calculate initial layout fitness
     mto = calcStationCriteria(G)
 
     running = True
-    r = 20
+    r = 50
 
     while running:
         # stations

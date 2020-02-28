@@ -92,19 +92,21 @@ def read_in_files(foldr_name, prereqs):
     return G
 
 
-# # TESTING
-# # create graph
-# G = nx.MultiDiGraph()
-#
-# # add some test nodes
-# G.add_node("MATH 221")
-# G.add_node("MATH 231")
-# G.add_node("MATH 241")
-# G.add_edge("MATH 221", "MATH 231", major="Every engineering ever")
-# G.add_edge("MATH 231", "MATH 241", major="Every engineering ever")
-# G.add_edge("MATH 221", "MATH 231", major="Stats")
-# G.add_edge("MATH 231", "MATH 241", major="Stats")
-# G.add_edge("MATH 231", "MATH 241", major="Math?")
+# TESTING
+# create graph
+G = nx.MultiDiGraph()
+
+# add some test nodes
+G.add_node("MATH 221")
+G.add_node("MATH 231")
+G.add_node("MATH 241")
+G.add_edge("MATH 221", "MATH 231", major="Every engineering ever")
+G.add_edge("MATH 231", "MATH 241", major="Every engineering ever")
+G.add_edge("MATH 221", "MATH 231", major="Stats")
+G.add_edge("MATH 231", "MATH 241", major="Stats")
+G.add_edge("MATH 231", "MATH 241", major="Math?")
+G = assign_coordinates(G)
+print(G.nodes(data=True))
 # G = assign_coordinates(G)
 # json = json.dumps(json_graph.node_link_data(G))
 # open("graph.json", "a").write(json)
@@ -125,5 +127,3 @@ def read_in_files(foldr_name, prereqs):
 # # create json file from graph
 # json = json.dumps(json_graph.node_link_data(G))
 # open("graph.json", "w").write(json)
-
-print(point_intersection(5, 39, 1, 1, 3, 20))

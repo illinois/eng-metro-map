@@ -150,13 +150,11 @@ var visualize = function(data, colors) {
   nodes.enter().append('g').attr('class', 'node').append('circle')
   .attr('r', function(d) { // change size according to number of edges, default 5
     if (d.targetEdges && d.sourceEdges) {
-      let num = (d.targetEdges.length >= d.sourceEdges.length) ? d.targetEdges.length : d.sourceEdges.length;
+      let num = (d.targetEdges.length + d.sourceEdges.length) / 2;
 
-      if (num <= 2) {
-        return 5;
+      if (num > 2) {
+        return 5 + (num / 2);
       }
-
-      return 5 + (num / 2); // TODO: optomize this
     }
 
     return 5;

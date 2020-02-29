@@ -52,7 +52,6 @@ var visualize = function(data, colors) {
   });
 
   // when there are multiple edges between the same two nodes, assign each edge a new coordinate
-  // TODO: make this work for verticals and stuff
   edges.enter().each(function(d) {
     if (d.source.targetEdges) {
       let sharedEdges = d.source.targetEdges.filter(element => element.target == d.target);
@@ -62,27 +61,45 @@ var visualize = function(data, colors) {
         let rank = sharedEdges.findIndex(element => element.major == d.major) + 1;
         let center = Math.ceil(coLines / 2);
 
-        if ((coLines % 2) == 0) { // even case
-          // for case of 2 lines: rank 1 should be 2 pixels above center, rank 2 be 2 pixels below center
-          // for case of 4 lines: rank 1 5 pixels above, rank 2 should be 2 pixels above center, rank 3 be 2 pixels below center, rank 4 5 pixels below
-          // for case of 6: 8, 5, 2; 2, 5, 8
-          if (rank <= center) {
-            d.y1 = d.source.y + (2 + (3 * (center - rank)));
-            d.y2 = d.target.y + (2 + (3 * (center - rank)));
+        if (((d.source.x - d.target.x) == 0) || (Math.abs((d.source.y - d.target.y) / (d.source.x - d.target.x)) > 1)) { // vertical case
+          if ((coLines % 2) == 0) {
+            if (rank <= center) {
+              d.x1 = d.source.x - (2 + (3 * (center - rank)));
+              d.x2 = d.target.x - (2 + (3 * (center - rank)));
+            } else {
+              d.x1 = d.source.x + (2 + (3 * (rank - center - 1)));
+              d.x2 = d.target.x + (2 + (3 * (rank - center - 1)));
+            }
           } else {
-            d.y1 = d.source.y - (2 + (3 * (rank - center - 1)));
-            d.y2 = d.target.y - (2 + (3 * (rank - center - 1)));
+            if (rank < center) {
+              d.x1 = d.source.x - (3 * (center - rank));
+              d.x2 = d.target.x - (3 * (center - rank));
+            } else {
+              d.x1 = d.source.x + (3 * (rank - center));
+              d.x2 = d.target.x + (3 * (rank - center));
+            }
           }
-        } else { // odd case
-          // for case of 3 lines: rank 1 should be 3 pixels above center, rank 2 should be on center, rank 3 should be 3 pixels below center
-          if (rank < center) {
-            d.y1 = d.source.y + (3 * (center - rank));
-            d.y2 = d.target.y + (3 * (center - rank));
-          }
-
-          if (rank > center) {
-            d.y1 = d.source.y - (3 * (rank - center));
-            d.y2 = d.target.y - (3 * (rank - center));
+        } else { // horizontal case
+          if ((coLines % 2) == 0) { // even case
+            // for case of 2 lines: rank 1 should be 2 pixels above center, rank 2 be 2 pixels below center
+            // for case of 4 lines: rank 1 5 pixels above, rank 2 should be 2 pixels above center, rank 3 be 2 pixels below center, rank 4 5 pixels below
+            // for case of 6: 8, 5, 2; 2, 5, 8
+            if (rank <= center) {
+              d.y1 = d.source.y + (2 + (3 * (center - rank)));
+              d.y2 = d.target.y + (2 + (3 * (center - rank)));
+            } else {
+              d.y1 = d.source.y - (2 + (3 * (rank - center - 1)));
+              d.y2 = d.target.y - (2 + (3 * (rank - center - 1)));
+            }
+          } else { // odd case
+            // for case of 3 lines: rank 1 should be 3 pixels above center, rank 2 should be on center, rank 3 should be 3 pixels below center
+            if (rank < center) {
+              d.y1 = d.source.y + (3 * (center - rank));
+              d.y2 = d.target.y + (3 * (center - rank));
+            } else {
+              d.y1 = d.source.y - (3 * (rank - center));
+              d.y2 = d.target.y - (3 * (rank - center));
+            }
           }
         }
       }
@@ -92,6 +109,10 @@ var visualize = function(data, colors) {
   // render edges
   edges.enter().append('line').attr('class', 'edge')
   .attr('x1', function(d) {
+    if (d.x1) {
+      return d.x1;
+    }
+
     return d.source.x;
   })
   .attr('y1', function(d) {
@@ -102,6 +123,10 @@ var visualize = function(data, colors) {
     return d.source.y;
   })
   .attr('x2', function(d) {
+    if (d.x2) {
+      return d.x2;
+    }
+
     return d.target.x;
   })
   .attr('y2', function(d) {

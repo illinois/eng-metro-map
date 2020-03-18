@@ -1,0 +1,42 @@
+122 HOURS TOTAL FROM (
+"FAA 101",
+"ARTF 101",
+"ARTE 101",
+"ARTH 110",
+1 FROM 
+("ARTF 102",
+"ARTF 104",
+"ARTF 106"),
+1 FROM 
+("ARTD 151",
+"ARTD 160",
+"ARTS 205",
+"ARTS 251"),
+1 FROM 
+("ARTD 101",
+"ARTS 201",
+"ARTS 280"),
+1 FROM 
+("ARTS 241",
+"ARTS 243",
+"ARTS 244"),
+"ARTS 392",
+("ARTS 448"),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning II%,
+2 FROM %Humanities and the Arts%,
+2 FROM %Natural Sciences and Technology%,
+2 FROM %Social and Behavioral Sciences%,
+
+"ARTS 205",
+"ARTS 250",
+"ARTS 392",
+"ARTS 405",
+"ARTS 448",
+1 FROM ("ARTS 399", "ARTS 499", "ARTS 455", "ARTS 454"));

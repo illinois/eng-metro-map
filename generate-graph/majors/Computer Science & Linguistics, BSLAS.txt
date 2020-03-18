@@ -1,0 +1,38 @@
+120 HOURS TOTAL FROM (
+("CS 100",
+"CS 125",
+"CS 126",
+"CS 173",
+"CS 225",
+"CS 233",
+"CS 241"),
+1 FROM 
+("STAT 200",
+"STAT 212",
+"CS 361",
+"CS 374",
+"CS 421"),
+(("MATH 221" OR "MATH 220"),
+"MATH 225",
+"MATH 231"),
+("LING 100",
+"LING 301",
+"LING 307",
+"LING 406"),
+3 FROM
+("TRST 415",
+"LING 490",
+"CS 446"),
+1 FROM
+("LING 210", "LING 221", "LING 225", "LING 240", "LING 250", "LING 270", "LING 290", "LING 291", "LING 300", "LING 301", "LING 302", "LING 303", "LING 304", "LING 307", "LING 321", "LING 357", "LING 391", "LING 400", "LING 401", "LING 402", "LING 403", "LING 404", "LING 406", "LING 407", "LING 410", "LING 412", "LING 415", "LING 416", "LING 418", "LING 423", "LING 425", "LING 426", "LING 427", "LING 430", "LING 432", "LING 438", "LING 450", "LING 462", "LING 469", "LING 480", "LING 489", "LING 490"),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

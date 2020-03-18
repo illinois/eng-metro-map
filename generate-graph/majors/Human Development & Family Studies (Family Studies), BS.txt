@@ -1,0 +1,37 @@
+126 HOURS TOTAL FROM (
+(("RHET 105" AND "CMN 101") OR
+("CMN 111" AND "CMN 112")),
+
+1 FROM %Advanced Composition%,
+
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+
+1 FROM (
+"STAT 100",
+"ACE 261",
+"CPSC 241",
+"ECON 202",
+"PSYC 235",
+"SOC 280"),
+
+1 FROM ("STAT 200", "CHLH 244", "MATH 220", "MATH 221", "MATH 234", "PHIL 103"),
+
+6 HOURS FROM %Natural Sciences and Technology%,
+6 HOURS FROM %Humanities and the Arts%,
+1 FROM ("PSYC 100", "SOC 100"),
+
+"ACES 101",
+"HDFS 101", "HDFS 105", "HDFS 120", "HDFS 220", "HDFS 290",
+"ACE 161",
+"ACE 240",
+("FSHN 120" OR "CHLH 100"),
+
+1 FROM ("HDFS 208", "HDFS 221", "HDFS 340", "HDFS 341", "HDFS 379", "HDFS 322", "HDFS 444"),
+1 FROM ("HDFS 206", "HDFS 261", "HDFS 294", "HDFS 450", "HDFS 494"),
+
+"HDFS 425",
+3 FROM ("HDFS 225", "HDFS 420", "HDFS 426", "HDFS 427"),
+1 FROM ("HDFS 301", "HDFS 305", "HDFS 310", "HDFS 405")
+);

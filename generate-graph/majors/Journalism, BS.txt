@@ -1,0 +1,38 @@
+124 HOURS TOTAL FROM (
+("JOUR 200",
+"JOUR 210",
+"JOUR 215",
+"JOUR 250",
+"JOUR 311"),
+1 FROM
+("JOUR 205",
+"JOUR 452"),
+4 FROM
+("JOUR 220",
+"JOUR 315",
+"JOUR 335",
+"JOUR 340",
+"JOUR 425",
+"JOUR 445"),
+1 FROM
+("JOUR 450",
+"JOUR 451"),
+("CS 105",
+"ECON 102",
+"ECON 103",
+"PSYC 100",
+"RHET 105",
+"SOC 100",
+"STAT 100"),
+"At least 20 hours in courses numbered 200 or above. These courses must be outside and not cross-listed with the College of Media. Nine of the 20 hours must be in courses numbered 300 or above.",
+
+1 FROM %Composition 1%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning II%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Natural Sciences and Technology%,
+6 HOURS FROM %Social and Behavioral Sciences%);

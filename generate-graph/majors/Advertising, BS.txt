@@ -1,0 +1,33 @@
+124 HOURS TOTAL FROM (
+"ADV 150",
+"ADV 281",
+"ADV 283",
+"ADV 284",
+"ADV 390",
+"ADV 460",
+"ADV 483",
+"ADV 498",
+"BADM 320",
+("ECON 102" AND "ECON 103"),
+"STAT 100",
+2 FROM 
+("ANTH 103",
+"PSYC 100",
+"SOC 100"),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning II%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Natural Sciences and Technology%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+
+20 HOURS FROM
+("College of Media Electives"),
+20 HOURS FROM
+("Advanced Hours Requirement"));
+

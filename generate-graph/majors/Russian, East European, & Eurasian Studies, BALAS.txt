@@ -1,0 +1,20 @@
+120 HOURS TOTAL FROM (
+"REES 200",
+"REES 201",
+"REES 495",
+6 HOURS FROM
+("Component 1: Completion of three years of college Level study of Russian or another language of Eastern Europe or Eurasia, or equivalent proficiency. This stipulation may be partially satisfied through fulfillment of the LAS two-year language requirement if a regionally appropriate language is chosen for that purpose. A third year of study, however, is demanded beyond this. If a non-Russian, East European or Eurasian language is selected to meet the LAS requirement, then the three years of Russian, East European or Eurasian language study specified here must be taken in addition to those completed to satisfy the LAS requirement. Only the hours earned in the third, most advanced year of language study are calculated into the degree here, as these represent proficiency beyond that required by all LAS BA degree programs and as the first two years of language study are a prerequisite for the third."),
+15 HOURS FROM
+("Choose one course from each of three departments other than the department used for component 3 below. The courses comprising the remaining hours of component 2 may be from the same discipline as those under component 3; however, a course may be counted toward the total for only one component. Language courses that concentrate on the basic skills of speaking, listening, reading, and writing cannot be counted as part of this component."),
+18 HOURS FROM
+("Courses in a single discipline. Among those disciplines that are most commonly used with this specialization are anthropology, economics, geography, history, political science, Russian language and literature, and sociology. Among disciplines also used are business administration, comparative literature, education, English, fine arts, French, German, journalism, linguistics, mathematics, music, philosophy, psychology, and various natural sciences. Others are permitted. Consult your advisor."),
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

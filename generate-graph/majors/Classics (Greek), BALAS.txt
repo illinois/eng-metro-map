@@ -1,0 +1,24 @@
+120 HOURS TOTAL FROM (
+24 HOURS FROM
+("GRK 102", "GRK 199", "GRK 201", "GRK 202", "GRK 251", "GRK 252", 
+9 HOURS FROM ("GRK 401", "GRK 403", "GRK 404", "GRK 411", "GRK 491", "GRK 492", "GRK 493")),
+2 FROM 
+("CLCV 114",
+"CLCV 131",
+"CLCV 217",
+"CLCV 232",
+"CLCV 443",
+"CLCV 490",
+"CLCV 491"),
+12 HOURS FROM ("Supporting courses selcted with the approval of the adviser"),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

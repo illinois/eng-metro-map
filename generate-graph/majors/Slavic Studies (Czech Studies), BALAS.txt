@@ -1,0 +1,22 @@
+120 HOURS TOTAL FROM (
+"CZCH 484",
+("SLAV 120"),
+1 FROM 
+("REES 201",
+"RUSS 261",
+"SLAV 117"),
+1 FROM
+("SLAV 399", "SLAV 417", "SLAV 418", "SLAV 419", "SLAV 420", "SLAV 430", "SLAV 452", "SLAV 477", "SLAV 480"), 
+("RUSS 493"), 
+("Study abroad in the region."),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

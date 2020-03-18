@@ -1,0 +1,33 @@
+%KIN Electives% = ("KIN 201", "KIN 230", "KIN 247", "KIN 249", "KIN 257", "KIN 259", "KIN 260", "KIN 261", "KIN 262", "KIN 268", "KIN 340", "KIN 345", "KIN 346", "KIN 352", "KIN 355", "KIN 360", "KIN 361", "KIN 362", "KIN 363", "KIN 364", "KIN 365", "KIN 369", "KIN 375", "KIN 385", "KIN 386", "KIN 387", "KIN 390", "KIN 391", "KIN 393", "KIN 401", "KIN 407", "KIN 442", "KIN 443", "KIN 444", "KIN 447", "KIN 448", "KIN 449", "KIN 450", "KIN 451", "KIN 452", "KIN
+453", "KIN 457", "KIN 458", "KIN 459", "KIN 460", "KIN 470", "KIN 473", "KIN 474", "KIN 485", "KIN 494");
+%KIN 400 Level% = ("KIN 401", "KIN 407", "KIN 442", "KIN 443", "KIN 444", "KIN 447", "KIN 448", "KIN 449", "KIN 450", "KIN 451", "KIN 452", "KIN
+453", "KIN 457", "KIN 458", "KIN 459", "KIN 460", "KIN 470", "KIN 473", "KIN 474", "KIN 485", "KIN 494");
+%Correlate Area Studies% = ("KIN 360", "KIN 361", "KIN 362", "KIN 363", "KIN 364", "KIN 401", "KIN 460", "KIN 260", "KIN 261", "CI 473", "EPS 201", "EPSY 201", "EDPR 438", "EDPR 442");
+
+128 HOURS TOTAL FROM (6 HOURS FROM %Composition I%,
+6 HOURS FROM %Quantitative Reasoning I and II%,
+6 HOURS FROM %Humanities and the Arts%,
+"KIN 140",
+"KIN 259",
+"KIN 150",
+1 FROM %Natural Sciences and Technology%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+"MCB 244",
+"MCB 245",
+"MCB 246",
+"MCB 247",
+"CHLH 101",
+"KIN 122",
+"KIN 125",
+"KIN 140",
+"KIN 150",
+"KIN 201",
+"KIN 259",
+"KIN 340",
+"KIN 352",
+"KIN 355",
+12 HOURS FROM %KIN Electives%,
+6 HOURS FROM %KIN 400 Level%,
+18 HOURS FROM %Correlate Area Studies%);

@@ -1,0 +1,40 @@
+%Environment and the Human Response% = ("ESE 170", 
+"GEOG 106", 
+"ACE 210", 
+"ACE 251", 
+"ENGL 274", 
+"HIST 202", 
+"RST 242", 
+"SOC 160", 
+"RLST 270");
+%Sustainability Policy and Global Change% = ("ANTH 278", "ATMS 140", "GEOL 208", "CPSC 215", "NPRE 101", "NPRE 201", "PS 224", "PS 225", "LA 250", "SOC 270");
+%Earths Physical Systems Resources and Hazards% = ("ATMS 100", "ATMS 120", "ATMS 201", "GEOG 103", "GEOG 222", "GEOL 100", "GEOL 103", "GEOL 104", "GEOL 107", "GEOL 117", "GEOL 118");
+%Earths Bioshpere and Ecology% = ("ESE 111", "ESE 126", "GEOL 143", "IB 100", "IB 103", "IB 105", "IB 107", "IB 150", "MCB 150", "UP 205");
+%Visualizing the Earth System% = ("GEOG 105");
+
+120 HOURS TOTAL FROM (
+6 HOURS FROM
+("GEOG 379",
+"ESE 200"), 
+(("CHEM 102" OR "CHEM 202"),
+("CHEM 103" OR "CHEM 203"),
+("MATH 220" OR "MATH 221"),
+"STAT 100",
+("PHYS 101" OR "PHYS 211")),
+
+4 FROM (%Environment and the Human Response%, 
+%Sustainability Policy and Global Change%,
+%Earths Physical Systems Resources and Hazards%,
+%Visualizing the Earth System%,
+%Earths Bioshpere and Ecology%),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

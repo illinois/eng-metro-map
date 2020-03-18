@@ -1,0 +1,32 @@
+%300-400 Level ASTR% = ("ASTR 310", "ASTR 330", "ASTR 350", "ASTR 390", "ASTR 401", "ASTR 404", "ASTR 405", "ASTR 406", "ASTR 414", "ASTR 450", "ASTR 451", "ASTR 490", "ASTR 496", "ASTR 499");
+
+%300-400 Level PHYS% = ("PHYS 325", "PHYS 326", "PHYS 329", "PHYS 330", "PHYS 398", "PHYS 401", "PHYS 402", "PHYS 403", "PHYS 404", "PHYS 406", "PHYS 419", "PHYS 420", "PHYS 427", "PHYS 435", "PHYS 436", "PHYS 460", "PHYS 466", "PHYS 470", "PHYS 475", "PHYS 485", "PHYS 486", "PHYS 487", "PHYS 495", "PHYS 496", "PHYS 497", "PHYS 498", "PHYS 499");
+
+120 HOURS TOTAL FROM (
+"ASTR 210",
+3 FROM 
+("ASTR 404",
+"ASTR 405",
+"ASTR 406",
+"ASTR 414"),
+12 HOURS FROM 
+(%300-400 Level ASTR%,
+%300-400 Level PHYS%),
+"PHYS 211",
+"PHYS 212",
+"PHYS 213",
+"PHYS 214",
+"MATH 221",
+"MATH 231",
+"MATH 241",
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

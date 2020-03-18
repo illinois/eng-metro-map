@@ -1,0 +1,26 @@
+120 HOURS TOTAL FROM (
+"LAST 170",
+("LAST 490"),
+12 HOURS FROM
+("ANTH 182",
+("ARTH 343" OR "LAST 343"),
+"HIST 105",
+"HIST 507",
+"LAST 170",
+"SPAN 324",
+"SPAN 326"),
+12 HOURS FROM
+("Approved courses with primary focus on Latin America in a global contex."),
+3 HOURS FROM
+("Advanced language course in a Latin American language (Spanish, Portuguese, Quechua, or other Native American language indigenous to Mexico, Central, or South America) beyond the level specified by the LAS language requirement, or the equivalent as demonstrated by special examination. At the end of their language study, all students are urged to take an oral proficiency test based on ACTFL guidelines."),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

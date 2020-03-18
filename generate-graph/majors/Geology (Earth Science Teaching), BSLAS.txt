@@ -1,0 +1,36 @@
+120 HOURS TOTAL FROM (
+"GEOL 107",
+"GEOL 208",
+"GEOL 333",
+1 FROM ("MATH 220", "MATH 221", "MATH 234"),
+(("ASTR 100" AND "ASTR 131" AND "ASTR 132") OR
+("ASTR 121" AND "ASTR 122")),
+"ATMS 100",
+"IB 100",
+(("CHEM 102" AND "CHEM 103") OR
+("CHEM 202" AND "CHEM 203")),
+"GEOL 117",
+"GEOL 143",
+(("PHYS 101" AND "PHYS 102") OR
+("PHYS 211" AND "PHYS 212" AND "PHYS 213" AND "PHYS 214")),
+("EDUC 201",
+"EDUC 202",
+"CI 401",
+"CI 403",
+"CI 404",
+"CI 473",
+"EPSY 201",
+"EPSY 485",
+"SPED 405",
+"EDPR 442"),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

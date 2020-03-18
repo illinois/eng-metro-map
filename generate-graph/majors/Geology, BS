@@ -1,0 +1,52 @@
+%300-400 Level% = ("GEOL 333", "GEOL 350", "GEOL 370", "GEOL 380", "GEOL 390", "GEOL 391", "GEOL 401", "GEOL 406", "GEOL 411", "GEOL 415", "GEOL 417", "GEOL 432", "GEOL 436", "GEOL 440", "GEOL 450", "GEOL 451", "GEOL 452", "GEOL 454", "GEOL 460", "GEOL 470", "GEOL 481", "GEOL 483", "GEOL 484", "GEOL 485", "GEOL 486", "GEOL 490", "GEOL 491", "GEOL 492", "GEOL 493", "GEOL 497");
+
+126 HOURS TOTAL FROM (
+(("CHEM 102",
+"CHEM 103",
+"CHEM 104",
+"CHEM 105")
+OR
+("CHEM 202",
+"CHEM 203",
+"CHEM 204",
+"CHEM 205")),
+"GEOL 107",
+"GEOL 208",
+"GEOL 143",
+"GEOL 411",
+"GEOL 417",
+"GEOL 432",
+"GEOL 436",
+"GEOL 440",
+("GEOL 450" OR "GEOL 452"),
+"GEOL 460",
+6 HOURS FROM %300-400 Level%,
+("MATH 220" OR "MATH 221"),
+"MATH 231",
+("MATH 225" OR "MATH 415"),
+"MATH 241",
+(("PHYS 211" AND "PHYS 212") OR
+("PHYS 101" AND "PHYS 102")),
+3 HOURS FROM (
+"IB 103",
+"IB 104",
+"CS 101",
+"CS 125",
+"CPSC 440",
+"STAT 400",
+"MATH 285",
+"MATH 441",
+"PHYS 213",
+"PHYS 214"
+),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

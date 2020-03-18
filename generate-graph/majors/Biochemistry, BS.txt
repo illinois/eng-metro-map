@@ -1,0 +1,35 @@
+120 HOURS TOTAL FROM (
+(("CHEM 202" AND "CHEM 203" AND "CHEM 204" AND "CHEM 205") OR
+("CHEM 102" AND "CHEM 103" AND "CHEM 104" AND "CHEM 105")),
+(("CHEM 236" AND "CHEM 237" AND "CHEM 436") OR
+("CHEM 232" AND "CHEM 233" AND "CHEM 332")),
+"MCB 150",
+"MCB 250",
+"MCB 251",
+"MCB 252",
+"MCB 253",
+"MCB 354",
+(("CHEM 440" AND "BIOC 446") OR ("CHEM 442" AND "CHEM 444")),
+"STAT 212",
+("MATH 220" OR "MATH 221"),
+"MATH 231",
+"MATH 241",
+(("PHYS 211" AND "PHYS 212" AND "PHYS 213") OR 
+("PHYS 101" AND "PHYS 102")),
+"BIOC 455",
+"BIOC 460",
+"BIOC 406",
+"BIOP 401",
+10 HOURS FROM
+("Advanced Science/Technical Electives"),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

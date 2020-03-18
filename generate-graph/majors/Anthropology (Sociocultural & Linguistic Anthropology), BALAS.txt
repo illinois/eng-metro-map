@@ -1,0 +1,27 @@
+120 HOURS TOTAL FROM (
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%,
+3 FROM 
+(("ANTH 220" OR "ANTH 105"),
+("ANTH 230" OR "ANTH 103"),
+("ANTH 240" OR "ANTH 102"),
+("ANTH 270" OR "ANTH 271" OR "ANTH 104")),
+
+7 FROM ("List maintained in the advisor's office"),
+
+9 HOURS FROM ("Additional socio-cultural and linguistics anthropology courses or courses in related fields"),
+
+("ANTH 411" OR "ANTH 499"),
+
+1 FROM 
+(("ANTH 494" AND "ANTH 495"),
+"ANTH 498",
+"ANTH 390"));

@@ -47,7 +47,7 @@ def sort_courses_by_prereqs(courses, prereqs):
 def read_in_files(foldr_name, prereqs):
     G = nx.MultiGraph()
 
-    for entry in os.scandir("majors"):
+    for entry in os.scandir("CoE"):
         if entry.path.endswith(".txt"):
             major_title = entry.path[7:-4]
             lines = open(entry.path, "r").readlines()

@@ -1,0 +1,25 @@
+120 HOURS TOTAL FROM (
+("GEOL 107",
+"GEOL 208",
+"CHEM 102",
+"CHEM 103"),
+1 FROM 
+(("MATH 220" OR "MATH 221"),
+"MATH 234"),
+(("ATMS 140" OR "GEOL 118"),
+("GEOL 333" OR "GEOL 432"),
+"GEOL 380"),
+10 HOURS FROM
+("GEOL 401", "GEOL 406", "GEOL 411", "GEOL 415", "GEOL 417", "GEOL 432", "GEOL 436", "GEOL 440", "GEOL 450", "GEOL 451", "GEOL 452", "GEOL 454", "GEOL 460", "GEOL 470", "GEOL 481", "GEOL 483", "GEOL 484", "GEOL 485", "GEOL 486", "GEOL 490", "GEOL 491", "GEOL 492", "GEOL 493", "GEOL 497"),
+6 HOURS FROM ("Environmental studies electives. See advisor for list."),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

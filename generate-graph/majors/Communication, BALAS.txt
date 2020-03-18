@@ -1,0 +1,36 @@
+%Communication and Culture% = ("CMN 232", "CMN 250", "CMN 275", "CMN 280", "CMN 320", "CMN 326", "CMN 357", "CMN 361", "CMN 375", "CMN 429", "CMN 432", "CMN 450");
+%Communication and Health% = ("CMN 220", "CMN 230", "CMN 260", "CMN 321", "CMN 323", "CMN 368", "CMN 421", "CMN 435", "CMN 462", "CMN 436", "CMN 464", "CMN 465", "CMN 467");
+%Communication and Organizations% = ("CMN 211", "CMN 212", "CMN 213", "CMN 215", "CMN 232", "CMN 280", "CMN 312", "CMN 323", "CMN 370", "CMN 377", "CMN 410", "CMN 411", "CMN 412", "CMN 413", "CMN 463", "CMN 464", "CMN 476");
+%Interpersonal Communication% = ("CMN 213", "CMN 230", "CMN 232", "CMN 260", "CMN 321", "CMN 323", "CMN 336", "CMN 338", "CMN 357", "CMN 368", "CMN 413", "CMN 421", "CMN 432", "CMN 435", "CMN 437", "CMN 462");
+%Mediated Communication and Technology% = ("CMN 275", "CMN 277", "CMN 280", "CMN 312", "CMN 325", "CMN 326", "CMN 338", "CMN 340", "CMN 345", "CMN 370", "CMN 375", "CMN 410", "CMN 424", "CMN 429");
+%Rhetoric and Public Communication% = ("CMN 210", "CMN 220", "CMN 250", "CMN 310", "CMN 320", "CMN 321", "CMN 323", "CMN 325", "CMN 326", "CMN 340", "CMN 345", "CMN 370", "CMN 415", "CMN 416", "CMN 417", "CMN 421", "CMN 423", "CMN 424", "CMN 450", "CMN 464", "CMN 476");
+
+120 HOURS TOTAL FROM (
+("CMN 101" OR "CMN 112"),
+"CMN 102",
+5 FROM 
+(1 FROM %Communication and Culture%,
+1 FROM %Communication and Health%,
+1 FROM %Communication and Organizations%,
+1 FROM %Interpersonal Communication%,
+1 FROM %Mediated Communication and Technology%,
+1 FROM %Rhetoric and Public Communication%)
+OR
+4 FROM 
+(1 FROM %Communication and Culture%,
+1 FROM %Communication and Health%,
+1 FROM %Communication and Organizations%,
+1 FROM %Interpersonal Communication%,
+1 FROM %Mediated Communication and Technology%,
+1 FROM %Rhetoric and Public Communication%),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

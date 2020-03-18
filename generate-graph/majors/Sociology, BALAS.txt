@@ -1,0 +1,22 @@
+120 HOURS TOTAL FROM (
+"SOC 100",
+"SOC 200",
+"SOC 280",
+"SOC 380",
+1 FROM 
+("SOC 400",
+"SOC 450",
+"SOC 495"),
+14 HOURS FROM
+("SOC 100", "SOC 101", "SOC 122", "SOC 130", "SOC 160", "SOC 161", "SOC 162", "SOC 163", "SOC 170", "SOC 179", "SOC 196", "SOC 199", "SOC 200", "SOC 201", "SOC 202", "SOC 221", "SOC 222", "SOC 223", "SOC 225", "SOC 226", "SOC 255", "SOC 270", "SOC 273", "SOC 274", "SOC 275", "SOC 278", "SOC 280", "SOC 310", "SOC 320", "SOC 321", "SOC 322", "SOC 325", "SOC 328", "SOC 345", "SOC 350", "SOC 355", "SOC 364", "SOC 366", "SOC 373", "SOC 375", "SOC 378", "SOC 380", "SOC 387", "SOC 390", "SOC 392", "SOC 396", "SOC 400", "SOC 422", "SOC 426", "SOC 447", "SOC 450", "SOC 451", "SOC 470", "SOC 471", "SOC 472", "SOC 473", "SOC 474", "SOC 477", "SOC 478", "SOC 479", "SOC 480", "SOC 481", "SOC 483", "SOC 485", "SOC 488", "SOC 490", "SOC 495", "SOC 496", "SOC 500", "SOC 501", "SOC 510", "SOC 521", "SOC 561", "SOC 562", "SOC 564", "SOC 565", "SOC 572", "SOC 575", "SOC 576", "SOC 578", "SOC 579", "SOC 580", "SOC 581", "SOC 583", "SOC 584", "SOC 586", "SOC 587", "SOC 588", "SOC 589", "SOC 590", "SOC 596", "SOC 597", "SOC 598", "SOC 599"),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

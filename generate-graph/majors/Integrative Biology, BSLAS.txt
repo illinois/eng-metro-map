@@ -1,0 +1,17 @@
+%Organismal and Evolutionary Biology% = ("IB 362", "IB 461", "IB 462", "IB 463", "IB 464");
+%Behavior, Ecology, and Environment% = ("IB 329", "IB 430", "IB 431", "IB 432", "IB 443");
+%Integrative Anatomy, Physiology, and Molecular Biology% = ("IB 303", "IB 364", "IB 426", "IB 434");
+
+120 HOURS TOTAL FROM (("MATH 220" OR "MATH 221"),
+"STAT 212",
+1 FROM (("CHEM 102", "CHEM 103", "CHEM 104", "CHEM 105"), ("CHEM 202", "CHEM 203", "CHEM 204", "CHEM 205")),
+1 FROM (("CHEM 232", "CHEM 233"), ("CHEM 236", "CHEM 237")),
+1 FROM (("PHYS 101", "PHYS 102"), ("PHYS 211", "PHYS 212")),
+"IB 150",
+"MCB 150",
+"IB 202",
+"IB 203",
+"IB 204",
+"IB 302",
+
+14 HOURS FROM (%Organismal and Evolutionary Biology%, %Behavior, Ecology, and Environment%, %Integrative Anatomy, Physiology, and Molecular Biology%, "IB 348"));

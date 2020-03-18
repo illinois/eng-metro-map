@@ -1,0 +1,23 @@
+120 HOURS TOTAL FROM (
+("MATH 220" OR "MATH 221"),
+"MATH 231",
+"MATH 241",
+("MATH 415" OR "MATH 416"),
+("STAT 200" OR "STAT 212"),
+"STAT 400",
+"STAT 410",
+"STAT 420",
+"STAT 425",
+
+4 FROM ("STAT 424", "STAT 426", "STAT 427", "STAT 428", "STAT 429", "STAT 430", "STAT 440", "STAT 443", "STAT 480", ("MATH 444" OR "MATH 447")),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

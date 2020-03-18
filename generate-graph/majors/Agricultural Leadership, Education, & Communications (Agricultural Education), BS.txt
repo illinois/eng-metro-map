@@ -1,0 +1,73 @@
+126 HOURS TOTAL FROM (
+1 FROM (("RHET 105" AND "CMN 101"), ("CMN 111" AND "CMN 112")), 
+"AGCM 220",
+3 HOURS FROM %Western Cultures%,
+3 HOURS FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+
+"AGED 340",
+
+1 FROM 
+("ACE 261",
+"CPSC 241",
+"ECON 202",
+"PSYC 235",
+"SOC 280",
+"SOCW 225",
+"STAT 100"),
+
+3 HOURS FROM %Quantitative Reasoning II%,
+
+1 FROM 
+("ATMS 100",
+"ATMS 120",
+"ATMS 140",
+"CHEM 101",
+("CHEM 102" AND "CHEM 103"),
+"ENVS 101",
+"ESE 117",
+"ESE 118",
+"GEOL 107",
+"PHYS 101"),
+1 FROM 
+("ANSC 207",
+"ANTH 249",
+"CPSC 112",
+"CPSC 113",
+"FSHN 120",
+"IB 103",
+"IB 105",
+("MCB 100" AND "MCB 101")),
+
+6 HOURS FROM %Humanities and the Arts%,
+
+"PSYC 100",
+1 FROM
+("ACE 100",
+"ECON 102",
+"PS 101"),
+"ACES 101",
+("AGED 100" OR "ALEC 100"),
+("AGCM 110" OR "ALEC 110"),
+
+"AGED 250",
+"AGED 350",
+"AGED 420",
+"AGED 421",
+"AGED 450",
+"CI 473",
+("EPS 201" OR "EPS 202"),
+"EPSY 201",
+"SPED 405",
+"EDPR 442",
+"ANSC 100",
+"ACE 232",
+"HORT 100",
+"FSHN 101",
+"TSM 100",
+1 FROM 
+("AGED 260",
+"AGED 380",
+"AGED 400",
+"AGED 430",
+"AGED 490"));

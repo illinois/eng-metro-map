@@ -1,0 +1,41 @@
+120 HOURS TOTAL FROM (
+1 FROM 
+("PSYC 100",
+"PSYC 103"),
+("PSYC 235"),
+2 FROM 
+("PSYC 204",
+"PSYC 210",
+"PSYC 220",
+"PSYC 224",
+"PSYC 230",
+"PSYC 248"),
+1 FROM 
+("PSYC 207",
+"PSYC 216",
+"PSYC 238",
+"PSYC 239",
+"PSYC 245"),
+("PSYC 250"),
+("PSYC 350"),
+4 FROM
+("PSYC 201",
+"PSYC 265",
+"PSYC 328",
+"PSYC 352",
+"PSYC 353",
+"PSYC 373",
+"PSYC 396",
+"PSYC 465",
+"PSYC 496"),
+
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

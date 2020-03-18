@@ -1,0 +1,27 @@
+120 HOURS TOTAL FROM (
+1 FROM ("GER 201", "GER 205", "SCAN 251"),
+"GER 211",
+"GER 212",
+"GER 331",
+"GER 332",
+"GER 403",
+"GER 420",
+3 FROM 
+("GER 401",
+"GER 465",
+"GER 470",
+"GER 471",
+"GER 472",
+"GER 473"),
+12 HOURS FROM 
+("GER 320", "GER 321", "GER 331", "GER 332", "GER 385", "GER 396", "GER 401", "GER 403", "GER 405", "GER 418", "GER 420", "GER 460", "GER 465", "GER 470", "GER 471", "GER 472", "GER 473", "GER 489", "GER 491", "GER 493", "GER 494", "GER 496"),
+1 FROM %Composition I%,
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM %Natural Sciences and Technology%,
+1 FROM %Quantitative Reasoning I%,
+1 FROM %Quantitative Reasoning I and II%);

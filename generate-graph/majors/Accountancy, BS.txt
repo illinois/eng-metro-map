@@ -30,4 +30,3 @@
 2 FROM %Humanities and the Arts%,
 2 FROM %Natural Sciences and Technology%,
 1 FROM %Social and Behavioral Sciences%);
-

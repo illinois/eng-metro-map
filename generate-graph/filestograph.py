@@ -44,42 +44,50 @@ def sort_courses_by_prereqs(courses, prereqs):
     return courses
 
 
-def read_in_files(foldr_name, prereqs):
+def create_major_csv(): # TODO
+    pass
+
+
+def read_in_files(foldr_name, prereqs): # TODO: fix for file format
     G = nx.MultiGraph()
 
-    for entry in os.scandir("CoE"):
+    for entry in os.scandir(foldr_name):
         if entry.path.endswith(".txt"):
-            major_title = entry.path[7:-4]
+            major_title = entry.path[(len(foldr_name) + 1):-4]
             lines = open(entry.path, "r").readlines()
 
             # create a list of courses that does not include elective categories
             courses = []
             parentheses = 0
             for line in lines:
-                if parentheses == 0:
-                    if line[0] == '"' or line[0] == "“":
-                        courses.append(line[1:-3])
-                    elif (line[0] == "(") and (line[len(line) - 3] == ")"):
-                        codes = containsCourseCodes(line)
-                        if ("MATH 221" in codes) and ("MATH 220" in codes) and (len(codes) == 2): # yeah if its just those two idc
-                            courses.append("MATH 221")
-                        else:
-                            courses.append(line[0:-2])
-                    else:
-                        if "(" in line:
-                            parentheses += line.count("(")
+                if (parentheses == 1) and ((re.match(r'"[A-Z]{2,4}\s\d{3}"\sAND\s"[A-Z]{2,4}\s\d{3}"|"[A-Z]{2,4}\s\d{3}"\sOR\s"[A-Z]{2,4}\s\d{3}"', line) != None) or (re.match(r'"[A-Z]{2,4}\s\d{3}"\sAND\s"[A-Z]{2,4}\s\d{3}"|"[A-Z]{2,4}\s\d{3}"\sOR\s"[A-Z]{2,4}\s\d{3}"', line[1:]) != None)): # check if line contains "CODE" OR/AND "CODE"
+                    c = containsCourseCodes(line)
+                    # if the two codes are MATH 220 and MATH 221, save as MATH 221
+                    if ("MATH 221" in c) and ("MATH 220" in c):
+                        courses.append("MATH 221")
+                    elif "AND" in line: # if AND add both in order
+                        courses.extend(c)
+                    else: # if OR save in list as "(CODE, CODE)"
+                        courses.append("(" + c[0] + ", " + c[1] +")")
 
-                        if ")" in line:
-                            parentheses -= line.count(")")
-                else:
-                    if "(" in line:
-                        parentheses += line.count("(")
+                if "(" in line:
+                    parentheses += line.count("(")
 
-                    if ")" in line:
-                        parentheses -= line.count(")")
+                if parentheses == 1:
+                    # if the line contains one code, get course code from line
+                    c = containsCourseCodes(line)
+
+                    if (len(c) == 1):
+                        courses.append(c[0])
+                    # otherwise, we don't care
+
+                if ")" in line:
+                    parentheses -= line.count(")")
 
             # sort courses by prereq
             courses = sort_courses_by_prereqs(courses, prereqs)
+            print(major_title)
+            print(courses)
 
             # add each course to nodes (if dne), and add an edge to the next node
             for x in range(0, len(courses)):
@@ -92,6 +100,8 @@ def read_in_files(foldr_name, prereqs):
     return G
 
 
+# TODO: make this a function I can call from terminal where I can specify folder name, final file name, scale, radius
+
 # load in prereqs csv from https://github.com/illinois/prerequisites-dataset (so we only do this once)
 prereqs = {}
 prereq_table = pd.read_csv("uiuc-prerequisites.csv", header = 0)
@@ -100,10 +110,10 @@ for x in range(0, len(prereq_table.index)):
     for y in range(0, int(prereq_table.loc[x, 'PrerequisiteNumber'])):
         prereqs[prereq_table.loc[x, 'Course']].append(prereq_table.loc[x, str(y)])
 
-G = read_in_files("majors", prereqs)
+G = read_in_files("CoE", prereqs)
 
 # run coordinate algoritm
-G = assign_coordinates(G)
+G = assign_coordinates(G, 1000, 100)
 
 # create json file from graph
 json = json.dumps(json_graph.node_link_data(G))

@@ -11,6 +11,7 @@
 "PHYS 211",
 "PHYS 212",
 "PHYS 213",
+"AE 140",
 "AE 202",
 "AE 311",
 "AE 312",
@@ -150,4 +151,3 @@
 6 HOURS FROM %Humanities and the Arts%,
 6 HOURS FROM %Social and Behavioral Sciences%,
 6 HOURS FROM (%Social and Behavioral Sciences%, %Humanities and the Arts%));
-

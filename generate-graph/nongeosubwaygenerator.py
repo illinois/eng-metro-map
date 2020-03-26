@@ -323,13 +323,13 @@ def moveCluster(p): # TODO
     pass
 
 
-def assign_initial_coordinates(G): # create an initial layout
+def assign_initial_coordinates(G, scale): # create an initial layout
     generated_postitions = nx.spring_layout(G, iterations=80, center=[1, 1])
     positions = {}
 
     for node, pos in generated_postitions.items():
-        x = int(round((pos[0] * 100), 0))
-        y = int(round((pos[1] * 100), 0))
+        x = int(round((pos[0] * scale), 0))
+        y = int(round((pos[1] * scale), 0))
 
         if (x, y) in positions.values():
             visited = {}
@@ -371,14 +371,14 @@ def assign_initial_coordinates(G): # create an initial layout
     return G, height, width
 
 
-def assign_coordinates(G):
-    G, height, width = assign_initial_coordinates(G)
+def assign_coordinates(G, scale, radius):
+    G, height, width = assign_initial_coordinates(G, scale)
 
     # calculate initial layout fitness
     mto = calcStationCriteria(G)
 
     running = True
-    r = 50
+    r = radius
     counter = 0
 
     while running:
@@ -400,7 +400,7 @@ def assign_coordinates(G):
         # TODO: labels
 
         mt = calcStationCriteria(G)
-        if not mt < mto or counter == 2000:
+        if not mt < mto or counter == 20000:
             running = False
         else:
             mto = mt

@@ -45,8 +45,17 @@ def sort_courses_by_prereqs(courses, prereqs):
     return courses
 
 
-def create_major_csv(): # TODO
-    pass
+def create_major_csv(foldr_name):
+    df = pd.DataFrame(columns=['Title', 'Color'])
+
+    i = 0
+    for entry in os.scandir(foldr_name):
+        if entry.path.endswith(".txt"):
+            major_title = entry.path[(len(foldr_name) + 1):-4]
+            df.loc[i] = [major_title, '#']
+            i += 1
+
+    df.to_csv('majorcolors.csv', index=False, header=True)
 
 
 def read_in_files(foldr_name): # TODO: fix for file format
@@ -85,8 +94,6 @@ def read_in_files(foldr_name): # TODO: fix for file format
                 if ")" in line:
                     parentheses -= line.count(")")
 
-            # sort courses by prereq
-            # courses = sort_courses_by_prereqs(courses, prereqs)
             print(major_title)
             print(courses)
 
@@ -117,8 +124,6 @@ def read_in_files(foldr_name): # TODO: fix for file format
     return G
 
 
-# TODO: make this a function I can call from terminal where I can specify folder name, final file name, scale, radius
-
 # load in prereqs csv from https://github.com/illinois/prerequisites-dataset (so we only do this once)
 # prereqs = {}
 # prereq_table = pd.read_csv("uiuc-prerequisites.csv", header = 0)
@@ -126,6 +131,8 @@ def read_in_files(foldr_name): # TODO: fix for file format
 #     prereqs[prereq_table.loc[x, 'Course']] = []
 #     for y in range(0, int(prereq_table.loc[x, 'PrerequisiteNumber'])):
 #         prereqs[prereq_table.loc[x, 'Course']].append(prereq_table.loc[x, str(y)])
+
+# TODO: make this a function I can call from terminal where I can specify folder name, final file name, scale, radius
 
 G = read_in_files("majors")
 

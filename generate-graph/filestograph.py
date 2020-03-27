@@ -134,10 +134,10 @@ def read_in_files(foldr_name): # TODO: fix for file format
 
 # TODO: make this a function I can call from terminal where I can specify folder name, final file name, scale, radius
 
-G = read_in_files("majors")
+G = read_in_files("CoE")
 
 # run coordinate algoritm
-G = assign_coordinates(G, 1000, 100)
+G = assign_coordinates(G, 100, 50)
 
 # create json file from graph
 json = json.dumps(json_graph.node_link_data(G))

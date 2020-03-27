@@ -1,7 +1,7 @@
 // read in data and call visualize
 $(function() {
   d3.json("graph.json").then(function(data) {
-    d3.csv("colors/majorcolors.csv").then(function(d) {
+    d3.csv("majorcolors.csv").then(function(d) {
       visualize(data, d);
     })
   })

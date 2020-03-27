@@ -400,10 +400,11 @@ def assign_coordinates(G, scale, radius):
         # TODO: labels
 
         mt = calcStationCriteria(G)
-        if not mt < mto or counter == 20000:
+        if not mt < mto or counter == 2000:
             running = False
         else:
             mto = mt
+            print(counter)
             counter += 1
 
     return G

@@ -137,7 +137,7 @@ def read_in_files(foldr_name): # TODO: fix for file format
 G = read_in_files("CoE")
 
 # run coordinate algoritm
-G = assign_coordinates(G, 100, 50)
+G = assign_coordinates(G, 100, 10)
 
 # create json file from graph
 json = json.dumps(json_graph.node_link_data(G))

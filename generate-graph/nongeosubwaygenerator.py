@@ -373,6 +373,7 @@ def assign_initial_coordinates(G, scale): # create an initial layout
 
 def assign_coordinates(G, scale, radius):
     G, height, width = assign_initial_coordinates(G, scale)
+    print("initial coords done!")
 
     # calculate initial layout fitness
     mto = calcStationCriteria(G)
@@ -384,6 +385,7 @@ def assign_coordinates(G, scale, radius):
     while running:
         # stations
         for v in G.nodes():
+            print("interation " + str(counter) + " node " + str(v))
             mno = calcStationCriteria(G)
             x, y = findNewLocation(v, G, height, width, r, mno)
             G.nodes[v]['x'] = x
@@ -400,7 +402,7 @@ def assign_coordinates(G, scale, radius):
         # TODO: labels
 
         mt = calcStationCriteria(G)
-        if not mt < mto or counter == 2000:
+        if (not mt < mto) or (counter == 20):
             running = False
         else:
             mto = mt

@@ -10,42 +10,7 @@ def containsCourseCodes(st):
     return [c.replace('\xa0', ' ') for c in codes]
 
 
-def sort_courses_by_prereqs(courses, prereqs):
-    while True:
-        changes_made = False
-
-        for x in range(0, len(courses)):
-            if isinstance(courses[x], list):
-                continue
-
-            if (courses[x] not in prereqs) or (len(prereqs[courses[x]]) == 0):
-                continue
-
-            if not set(prereqs[courses[x]]).isdisjoint(courses[x:]): # prereqs for course exist later in the list
-                c = courses.pop(x)
-                largest_index = x
-                for pr in prereqs[c]:
-                    if (pr in prereqs) and (c in prereqs[pr]): # sometimes there are circular dependencies, so ignore them
-                        continue
-
-                    if pr in courses:
-                        i = courses.index(pr)
-                        if i > largest_index:
-                            largest_index = i
-
-                if largest_index > x:
-                    changes_made = True
-                    courses.insert((largest_index + 1), c)
-                else:
-                    courses.insert(x, c)
-
-        if not changes_made:
-            break
-
-    return courses
-
-
-def create_major_csv(foldr_name):
+def create_major_csv(foldr_name): # makes a csv with the title of every major and a color column, using the files from the specified folder
     df = pd.DataFrame(columns=['Title', 'Color'])
 
     i = 0
@@ -58,7 +23,7 @@ def create_major_csv(foldr_name):
     df.to_csv('majorcolors.csv', index=False, header=True)
 
 
-def read_in_files(foldr_name): # TODO: fix for file format
+def read_in_files(foldr_name):
     G = nx.MultiGraph()
 
     for entry in os.scandir(foldr_name):
@@ -124,21 +89,12 @@ def read_in_files(foldr_name): # TODO: fix for file format
     return G
 
 
-# load in prereqs csv from https://github.com/illinois/prerequisites-dataset (so we only do this once)
-# prereqs = {}
-# prereq_table = pd.read_csv("uiuc-prerequisites.csv", header = 0)
-# for x in range(0, len(prereq_table.index)):
-#     prereqs[prereq_table.loc[x, 'Course']] = []
-#     for y in range(0, int(prereq_table.loc[x, 'PrerequisiteNumber'])):
-#         prereqs[prereq_table.loc[x, 'Course']].append(prereq_table.loc[x, str(y)])
-
-# TODO: make this a function I can call from terminal where I can specify folder name, final file name, scale, radius
-
-G = read_in_files("CoE")
+file_name = str(datetime.datetime.now().time()) + "graph.json"
+G = read_in_files("fewer majors")
 
 # run coordinate algoritm
-G = assign_coordinates(G, 100, 10)
+G = assign_coordinates(G, 1000, 10, 5)
 
 # create json file from graph
 json = json.dumps(json_graph.node_link_data(G))
-open((str(datetime.datetime.now().time()) + "graph.json"), "w").write(json)
+open(file_name, "w").write(json)

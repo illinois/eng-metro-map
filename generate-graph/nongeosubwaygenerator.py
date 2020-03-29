@@ -65,7 +65,7 @@ def point_intersection(px, py, x1, y1, x2, y2): # return true if the point is on
     return False
 
 
-def angularResolution_calc(n, G):
+def angular_resolution_calc(n, G):
     # neighbors of input node
     E = [np.array([G.nodes[i]['x'], G.nodes[i]['y']]) for i in G.neighbors(n)]
     origin = np.array([G.nodes[n]['x'], G.nodes[n]['y']])
@@ -84,14 +84,14 @@ def angularResolution_calc(n, G):
     return sum
 
 
-def angularResolution(G): # The angles of incident edges at each station should be maximized
+def angular_resolution(G): # The angles of incident edges at each station should be maximized
     sum = 0
     for n in G.nodes():
-        sum += angularResolution_calc(n, G)
+        sum += angular_resolution_calc(n, G)
     return sum
 
 
-def edgeLength(G): # The edge lengths across the whole map should be approximately equal
+def edge_length(G): # The edge lengths across the whole map should be approximately equal
     l = 4 # prefered multiple (grid spacing g assumed as 1)
 
     sum = 0
@@ -101,7 +101,7 @@ def edgeLength(G): # The edge lengths across the whole map should be approximate
     return sum
 
 
-def balancedEdgeLength(G): # penalizing stations with degree two that have incident edges with unbalanced lengths
+def balanced_edge_length(G): # penalizing stations with degree two that have incident edges with unbalanced lengths
     sum = 0
     for n in G.nodes():
         E = list(G.edges(n))
@@ -112,7 +112,7 @@ def balancedEdgeLength(G): # penalizing stations with degree two that have incid
     return sum
 
 
-def lineStraightness_calc(n, G):
+def line_straightness_calc(n, G):
     sum = 0
     E = G.edges(n, data=True)
 
@@ -149,14 +149,14 @@ def lineStraightness_calc(n, G):
     return sum
 
 
-def lineStraightness(G): # Edges that form part of a line should, where possible, be collinear either side of each station that the line passes through
+def line_straightness(G): # Edges that form part of a line should, where possible, be collinear either side of each station that the line passes through
     sum = 0
     for n in G.nodes():
-        sum += lineStraightness_calc(n, G)
+        sum += line_straightness_calc(n, G)
     return sum
 
 
-def edgeCrossings(G): # edges should cross each other as little as possible, so we count how many pairs of edges intersect -- added from thesis copy
+def edge_crossings(G): # edges should cross each other as little as possible, so we count how many pairs of edges intersect -- added from thesis copy
     sum = 0
     edge_pairs = list(itertools.combinations(G.edges(), 2))
     for pair in edge_pairs:
@@ -173,24 +173,24 @@ def octilinearity(G): # Each edge should be drawn horizontally, vertically, or d
     return sum
 
 
-def calcStationCriteria(G): # The criteria evaluate to a lower value when improved
-    return 30000*angularResolution(G) + 50*edgeLength(G) + 45*balancedEdgeLength(G) + 220*lineStraightness(G) + 100*edgeCrossings(G) + 9250*octilinearity(G)
+def calc_station_criteria(G): # The criteria evaluate to a lower value when improved
+    return 30000*angular_resolution(G) + 50*edge_length(G) + 45*balanced_edge_length(G) + 220*line_straightness(G) + 100*edge_crossings(G) + 9250*octilinearity(G)
 
 
-def nodeOcclusion(n, G): # determine whether node crosses an edge that is not its own
+def node_occlusion(n, G): # determine whether node crosses an edge that is not its own
     for e in G.edges():
         if (n not in e) and (point_intersection(G.nodes[n]['x'], G.nodes[n]['y'], G.nodes[e[0]]['x'], G.nodes[e[0]]['y'], G.nodes[e[1]]['x'], G.nodes[e[1]]['y'])):
             return True
     return False
 
 
-def findNewLocation(n, G, height, width, r, mno):
+def find_new_location(n, G, height, width, r, mno):
     # save initial x and y coordinates
     initialx = G.nodes[n]['x']
     initialy = G.nodes[n]['y']
 
     # determine whether initial coordinates are on top of other node's edge -- if so they MUST change
-    nodeOcc = nodeOcclusion(n, G)
+    nodeOcc = node_occlusion(n, G)
 
     # create a list of new locations in radius that are in bounds
     possible = []
@@ -221,6 +221,7 @@ def findNewLocation(n, G, height, width, r, mno):
                 if not intersects:
                     possible.append((x, y))
 
+    print(possible)
     # if original node occludes, but list is empty, continue to search for empty spot with no occlusion
     if nodeOcc and not possible:
         visited = {}
@@ -276,14 +277,14 @@ def findNewLocation(n, G, height, width, r, mno):
     if nodeOcc:
         G.nodes[n]['x'] = possible[0][0]
         G.nodes[n]['y'] = possible[0][1]
-        lowestCriteria = calcStationCriteria(G)
+        lowestCriteria = calc_station_criteria(G)
         newx = possible[0][0]
         newy = possible[0][1]
 
         for p in range(1, len(possible)):
             G.nodes[n]['x'] = possible[p][0]
             G.nodes[n]['y'] = possible[p][1]
-            criteria = calcStationCriteria(G)
+            criteria = calc_station_criteria(G)
 
             if (criteria < lowestCriteria):
                 lowestCriteria = criteria
@@ -297,7 +298,7 @@ def findNewLocation(n, G, height, width, r, mno):
     for p in possible:
         G.nodes[n]['x'] = p[0]
         G.nodes[n]['y'] = p[1]
-        criteria = calcStationCriteria(G)
+        criteria = calc_station_criteria(G)
 
         if (criteria < lowestCriteria):
             lowestCriteria = criteria
@@ -305,22 +306,6 @@ def findNewLocation(n, G, height, width, r, mno):
             newy = p[1]
 
     return newx, newy
-
-
-def clusterOverlengthEdges(G): # TODO
-    return []
-
-
-def clusterBends(G): # TODO return a list
-    return []
-
-
-def clusterPartitions(G): # TODO return a list
-    return []
-
-
-def moveCluster(p): # TODO
-    pass
 
 
 def assign_initial_coordinates(G, scale): # create an initial layout
@@ -342,7 +327,7 @@ def assign_initial_coordinates(G, scale): # create an initial layout
                 s = queue.pop(0)
 
                 if s not in positions.values():
-                    positions[node] = (x, y)
+                    positions[node] = (s[0], s[1])
                     break
 
                 if (s[0] - 1) > 0:
@@ -371,42 +356,29 @@ def assign_initial_coordinates(G, scale): # create an initial layout
     return G, height, width
 
 
-def assign_coordinates(G, scale, radius):
+def assign_coordinates(G, scale, r, iterations):
     G, height, width = assign_initial_coordinates(G, scale)
-    print("initial coords done!")
 
     # calculate initial layout fitness
-    mto = calcStationCriteria(G)
+    mto = calc_station_criteria(G)
 
     running = True
-    r = radius
     counter = 0
 
     while running:
         # stations
         for v in G.nodes():
-            print("interation " + str(counter) + " node " + str(v))
-            mno = calcStationCriteria(G)
-            x, y = findNewLocation(v, G, height, width, r, mno)
+            print("iteration " + str(counter) + " node " + v)
+            mno = calc_station_criteria(G)
+            x, y = find_new_location(v, G, height, width, r, mno)
             G.nodes[v]['x'] = x
             G.nodes[v]['y'] = y
 
-        # TODO: station clusters
-        # P = clusterOverlengthEdges(G) + clusterBends(G) + clusterPartitions(G)
-        # for p in P
-        #     mno = calcStationCriteria(G)
-        #     mn = findLowestStationCriteria(G)
-        #     if mn < mno:
-        #         moveCluster(p)
-
-        # TODO: labels
-
-        mt = calcStationCriteria(G)
-        if (not mt < mto) or (counter == 20):
+        mt = calc_station_criteria(G)
+        if (not mt < mto) or (counter == iterations):
             running = False
         else:
             mto = mt
-            print(counter)
             counter += 1
 
     return G

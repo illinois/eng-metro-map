@@ -89,8 +89,8 @@ def read_in_files(foldr_name):
     return G
 
 
-file_name = str(datetime.datetime.now().time()) + "graph.json"
-G = read_in_files("fewer majors")
+file_name = str(datetime.datetime.now().time()) + "CoEgraph.json"
+G = read_in_files("CoE")
 
 # run coordinate algoritm
 G = assign_coordinates(G, 1000, 10, 5)

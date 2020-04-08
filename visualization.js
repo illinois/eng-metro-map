@@ -1,6 +1,6 @@
 // read in data and call visualize
 $(function() {
-  d3.json("initialgraph.json").then(function(data) {
+  d3.json("graphfewer.json").then(function(data) {
     d3.csv("majorcolors.csv").then(function(d) {
       visualize(data, d);
     })
@@ -30,8 +30,8 @@ var visualize = function(data, colors) {
   // create dictionary of nodes
   var nodesDict = {};
   nodes.enter().each(function(d) {
-    d.x = (d.x * 5);
-    d.y = (d.y * 5);
+    d.x = (d.x * 1 - 500);
+    d.y = (d.y * 1 - 500);
     nodesDict[d.id] = d;
   });
 
@@ -143,6 +143,7 @@ var visualize = function(data, colors) {
       return '#000';
     }
 
+    console.log(found.Color);
     return found.Color;
   });
 

@@ -177,6 +177,10 @@ def calc_station_criteria(G): # The criteria evaluate to a lower value when impr
     return 30000*angular_resolution(G) + 50*edge_length(G) + 45*balanced_edge_length(G) + 220*line_straightness(G) + 100*edge_crossings(G) + 9250*octilinearity(G)
 
 
+def score_from_node(n, G):
+    
+
+
 def node_occlusion(n, x, y, G): # determine whether node with given coordinates crosses an edge that is not its own
     for e in G.edges():
         if (n not in e) and (point_intersection(x, y, G.nodes[e[0]]['x'], G.nodes[e[0]]['y'], G.nodes[e[1]]['x'], G.nodes[e[1]]['y'])):

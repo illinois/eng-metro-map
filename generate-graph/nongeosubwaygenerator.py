@@ -222,9 +222,9 @@ def node_occlusion(n, x, y, G): # determine whether node with given coordinates 
     return False
 
 
-def find_new_location(n, G, height, width, r, mno):
+def find_new_location(n, G, height, width, r):
     print("finding locations")
-    base = mno - score_from_node(n, G)
+    base = score_from_node(n, G)
 
     # save initial x and y coordinates
     initialx = G.nodes[n]['x']
@@ -300,28 +300,28 @@ def find_new_location(n, G, height, width, r, mno):
     if nodeOcc:
         G.nodes[n]['x'] = possible[0][0]
         G.nodes[n]['y'] = possible[0][1]
-        lowestCriteria = base + score_from_node(n, G)
+        lowestCriteria = score_from_node(n, G)
         newx = possible[0][0]
         newy = possible[0][1]
 
         for p in range(1, len(possible)):
             G.nodes[n]['x'] = possible[p][0]
             G.nodes[n]['y'] = possible[p][1]
-            criteria = base + score_from_node(n, G)
+            criteria = score_from_node(n, G)
 
             if (criteria < lowestCriteria):
                 lowestCriteria = criteria
                 newx = possible[p][0]
                 newy = possible[p][1]
 
-    lowestCriteria = mno
+    lowestCriteria = base
     newx = initialx
     newy = initialy
 
     for p in possible:
         G.nodes[n]['x'] = p[0]
         G.nodes[n]['y'] = p[1]
-        criteria = base + score_from_node(n, G)
+        criteria = score_from_node(n, G)
 
         if (criteria < lowestCriteria):
             lowestCriteria = criteria
@@ -393,15 +393,13 @@ def assign_coordinates(G, scale, r, iterations):
 
     while running:
         # stations
-        mno = mto
         for v in G.nodes():
             print("iteration " + str(counter) + " node " + v)
-            mno = calc_station_criteria(G)
-            x, y = find_new_location(v, G, height, width, r, mno)
+            x, y = find_new_location(v, G, height, width, r)
             G.nodes[v]['x'] = x
             G.nodes[v]['y'] = y
 
-        mt = mno
+        mt = calc_station_criteria(G)
         if (not mt < mto) or (counter == iterations):
             running = False
         else:

@@ -91,6 +91,16 @@ def angular_resolution(G): # The angles of incident edges at each station should
     return sum
 
 
+def edge_length_node(n, G):
+    l = 4 # prefered multiple (grid spacing g assumed as 1)
+
+    sum = 0
+    for e in G.edges(n):
+        length = math.hypot(G.nodes[e[0]]['x'] - G.nodes[e[1]]['x'], G.nodes[e[0]]['y'] - G.nodes[e[1]]['y'])
+        sum += abs((length / l) - 1)
+    return sum
+
+
 def edge_length(G): # The edge lengths across the whole map should be approximately equal
     l = 4 # prefered multiple (grid spacing g assumed as 1)
 
@@ -101,14 +111,20 @@ def edge_length(G): # The edge lengths across the whole map should be approximat
     return sum
 
 
+def balanced_edge_length_calc(n, G):
+    E = list(G.edges(n))
+    if len(E) == 2:
+        e_one = math.hypot(G.nodes[E[0][0]]['x'] - G.nodes[E[0][1]]['x'], G.nodes[E[0][0]]['y'] - G.nodes[E[0][1]]['y'])
+        e_two = math.hypot(G.nodes[E[1][0]]['x'] - G.nodes[E[1][1]]['x'], G.nodes[E[1][0]]['y'] - G.nodes[E[1][1]]['y'])
+        return abs(e_one - e_two)
+    else:
+        return 0
+
+
 def balanced_edge_length(G): # penalizing stations with degree two that have incident edges with unbalanced lengths
     sum = 0
     for n in G.nodes():
-        E = list(G.edges(n))
-        if len(E) == 2:
-            e_one = math.hypot(G.nodes[E[0][0]]['x'] - G.nodes[E[0][1]]['x'], G.nodes[E[0][0]]['y'] - G.nodes[E[0][1]]['y'])
-            e_two = math.hypot(G.nodes[E[1][0]]['x'] - G.nodes[E[1][1]]['x'], G.nodes[E[1][0]]['y'] - G.nodes[E[1][1]]['y'])
-            sum += abs(e_one - e_two)
+        sum += balanced_edge_length_calc(n, G)
     return sum
 
 
@@ -165,6 +181,14 @@ def edge_crossings(G): # edges should cross each other as little as possible, so
     return sum
 
 
+def octilinearity_node(n, G):
+    sum = 0
+    for e in G.edges(n):
+        if abs(G.nodes[e[0]]['x'] - G.nodes[e[1]]['x']) != 0:
+            sum += abs(math.sin(4 * math.atan(abs(G.nodes[e[0]]['y'] - G.nodes[e[1]]['y']) / abs(G.nodes[e[0]]['x'] - G.nodes[e[1]]['x']))))
+    return sum
+
+
 def octilinearity(G): # Each edge should be drawn horizontally, vertically, or diagonally at 45 degree
     sum = 0
     for e in G.edges():
@@ -177,8 +201,8 @@ def calc_station_criteria(G): # The criteria evaluate to a lower value when impr
     return 30000*angular_resolution(G) + 50*edge_length(G) + 45*balanced_edge_length(G) + 220*line_straightness(G) + 100*edge_crossings(G) + 9250*octilinearity(G)
 
 
-def score_from_node(n, G):
-    
+def score_from_node(n, G): # scoring that only includes current node, to speed up processing. Edge crossing is still done on full graph because I can't think of a node dependent way to do that
+    return 30000*angular_resolution_calc(n, G) + 50*edge_length_node(n, G) + 45*balanced_edge_length_calc(n, G) + 220*line_straightness_calc(n, G) + 100*edge_crossings(G) + 9250*octilinearity_node(n, G)
 
 
 def node_occlusion(n, x, y, G): # determine whether node with given coordinates crosses an edge that is not its own
@@ -200,6 +224,7 @@ def node_occlusion(n, x, y, G): # determine whether node with given coordinates 
 
 def find_new_location(n, G, height, width, r, mno):
     print("finding locations")
+    base = mno - score_from_node(n, G)
 
     # save initial x and y coordinates
     initialx = G.nodes[n]['x']
@@ -275,14 +300,14 @@ def find_new_location(n, G, height, width, r, mno):
     if nodeOcc:
         G.nodes[n]['x'] = possible[0][0]
         G.nodes[n]['y'] = possible[0][1]
-        lowestCriteria = calc_station_criteria(G)
+        lowestCriteria = base + score_from_node(n, G)
         newx = possible[0][0]
         newy = possible[0][1]
 
         for p in range(1, len(possible)):
             G.nodes[n]['x'] = possible[p][0]
             G.nodes[n]['y'] = possible[p][1]
-            criteria = calc_station_criteria(G)
+            criteria = base + score_from_node(n, G)
 
             if (criteria < lowestCriteria):
                 lowestCriteria = criteria
@@ -296,7 +321,7 @@ def find_new_location(n, G, height, width, r, mno):
     for p in possible:
         G.nodes[n]['x'] = p[0]
         G.nodes[n]['y'] = p[1]
-        criteria = calc_station_criteria(G)
+        criteria = base + score_from_node(n, G)
 
         if (criteria < lowestCriteria):
             lowestCriteria = criteria
@@ -368,6 +393,7 @@ def assign_coordinates(G, scale, r, iterations):
 
     while running:
         # stations
+        mno = mto
         for v in G.nodes():
             print("iteration " + str(counter) + " node " + v)
             mno = calc_station_criteria(G)
@@ -375,7 +401,7 @@ def assign_coordinates(G, scale, r, iterations):
             G.nodes[v]['x'] = x
             G.nodes[v]['y'] = y
 
-        mt = calc_station_criteria(G)
+        mt = mno
         if (not mt < mto) or (counter == iterations):
             running = False
         else:

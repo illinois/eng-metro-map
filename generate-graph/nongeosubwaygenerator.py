@@ -84,6 +84,13 @@ def angular_resolution_calc(n, G):
     return sum
 
 
+def angular_resolution_node(n, G):
+    sum = angular_resolution_calc(n, G)
+    for m in G.neighbors(n):
+        sum += angular_resolution_calc(m, G)
+    return sum
+
+
 def angular_resolution(G): # The angles of incident edges at each station should be maximized
     sum = 0
     for n in G.nodes():
@@ -119,6 +126,13 @@ def balanced_edge_length_calc(n, G):
         return abs(e_one - e_two)
     else:
         return 0
+
+
+def balanced_edge_length_node(n, G):
+    sum = balanced_edge_length_calc(n, G)
+    for m in G.neighbors(n):
+        sum += balanced_edge_length_calc(m, G)
+    return sum
 
 
 def balanced_edge_length(G): # penalizing stations with degree two that have incident edges with unbalanced lengths
@@ -165,6 +179,13 @@ def line_straightness_calc(n, G):
     return sum
 
 
+def line_straightness_node(n, G): # get the line straightness effect from one node
+    sum = line_straightness_calc(n, G)
+    for m in G.neighbors(n):
+        sum += line_straightness_calc(m, G)
+    return sum
+
+
 def line_straightness(G): # Edges that form part of a line should, where possible, be collinear either side of each station that the line passes through
     sum = 0
     for n in G.nodes():
@@ -202,7 +223,7 @@ def calc_station_criteria(G): # The criteria evaluate to a lower value when impr
 
 
 def score_from_node(n, G): # scoring that only includes current node, to speed up processing. Edge crossing is still done on full graph because I can't think of a node dependent way to do that
-    return 30000*angular_resolution_calc(n, G) + 50*edge_length_node(n, G) + 45*balanced_edge_length_calc(n, G) + 220*line_straightness_calc(n, G) + 100*edge_crossings(G) + 9250*octilinearity_node(n, G)
+    return 30000*angular_resolution_node(n, G) + 50*edge_length_node(n, G) + 45*balanced_edge_length_node(n, G) + 220*line_straightness_node(n, G) + 100*edge_crossings(G) + 9250*octilinearity_node(n, G)
 
 
 def node_occlusion(n, x, y, G): # determine whether node with given coordinates crosses an edge that is not its own
@@ -401,6 +422,9 @@ def assign_coordinates(G, scale, r, iterations):
             G.nodes[v]['y'] = y
 
         mt = calc_station_criteria(G)
+        if (mt > mto):
+            print("uh")
+
         if (not mt < mto) or (counter == iterations):
             running = False
         else:

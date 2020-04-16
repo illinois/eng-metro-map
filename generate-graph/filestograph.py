@@ -93,7 +93,7 @@ file_name = str(datetime.datetime.now().time()) + "CoEgraph.json"
 G = read_in_files("CoE")
 
 # run coordinate algoritm
-G = assign_coordinates(G, 1000, 2, 4)
+G = assign_coordinates(G, 1000, 3, 10)
 
 # create json file from graph
 json = json.dumps(json_graph.node_link_data(G))

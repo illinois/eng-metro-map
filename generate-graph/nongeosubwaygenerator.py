@@ -393,6 +393,7 @@ def assign_coordinates(G, scale, r, iterations):
 
     while running:
         # stations
+        print(len(G))
         for v in G.nodes():
             print("iteration " + str(counter) + " node " + v)
             x, y = find_new_location(v, G, height, width, r)

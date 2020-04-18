@@ -3,6 +3,7 @@ from networkx.readwrite import json_graph
 import math
 import numpy as np
 import itertools
+import json
 
 def calc_smallest_angle(x1, y1, x2, y2, x3, y3): # find the smallest angle between meeting line segments where x2, y2 is the vertex
     a = np.array([x1, y1])
@@ -403,14 +404,17 @@ def assign_initial_coordinates(G, scale): # create an initial layout
     return G, height, width
 
 
-def assign_coordinates(G, scale, r, iterations):
+def assign_coordinates(G, scale, r, iterations, file_name):
     G, height, width = assign_initial_coordinates(G, scale)
+
+    j = json.dumps(json_graph.node_link_data(G))
+    open((file_name + "/0.json"), "w").write(j)
 
     # calculate initial layout fitness
     mto = calc_station_criteria(G)
 
     running = True
-    counter = 0
+    counter = 1
 
     while running:
         # stations
@@ -420,6 +424,9 @@ def assign_coordinates(G, scale, r, iterations):
             x, y = find_new_location(v, G, height, width, r)
             G.nodes[v]['x'] = x
             G.nodes[v]['y'] = y
+
+        j = json.dumps(json_graph.node_link_data(G))
+        open((file_name + "/" + counter + ".json"), "w").write(j)
 
         mt = calc_station_criteria(G)
         if (mt > mto):

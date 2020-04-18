@@ -89,12 +89,15 @@ def read_in_files(foldr_name):
     return G
 
 
-file_name = str(datetime.datetime.now().time()) + "CoEgraph.json"
+file_name = str(datetime.datetime.now().time()) + "CoEgraph"
 G = read_in_files("CoE")
 
+# modified to save a snapshot of every iteration
+os.mkdir(file_name)
+
 # run coordinate algoritm
-G = assign_coordinates(G, 1000, 3, 10)
+G = assign_coordinates(G, 1000, 3, 100, file_name)
 
 # create json file from graph
-json = json.dumps(json_graph.node_link_data(G))
-open(file_name, "w").write(json)
+j = json.dumps(json_graph.node_link_data(G))
+open((file_name + ".json"), "w").write(j)

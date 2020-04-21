@@ -220,11 +220,11 @@ def octilinearity(G): # Each edge should be drawn horizontally, vertically, or d
 
 
 def calc_station_criteria(G): # The criteria evaluate to a lower value when improved
-    return 30000*angular_resolution(G) + 50*edge_length(G) + 45*balanced_edge_length(G) + 220*line_straightness(G) + 100*edge_crossings(G) + 9250*octilinearity(G)
+    return 30000*angular_resolution(G) + 50*edge_length(G) + 45*balanced_edge_length(G) + 220*line_straightness(G) + 5000*edge_crossings(G) + 9250*octilinearity(G)
 
 
 def score_from_node(n, G): # scoring that only includes current node, to speed up processing. Edge crossing is still done on full graph because I can't think of a node dependent way to do that
-    return 30000*angular_resolution_node(n, G) + 50*edge_length_node(n, G) + 45*balanced_edge_length_node(n, G) + 220*line_straightness_node(n, G) + 100*edge_crossings(G) + 9250*octilinearity_node(n, G)
+    return 30000*angular_resolution_node(n, G) + 50*edge_length_node(n, G) + 45*balanced_edge_length_node(n, G) + 220*line_straightness_node(n, G) + 5000*edge_crossings(G) + 9250*octilinearity_node(n, G)
 
 
 def node_occlusion(n, x, y, G): # determine whether node with given coordinates crosses an edge that is not its own
@@ -357,7 +357,8 @@ def find_new_location(n, G, height, width, r):
 
 
 def assign_initial_coordinates(G, scale): # create an initial layout
-    generated_postitions = nx.spring_layout(G, iterations=80, center=[1, 1])
+    # generated_postitions = nx.spring_layout(G, iterations=80, center=[1, 1])
+    generated_postitions = nx.kamada_kawai_layout(G, center=[1, 1])
     positions = {}
 
     for node, pos in generated_postitions.items():
@@ -426,7 +427,7 @@ def assign_coordinates(G, scale, r, iterations, file_name):
             G.nodes[v]['y'] = y
 
         j = json.dumps(json_graph.node_link_data(G))
-        open((file_name + "/" + counter + ".json"), "w").write(j)
+        open((file_name + "/" + str(counter) + ".json"), "w").write(j)
 
         mt = calc_station_criteria(G)
         if (mt > mto):

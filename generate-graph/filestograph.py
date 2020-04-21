@@ -96,7 +96,7 @@ G = read_in_files("CoE")
 os.mkdir(file_name)
 
 # run coordinate algoritm
-G = assign_coordinates(G, 1000, 3, 100, file_name)
+G = assign_coordinates(G, 1000, 3, 50, file_name)
 
 # create json file from graph
 j = json.dumps(json_graph.node_link_data(G))

@@ -1,6 +1,6 @@
 // read in data and call visualize
 $(function() {
-  d3.json("CoEgraph.json").then(function(data) {
+  d3.json("0.json").then(function(data) {
     d3.csv("majorcolors.csv").then(function(d) {
       visualize(data, d);
     })
@@ -31,7 +31,7 @@ var visualize = function(data, colors) {
   var nodesDict = {};
   nodes.enter().each(function(d) {
     d.x = (d.x * 1 - 500);
-    d.y = (d.y * 1 - 700);
+    d.y = (d.y * 1 - 400);
     nodesDict[d.id] = d;
   });
 

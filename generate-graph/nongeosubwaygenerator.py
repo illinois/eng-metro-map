@@ -357,7 +357,6 @@ def find_new_location(n, G, height, width, r):
 
 
 def assign_initial_coordinates(G, scale): # create an initial layout
-    # generated_postitions = nx.spring_layout(G, iterations=80, center=[1, 1])
     generated_postitions = nx.kamada_kawai_layout(G, center=[1, 1])
     positions = {}
 
@@ -407,6 +406,7 @@ def assign_initial_coordinates(G, scale): # create an initial layout
 
 def assign_coordinates(G, scale, r, iterations, file_name):
     G, height, width = assign_initial_coordinates(G, scale)
+    print("height: " + str(height) + ", width: " + str(width))
 
     j = json.dumps(json_graph.node_link_data(G))
     open((file_name + "/0.json"), "w").write(j)

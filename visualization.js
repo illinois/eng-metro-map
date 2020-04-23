@@ -1,6 +1,6 @@
 // read in data and call visualize
 $(function() {
-  d3.json("0.json").then(function(data) {
+  d3.json("12.json").then(function(data) {
     d3.csv("majorcolors.csv").then(function(d) {
       visualize(data, d);
     })

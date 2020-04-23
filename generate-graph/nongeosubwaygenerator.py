@@ -404,12 +404,15 @@ def assign_initial_coordinates(G, scale): # create an initial layout
     return G, height, width
 
 
-def assign_coordinates(G, scale, r, iterations, file_name):
-    G, height, width = assign_initial_coordinates(G, scale)
-    print("height: " + str(height) + ", width: " + str(width))
+def iterate_on_coordinates(r, iterations, file_name, foldr_name): # take a json version of a graph with coordinates, and continue to iterate on those coordinates
+    # load in file, convert to a networkx graph
+    data = json.load(open((file_name), "r").read())
+    G = json_graph.node_link_graph(data, directed=False, multigraph=True)
 
-    j = json.dumps(json_graph.node_link_data(G))
-    open((file_name + "/0.json"), "w").write(j)
+    # find height and width of file's coordinates
+    
+
+    print("height: " + str(height) + ", width: " + str(width))
 
     # calculate initial layout fitness
     mto = calc_station_criteria(G)
@@ -427,7 +430,45 @@ def assign_coordinates(G, scale, r, iterations, file_name):
             G.nodes[v]['y'] = y
 
         j = json.dumps(json_graph.node_link_data(G))
-        open((file_name + "/" + str(counter) + ".json"), "w").write(j)
+        open((foldr_name + "/" + str(counter) + ".json"), "w").write(j)
+
+        mt = calc_station_criteria(G)
+        if (mt > mto):
+            print("uh")
+
+        if (not mt < mto) or (counter == iterations):
+            running = False
+        else:
+            mto = mt
+            counter += 1
+
+    return G
+
+
+def assign_coordinates(G, scale, r, iterations, foldr_name): # given an networkx undirected multigraph generate coordinates for a subway map layout
+    G, height, width = assign_initial_coordinates(G, scale)
+    print("height: " + str(height) + ", width: " + str(width))
+
+    j = json.dumps(json_graph.node_link_data(G))
+    open((foldr_name + "/0.json"), "w").write(j)
+
+    # calculate initial layout fitness
+    mto = calc_station_criteria(G)
+
+    running = True
+    counter = 1
+
+    while running:
+        # stations
+        print(len(G))
+        for v in G.nodes():
+            print("iteration " + str(counter) + " node " + v)
+            x, y = find_new_location(v, G, height, width, r)
+            G.nodes[v]['x'] = x
+            G.nodes[v]['y'] = y
+
+        j = json.dumps(json_graph.node_link_data(G))
+        open((foldr_name + "/" + str(counter) + ".json"), "w").write(j)
 
         mt = calc_station_criteria(G)
         if (mt > mto):

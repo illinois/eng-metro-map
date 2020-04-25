@@ -1,6 +1,6 @@
 // read in data and call visualize
 $(function() {
-  d3.json("12.json").then(function(data) {
+  d3.json("CoEGraph.json").then(function(data) {
     d3.csv("majorcolors.csv").then(function(d) {
       visualize(data, d);
     })
@@ -12,8 +12,10 @@ var visualize = function(data, colors) {
 
   // boilerplate setup
   var margin = { top: 50, right: 50, bottom: 50, left: 50 },
-     width = 960 - margin.left - margin.right,
-     height = 1080 - margin.top - margin.bottom;
+     // width = 960 - margin.left - margin.right,
+     // height = 1080 - margin.top - margin.bottom;
+     width = 3000 - margin.left - margin.right,
+     height = 2500 - margin.top - margin.bottom;
 
   var vis = d3.select('#chart')
   .append("svg")
@@ -30,8 +32,8 @@ var visualize = function(data, colors) {
   // create dictionary of nodes
   var nodesDict = {};
   nodes.enter().each(function(d) {
-    d.x = (d.x * 1 - 500);
-    d.y = (d.y * 1 - 400);
+    d.x = (d.x * 1);
+    d.y = (d.y * 1);
     nodesDict[d.id] = d;
   });
 

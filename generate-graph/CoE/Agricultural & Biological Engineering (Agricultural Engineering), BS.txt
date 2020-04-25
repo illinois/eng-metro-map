@@ -38,10 +38,9 @@
 ("CMN 111" AND "CMN 112"),
 ("ESL 111" AND "ESL 112"),
 "ESL 115"),
-"ABE 469",
 
 
-1 FROM 
+1 FROM
 ("CEE 202",
 "IE 300",
 "ABE 440",
@@ -49,7 +48,7 @@
 "ECE 206",
 "ME 200",
 "TAM 251",
-1 FROM 
+1 FROM
 ("TAM 335",
 "CHBE 421",
 "ME 310"),
@@ -242,4 +241,3 @@
 "NPRE 201",
 "NPRE 470",
 "NPRE 475"));
-

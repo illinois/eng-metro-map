@@ -1,13 +1,15 @@
 // read in data and call visualize
 $(function() {
-  d3.json("CoEGraph.json").then(function(data) {
-    d3.csv("majorcolors.csv").then(function(d) {
-      visualize(data, d);
+  d3.json("CoEGraph.json").then(function(coordinates) {
+    d3.csv("majorcolors.csv").then(function(colors) {
+      d3.csv("coursecatalog.csv").then(function(courses) {
+        visualize(coordinates, colors, courses);
+      })
     })
   })
 })
 
-var visualize = function(data, colors) {
+var visualize = function(data, colors, courses) {
   console.log(data);
 
   // boilerplate setup

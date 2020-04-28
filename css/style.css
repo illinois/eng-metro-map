@@ -1,10 +1,13 @@
 .node {
   fill: white;
   stroke: black;
-  stroke-width: 3;
 }
 
-.edge {
-  fill: none;
-  stroke-width: 4;
+.d3-tip {
+  background: #fff;
+  font-size: 10px;
+  padding: 8px;
+  border-radius: 15px;
+  border: 2px solid #0f6db4;
+  width: 165px;
 }

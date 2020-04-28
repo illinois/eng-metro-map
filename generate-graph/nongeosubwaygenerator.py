@@ -405,12 +405,13 @@ def assign_initial_coordinates(G, scale): # create an initial layout
 
 
 def iterate_on_coordinates(r, iterations, file_name, foldr_name): # take a json version of a graph with coordinates, and continue to iterate on those coordinates
+# TODO: finish this
     # load in file, convert to a networkx graph
     data = json.load(open((file_name), "r").read())
     G = json_graph.node_link_graph(data, directed=False, multigraph=True)
 
     # find height and width of file's coordinates
-    
+
 
     print("height: " + str(height) + ", width: " + str(width))
 
@@ -459,7 +460,6 @@ def assign_coordinates(G, scale, r, iterations, foldr_name): # given an networkx
     counter = 1
 
     while running:
-        # stations
         print(len(G))
         for v in G.nodes():
             print("iteration " + str(counter) + " node " + v)
@@ -471,8 +471,6 @@ def assign_coordinates(G, scale, r, iterations, foldr_name): # given an networkx
         open((foldr_name + "/" + str(counter) + ".json"), "w").write(j)
 
         mt = calc_station_criteria(G)
-        if (mt > mto):
-            print("uh")
 
         if (not mt < mto) or (counter == iterations):
             running = False
@@ -481,3 +479,9 @@ def assign_coordinates(G, scale, r, iterations, foldr_name): # given an networkx
             counter += 1
 
     return G
+
+
+# TODO: add edge ordering
+# TODO: add grid spacing option
+# TODO: add ideal length option
+# TODO: add option to change weights

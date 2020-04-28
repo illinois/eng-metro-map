@@ -14,10 +14,36 @@ var visualize = function(data, colors, courses) {
 
   // boilerplate setup
   var margin = { top: 50, right: 50, bottom: 50, left: 50 },
-     // width = 960 - margin.left - margin.right,
-     // height = 1080 - margin.top - margin.bottom;
-     width = 3000 - margin.left - margin.right,
-     height = 2500 - margin.top - margin.bottom;
+     width = 960 - margin.left - margin.right,
+     height = 1080 - margin.top - margin.bottom;
+
+  var tip = d3.tip().attr('class', 'd3-tip')
+  .offset(function(d) {
+    return [-8, 0];
+  })
+  .html(function(d) {
+    // find all colors in edge attached to a node
+    let colorlist = [];
+    if (d.edges) {
+      colorlist = [...new Set(d.edges.map(a => a.color))];
+    }
+
+    let text = "<strong>" + d.id + "</strong><br>";
+
+    if (d.title && d.desc && d.hours) {
+      text = "<strong><i>" + d.id + ": " + d.title + "</i></strong><br>" +
+      d.desc.substring(0, 51) + "... <br>" +
+      "<strong>" + d.hours + "</strong>  ";
+    }
+
+    for (c of colorlist) {
+      text += "<span style='color:" + c + "'> &#9679 </span>";
+    }
+
+    return text;
+  });
+
+  // TODO: make a second tooltip for edges?
 
   var vis = d3.select('#chart')
   .append("svg")
@@ -26,39 +52,76 @@ var visualize = function(data, colors, courses) {
   .style("width", width + margin.left + margin.right)
   .style("height", height + margin.top + margin.bottom)
   .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+  .call(d3.zoom().on("zoom", function () {
+    vis.attr("transform", d3.event.transform) // TODO: fix
+  }))
+  .call(tip);
+
+  // add title & description to nodes based on id
+  for (n of data.nodes) {
+    let found = courses.find(element => (element.Subject + " " + element.Number) == n.id);
+
+    if (n.id == "TAM 210 / 211") {
+      found = courses.find(element => (element.Subject + " " + element.Number) == "TAM 211");
+    }
+
+    if (!found) {
+      n.title = "";
+      n.desc = "";
+      n.hours = 0;
+    } else {
+      n.title = found.Name;
+      n.desc = found.Description;
+      n.hours = found["Credit Hours"];
+    }
+  }
+
+  // add colors to links based on title
+  for (e of data.links) {
+    found = colors.find(element => element.Title == e.major);
+
+    if (!found) {
+      e.color = '#000';
+    } else {
+      e.color = found.Color;
+    }
+  }
+
+  // TODO: remove links between the same two nodes with the same color & combine their titles
+
 
   var edges = vis.selectAll('.edge').data(data.links);
   var nodes = vis.selectAll('.node').data(data.nodes);
 
   // create dictionary of nodes
   var nodesDict = {};
-  nodes.enter().each(function(d) {
-    d.x = (d.x * 1);
-    d.y = (d.y * 1);
-    nodesDict[d.id] = d;
+  nodes.enter().each(function(node) {
+    nodesDict[node.id] = node;
   });
 
   // link edges to node objects, create list of node's neighbors
   edges.enter().each(function(edge) {
+    // link edge to its source and target nodes
     edge.source = nodesDict[edge.source];
     edge.target = nodesDict[edge.target];
 
-    if (!edge.source.targetEdges) {
-      edge.source.targetEdges = [];
+    // add edge to the edge lists for its source and target nodes
+    if (!edge.source.edges) {
+      edge.source.edges = [];
     }
-    edge.source.targetEdges.push(edge);
+    edge.source.edges.push(edge);
 
-    if (!edge.target.sourceEdges) {
-      edge.target.sourceEdges = [];
+    if (!edge.target.edges) {
+      edge.target.edges = [];
     }
-    edge.target.sourceEdges.push(edge);
+    edge.target.edges.push(edge);
   });
 
   // when there are multiple edges between the same two nodes, assign each edge a new coordinate
-  edges.enter().each(function(d) {
-    if (d.source.targetEdges) {
-      let sharedEdges = d.source.targetEdges.filter(element => element.target == d.target);
+  edges.enter().each(function(d) { // TODO: make this better
+    if (d.source.edges) {
+      let sharedEdges = d.source.edges.filter(element => element.target == d.target);
 
       if (sharedEdges.length > 1) {
         let coLines = sharedEdges.length;
@@ -85,9 +148,6 @@ var visualize = function(data, colors, courses) {
           }
         } else { // horizontal case
           if ((coLines % 2) == 0) { // even case
-            // for case of 2 lines: rank 1 should be 2 pixels above center, rank 2 be 2 pixels below center
-            // for case of 4 lines: rank 1 5 pixels above, rank 2 should be 2 pixels above center, rank 3 be 2 pixels below center, rank 4 5 pixels below
-            // for case of 6: 8, 5, 2; 2, 5, 8
             if (rank <= center) {
               d.y1 = d.source.y + (2 + (3 * (center - rank)));
               d.y2 = d.target.y + (2 + (3 * (center - rank)));
@@ -96,7 +156,6 @@ var visualize = function(data, colors, courses) {
               d.y2 = d.target.y - (2 + (3 * (rank - center - 1)));
             }
           } else { // odd case
-            // for case of 3 lines: rank 1 should be 3 pixels above center, rank 2 should be on center, rank 3 should be 3 pixels below center
             if (rank < center) {
               d.y1 = d.source.y + (3 * (center - rank));
               d.y2 = d.target.y + (3 * (center - rank));
@@ -141,32 +200,60 @@ var visualize = function(data, colors, courses) {
     return d.target.y;
   })
   .attr('stroke', function(d) { // make edge color the major's color
-    found = colors.find(element => element.Title == d.major);
-
-    if (!found) {
-      return '#000';
-    }
-
-    console.log(found.Color);
-    return found.Color;
-  });
+    return d.color;
+  })
+  .style('stroke-width', 4);
 
   // render nodes
   nodes.enter().append('g').attr('class', 'node').append('circle')
   .attr('r', function(d) { // change size according to number of edges, default 5
-    if (d.targetEdges && d.sourceEdges) {
-      let num = (d.targetEdges.length + d.sourceEdges.length) / 2;
+    if (d.edges) {
+      d.num = Math.ceil(d.edges.length / 2);
 
-      if (num > 2) {
-        return 5 + (num / 2);
+      if (d.num > 1) {
+        d.radius = Math.ceil(((3 * (d.num)) / 2) + 1);
+        return d.radius;
       }
     }
 
-    return 5;
+    return 4;
   })
   .attr('transform', function(d) {
     return 'translate(' + d.x + ', ' + d.y + ')';
-  }).append('title').text(function(d) {
-      return d.id;
-  });
+  })
+  .style('stroke-width', function(d) {
+    if (d.num && (d.num > 6)) {
+      return 4;
+    }
+
+    return 3;
+  })
+  .on('mouseover', tip.show)
+  .on('mouseout', tip.hide);
+
+  // add 'bullseye' shape for large nodes
+  nodes.enter().append('g').attr('class', 'node').append('circle')
+  .attr('transform', function(d) {
+    return 'translate(' + d.x + ', ' + d.y + ')';
+  })
+  .attr('r', function(d) {
+    if (d.num && d.radius) {
+      if (d.num > 8) {
+        return (d.radius - 10);
+      }
+    }
+
+    return 0;
+  })
+  .style('stroke-width', function(d) {
+    if (d.num && d.radius) {
+      if (d.num > 8) {
+        return 4;
+      }
+    }
+
+    return 0;
+  })
+  .on('mouseover', tip.show)
+  .on('mouseout', tip.hide);
 }

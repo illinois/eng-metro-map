@@ -90,7 +90,7 @@ def read_in_files(foldr_name):
 
 
 file_name = str(datetime.datetime.now().time()) + "CoEgraph"
-G = read_in_files("CoE")
+G = read_in_files("ECE")
 
 # modified to save a snapshot of every iteration
 os.mkdir(file_name)

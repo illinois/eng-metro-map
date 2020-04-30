@@ -1,0 +1,58 @@
+%Software Foundations% = ("CS 422", "CS 426", "CS 427", "CS 428", "CS 429", "CS 476", "CS 477", "CS 492", "CS 493", "CS 494", "CS 498", "CS 498", "CS 522", "CS 524", "CS 526", "CS 527", "CS 528", "CS 576", "CS 598", "CS 598");
+
+%Algorithms and Models of Computation% = ("CS 413", "CS 473", "CS 475", "CS 476", "CS 477", "CS 481", "CS 482", "CS 498", "CS 498", "CS 571", "CS 572", "CS 573", "CS 574", "CS 575", "CS 576", "CS 579", "CS 583", "CS 584", "CS 598");
+
+%Intelligence and Big Data% = ("CS 410", "CS 411", "CS 412", "CS 414", "CS 440", "CS 443", "CS 445", "CS 446", "CS 447", "CS 466", "CS 467", "CS 498", "CS 498", "CS 498", "CS 498", "CS 510", "CS 511", "CS 512", "CS 543", "CS 544", "CS 546", "CS 548", "CS 566", "CS 576", "CS 598");
+
+%Human and Social Impact% = ("CS 460", "CS 461", "CS 463", "CS 465", "CS 467", "CS 468", "CS 498", "CS 498", "CS 498", "CS 498", "CS 498", "CS 498", "CS 498", "CS 563", "CS 565");
+
+%Media% = ("CS 414", "CS 418", "CS 419", "CS 445", "CS 465", "CS 467", "CS 468", "CS 498", "CS 498", "CS 498", "CS 498", "CS 519", "CS 565", "CS 598");
+
+%Scientific, Parallel, and High Performance Computing% = ("CS 419", "CS 450", "CS 457", "CS 466", "CS 482", "CS 483", "CS 484", "CS 498", "CS 519", "CS 554", "CS 555", "CS 556", "CS 558");
+
+%Distributed Systems, Networking, and Security% = ("CS 423", "CS 424", "CS 425", "CS 431", "CS 436", "CS 438", "CS 439", "CS 460", "CS 461", "CS 463", "CS 483", "CS 484", "CS 498", "CS 523", "CS 524", "CS 525", "CS 538", "CS 563");
+
+%Machines% = ("CS 423", "CS 424", "CS 426", "CS 431", "CS 433", "CS 484", "CS 523", "CS 526", "CS 533", "CS 536", "CS 541", "CS 584", "CS 598");
+
+%Team Project% = ("CS 427", "CS 428", "CS 429", "CS 465", "CS 467", "CS 493", "CS 494", "CS 497", "CS 498");
+
+%Advanced CS Courses% = (%Software Foundations%, %Algorithms and Models of Computation%, %Intelligence and Big Data%, %Human and Social Impact%, %Media%, %Scientific, Parallel, and High Performance Computing%, %Distributed Systems, Networking, and Security%, %Machines%, %Team Project%);
+
+%Science Electives% = ("AE 202", "ANTH 249", "ASTR 210", "ASTR 350", "ATMS 100", "ATMS 120", "ATMS 140", "ATMS 201", "BIOE 205", "BIOE 206", "CEE 201", "CEE 202", ("CHEM 102" AND "CHEM 104"), "CPSC 112", "CPSC 265", "CPSC 270", "DANC 345", "FSHN 101", "FSHN 120", "GEOL 103", "GEOL 107", "GEOL 111", "GEOL 117", "GEOL 118", "GEOL 143", "GEOL 208", "IB 103", "IB 104", "IB 150", "KIN 150", "MCB 150", "MCB 244", "NPRE 247", "NRES 100", "NRES 102", "PLPA 204", "PSYC 204", "PSYC 224", "PSYC 248", "SHS 240", "SHS 280");
+
+128 HOURS TOTAL FROM (
+"CS 210",
+"ENG 100",
+("MATH 221" OR "MATH 220"),
+"MATH 231",
+"MATH 241",
+"MATH 415",
+"PHYS 211",
+"PHYS 212",
+
+1 FROM %Science Electives%,
+
+"CS 125",
+"CS 126",
+"CS 173",
+"CS 225",
+"CS 233",
+"CS 241",
+("CS 361" OR "STAT 400"),
+"CS 357",
+"CS 374",
+"CS 421",
+6 FROM %Advanced CS Courses%,
+1 FROM %Team Project%,
+
+(3 FROM %Software Foundations% OR 3 FROM %Algorithms and Models of Computation% OR 3 FROM %Intelligence and Big Data% OR 3 FROM %Human and Social Impact% OR 3 FROM %Media% OR 3 FROM %Scientific, Parallel, and High Performance Computing% OR 3 FROM %Distributed Systems, Networking, and Security% OR 3 FROM %Machines%),
+
+1 FROM ("RHET 105", ("CMN 111" AND "CMN 112"), ("ESL 111" AND "ESL 112"), "ESL 115"),
+
+1 FROM %Advanced Composition%,
+1 FROM %Non-Western Cultures%,
+1 FROM %U.S. Minority Cultures%,
+1 FROM %Western/Comparative Cultures%,
+6 HOURS FROM %Humanities and the Arts%,
+6 HOURS FROM %Social and Behavioral Sciences%,
+6 HOURS FROM (%Social and Behavioral Sciences%, %Humanities and the Arts%));

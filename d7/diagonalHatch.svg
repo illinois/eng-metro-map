@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+    <g transform="rotate(45 0 0)">
+        <line x1="0" y1="0" x2="50" y2="0" style="stroke:hsl(274, 54%, 60%); stroke-width:1;" shape-rendering="crispEdges" />
+    </g>
+</svg>

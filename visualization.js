@@ -153,9 +153,16 @@ var process = function(data, colors, courses) {
 var visualize = function(data, colors, courses, nodesDict) {
   console.log(data);
 
+  // Find the width of the area where the `svg` will be placed:
+  let client_width = $("#sizer").width();
+  
+  // Scale the visualization based on a scale of the size and the width of the rendered content:
+  let scale_factor = client_width / 2000;
+
+
   // boilerplate setup
   var margin = { top: 50, right: 50, bottom: 50, left: 50 },
-     width = 960 - margin.left - margin.right,
+     width = client_width - margin.left - margin.right,
      height = 1080 - margin.top - margin.bottom;
 
   var tip = d3.tip().attr('class', 'd3-tip')
@@ -184,12 +191,16 @@ var visualize = function(data, colors, courses, nodesDict) {
     return text;
   });
 
+
+
   var vis = d3.select('#chart')
   .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
   .style("width", width + margin.left + margin.right)
   .style("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "scale(" + scale_factor + ")")
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
   .call(d3.zoom().on("zoom", function () {

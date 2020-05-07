@@ -73,8 +73,50 @@
     <hr />
 
     <h3>Introduction</h3>
+    <p>Majors in the Grainger College of Engineering at The University of Illinois at Urbana-Champaign (UIUC) tend to require long chains of specific courses in order to earn a degree. While many of these required courses are common across multiple majors, the existing <a href="http://catalog.illinois.edu/undergraduate/">University Catalog</a> and <a href="https://grainger.illinois.edu/academics/undergraduate/majors-and-minors/cs-map">Curriculum Map</a> listings focus on only individual courses of study. This work presents a unified layout of the required courses in all Engineering majors (including Chemical Engineering) at UIUC, laid out in the classical form of a metro map, where each course is a station and each major is a line. By drawing majors in a computationally generated metro map format, we seek to create a design that better portrays the prerequisite chains and courses shared between different majors.</p>
+
+    <h3>Key to lines</h3>
+    <p>Each station denotes a single course. Its radius indicates how many majors travel through the course. Hover over any station to learn more about the course, and view the majors connected to it.</p>
+    <p>Each major is given a unique color, and represented as a train line.</p>
+    <center><div id="legend"></div></center>
+
+    <h3>The Metro Map</h3>
     <div id="sizer"></div>
     <div id="chart"></div>
+
+    <h3>The Downtown of Engineering</h3>
+    <p>The left of the graph is dominated by a series of stations – ENG 100, MATH 221-241, PHYS 211 and 212 – that are required by all represented majors. As the algorithm used to computationally plot this metro map begins with a force-directed graph that is then iterated upon to prioritize metro-map-like shapes, these courses are displayed close together due to the large number of majors that travel between them. In many real world metro maps, the downtown area is more condensed, with many of the available lines converging into a cluster of the busiest stations. The layout of these most-traveled stations mimic that part of a metro map, if denser than normal: it is very unusual for a true metro system to contain any station that more than 8 lines travel through – much less 15!</p>
+
+    <h3>The Majors</h3>
+    <p>The following graphs represent the metro line of each major, generated separately from the rest of the map. As the metro map plotting algorithm prioritizes straight lines and square angles, each major falls into a different shape when isolated from the others. The longest major shown here is Aerospace Engineering, with 33 stations, and the shortest major is Engineering Physics. The most co-dependent majors are Computer and Electrical Engineering, which share 17 of their stations, and are plotted together.</p>
+
+    <h4>Aerospace Engineering</h4>
+
+    <h4>Agricultural and Biological Engineering</h4>
+
+    <h4>Bioengineering</h4>
+
+    <h4>Chemical and Biomolecular Engineering</h4>
+
+    <h4>Civil Engineering</h4>
+
+    <h4>Computer and Electrical Engineering</h4>
+
+    <h4>Computer Science</h4>
+
+    <h4>Engineering Mechanics</h4>
+
+    <h4>Engineering Physics</h4>
+
+    <h4>Industrial Engineering</h4>
+
+    <h4>Materials Science and Engineering</h4>
+
+    <h4>Mechanical Engineering</h4>
+
+    <h4>Nuclear, Plasma, and Radiological Engineering</h4>
+
+    <h4>Systems Engineering</h4>
 
     <!-- All the JS files -->
     <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>

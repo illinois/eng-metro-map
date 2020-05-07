@@ -3,11 +3,211 @@ $(function() {
   d3.json("CoEGraph.json").then(function(coordinates) {
     d3.csv("majorcolors.csv").then(function(colors) {
       d3.csv("coursecatalog.csv").then(function(courses) {
+        vislegend();
         process(coordinates, colors, courses);
       })
     })
   })
 })
+
+var vislegend = function() {
+
+  var margin = { top: 5, right: 5, bottom: 5, left: 10 },
+     width = 600 - margin.left - margin.right,
+     height = 310 - margin.top - margin.bottom;
+
+  var vis = d3.select('#legend')
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .style("width", width + margin.left + margin.right)
+    .style("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  var textx = (width / 3) + margin.left;
+  var lineend = (width / 3);
+
+  vis.append('text').text('Aerospace Engineering')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 10);
+
+  vis.append('line').attr('stroke', '#ef2722').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 6)
+    .attr('x2', lineend)
+    .attr('y2', 6);
+
+  vis.append('text').text('Agricultural and Biological Engineering')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 30);
+
+  vis.append('line').attr('stroke', '#fdde33').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 26)
+    .attr('x2', lineend)
+    .attr('y2', 26);
+
+  vis.append('text').text('Bioengineering')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 50);
+
+  vis.append('line').attr('stroke', '#f088a1').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 46)
+    .attr('x2', lineend)
+    .attr('y2', 46);
+
+  vis.append('text').text('Chemical and Biomolecular Engineering')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 70);
+
+  vis.append('line').attr('stroke', '#990b5d').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 66)
+    .attr('x2', lineend)
+    .attr('y2', 66);
+
+  vis.append('text').text('Civil Engineering')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 90);
+
+  vis.append('line').attr('stroke', '#ad611d').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 86)
+    .attr('x2', lineend)
+    .attr('y2', 86);
+
+  vis.append('text').text('Computer Engineering')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 110);
+
+  vis.append('line').attr('stroke', '#7fccba').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 106)
+    .attr('x2', lineend)
+    .attr('y2', 106);
+
+  vis.append('text').text('Electrical Engineering')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 130);
+
+  vis.append('line').attr('stroke', '#0e707c').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 126)
+    .attr('x2', lineend)
+    .attr('y2', 126);
+
+  vis.append('text').text('Computer Science')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 150);
+
+  vis.append('line').attr('stroke', '#1aa0da').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 146)
+    .attr('x2', lineend)
+    .attr('y2', 146);
+
+  vis.append('text').text('Engineering Mechanics')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 170);
+
+  vis.append('line').attr('stroke', '#f38035').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 166)
+    .attr('x2', lineend)
+    .attr('y2', 166);
+
+  vis.append('text').text('Engineering Physics')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 190);
+
+  vis.append('line').attr('stroke', '#90999f').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 186)
+    .attr('x2', lineend)
+    .attr('y2', 186);
+
+  vis.append('text').text('Industrial Engineering')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 210);
+
+  vis.append('line').attr('stroke', '#16995d').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 206)
+    .attr('x2', lineend)
+    .attr('y2', 206);
+
+  vis.append('text').text('Materials Science and Engineering')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 230);
+
+  vis.append('line').attr('stroke', '#224697').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 226)
+    .attr('x2', lineend)
+    .attr('y2', 226);
+
+  vis.append('text').text('Mechanical Engineering')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 250);
+
+  vis.append('line').attr('stroke', '#f5a72f').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 246)
+    .attr('x2', lineend)
+    .attr('y2', 246);
+
+  vis.append('text').text('Nuclear, Plasma, and Radiological Engineering')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 270);
+
+  vis.append('line').attr('stroke', '#7abd31').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 266)
+    .attr('x2', lineend)
+    .attr('y2', 266);
+
+  vis.append('text').text('Systems Engineering')
+    .attr('font-family', 'sans-serif')
+    .attr('font-size', '13px')
+    .attr('x', textx)
+    .attr('y', 290);
+
+  vis.append('line').attr('stroke', '#000').style('stroke-width', 4)
+    .attr('x1', margin.left)
+    .attr('y1', 286)
+    .attr('x2', lineend)
+    .attr('y2', 286);
+};
 
 var process = function(data, colors, courses) {
   // create dictionary of nodes
@@ -15,6 +215,8 @@ var process = function(data, colors, courses) {
 
   // add nodes to dict, add title & description to nodes based on id
   for (n of data.nodes) {
+    n.y = (n.y - 200);
+
     nodesDict[n.id] = n;
 
     let found = courses.find(element => (element.Subject + " " + element.Number) == n.id);
@@ -162,7 +364,7 @@ var visualize = function(data, colors, courses, nodesDict) {
   // boilerplate setup
   var margin = { top: 50, right: 50, bottom: 50, left: 50 },
      width = client_width - margin.left - margin.right,
-     height = 1250 - margin.top - margin.bottom;
+     height = 1050 - margin.top - margin.bottom;
 
   var tip = d3.tip().attr('class', 'd3-tip')
   .offset(function(d) {

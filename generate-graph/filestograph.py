@@ -60,6 +60,7 @@ def read_in_files(foldr_name):
                     parentheses -= line.count(")")
 
             print(major_title)
+            print(len(courses))
             print(courses)
 
             # add each course to nodes (if dne), and add an edge to the next node
@@ -90,7 +91,7 @@ def read_in_files(foldr_name):
 
 
 file_name = str(datetime.datetime.now().time()) + "CoEgraph"
-G = read_in_files("ECE")
+G = read_in_files("CoE")
 
 # modified to save a snapshot of every iteration
 os.mkdir(file_name)

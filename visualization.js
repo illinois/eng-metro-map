@@ -3,211 +3,11 @@ $(function() {
   d3.json("CoEGraph.json").then(function(coordinates) {
     d3.csv("majorcolors.csv").then(function(colors) {
       d3.csv("coursecatalog.csv").then(function(courses) {
-        vislegend();
         process(coordinates, colors, courses);
       })
     })
   })
 })
-
-var vislegend = function() {
-
-  var margin = { top: 5, right: 5, bottom: 5, left: 10 },
-     width = 600 - margin.left - margin.right,
-     height = 310 - margin.top - margin.bottom;
-
-  var vis = d3.select('#legend')
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .style("width", width + margin.left + margin.right)
-    .style("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  var textx = (width / 3) + margin.left;
-  var lineend = (width / 3);
-
-  vis.append('text').text('Aerospace Engineering')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 10);
-
-  vis.append('line').attr('stroke', '#ef2722').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 6)
-    .attr('x2', lineend)
-    .attr('y2', 6);
-
-  vis.append('text').text('Agricultural and Biological Engineering')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 30);
-
-  vis.append('line').attr('stroke', '#fdde33').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 26)
-    .attr('x2', lineend)
-    .attr('y2', 26);
-
-  vis.append('text').text('Bioengineering')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 50);
-
-  vis.append('line').attr('stroke', '#f088a1').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 46)
-    .attr('x2', lineend)
-    .attr('y2', 46);
-
-  vis.append('text').text('Chemical and Biomolecular Engineering')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 70);
-
-  vis.append('line').attr('stroke', '#990b5d').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 66)
-    .attr('x2', lineend)
-    .attr('y2', 66);
-
-  vis.append('text').text('Civil Engineering')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 90);
-
-  vis.append('line').attr('stroke', '#ad611d').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 86)
-    .attr('x2', lineend)
-    .attr('y2', 86);
-
-  vis.append('text').text('Computer Engineering')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 110);
-
-  vis.append('line').attr('stroke', '#7fccba').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 106)
-    .attr('x2', lineend)
-    .attr('y2', 106);
-
-  vis.append('text').text('Electrical Engineering')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 130);
-
-  vis.append('line').attr('stroke', '#0e707c').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 126)
-    .attr('x2', lineend)
-    .attr('y2', 126);
-
-  vis.append('text').text('Computer Science')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 150);
-
-  vis.append('line').attr('stroke', '#1aa0da').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 146)
-    .attr('x2', lineend)
-    .attr('y2', 146);
-
-  vis.append('text').text('Engineering Mechanics')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 170);
-
-  vis.append('line').attr('stroke', '#f38035').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 166)
-    .attr('x2', lineend)
-    .attr('y2', 166);
-
-  vis.append('text').text('Engineering Physics')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 190);
-
-  vis.append('line').attr('stroke', '#90999f').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 186)
-    .attr('x2', lineend)
-    .attr('y2', 186);
-
-  vis.append('text').text('Industrial Engineering')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 210);
-
-  vis.append('line').attr('stroke', '#16995d').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 206)
-    .attr('x2', lineend)
-    .attr('y2', 206);
-
-  vis.append('text').text('Materials Science and Engineering')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 230);
-
-  vis.append('line').attr('stroke', '#224697').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 226)
-    .attr('x2', lineend)
-    .attr('y2', 226);
-
-  vis.append('text').text('Mechanical Engineering')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 250);
-
-  vis.append('line').attr('stroke', '#f5a72f').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 246)
-    .attr('x2', lineend)
-    .attr('y2', 246);
-
-  vis.append('text').text('Nuclear, Plasma, and Radiological Engineering')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 270);
-
-  vis.append('line').attr('stroke', '#7abd31').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 266)
-    .attr('x2', lineend)
-    .attr('y2', 266);
-
-  vis.append('text').text('Systems Engineering')
-    .attr('font-family', 'sans-serif')
-    .attr('font-size', '13px')
-    .attr('x', textx)
-    .attr('y', 290);
-
-  vis.append('line').attr('stroke', '#000').style('stroke-width', 4)
-    .attr('x1', margin.left)
-    .attr('y1', 286)
-    .attr('x2', lineend)
-    .attr('y2', 286);
-};
 
 var process = function(data, colors, courses) {
   // create dictionary of nodes
@@ -215,7 +15,7 @@ var process = function(data, colors, courses) {
 
   // add nodes to dict, add title & description to nodes based on id
   for (n of data.nodes) {
-    n.y = (n.y - 200);
+    n.y = (n.y - 195);
 
     nodesDict[n.id] = n;
 
@@ -364,7 +164,7 @@ var visualize = function(data, colors, courses, nodesDict) {
   // boilerplate setup
   var margin = { top: 50, right: 50, bottom: 50, left: 50 },
      width = client_width - margin.left - margin.right,
-     height = 1050 - margin.top - margin.bottom;
+     height = 1000 - margin.top - margin.bottom; // scale height???
 
   var tip = d3.tip().attr('class', 'd3-tip')
   .offset(function(d) {
@@ -388,7 +188,6 @@ var visualize = function(data, colors, courses, nodesDict) {
     for (c of colorlist) {
       text += "<span style='color:" + c + "'> &#9679 </span>";
     }
-
     return text;
   });
 
@@ -406,6 +205,162 @@ var visualize = function(data, colors, courses, nodesDict) {
     vis.attr("transform", d3.event.transform)
   }))
   .call(tip);
+
+  var top = 3;
+  var textx = 150;
+  var linestart = 0;
+  var lineend = 130;
+  var factor = 22;
+
+  vis.append('text').text('Aerospace Engineering').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10);
+
+  vis.append('line').attr('stroke', '#ef2722').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', top + 6)
+    .attr('x2', lineend)
+    .attr('y2', top + 6);
+
+  vis.append('text').text('Agricultural and Biological Engineering').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10 + factor);
+
+  vis.append('line').attr('stroke', '#fdde33').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', (top + 10 + factor) - 6)
+    .attr('x2', lineend)
+    .attr('y2', (top + 10 + factor) - 6);
+
+  vis.append('text').text('Bioengineering').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10 + (factor * 2));
+
+  vis.append('line').attr('stroke', '#f088a1').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', (top + 10 + (factor * 2)) - 6)
+    .attr('x2', lineend)
+    .attr('y2', (top + 10 + (factor * 2)) - 6);
+
+  vis.append('text').text('Chemical and Biomolecular Engineering').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10 + (factor * 3));
+
+  vis.append('line').attr('stroke', '#990b5d').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', (top + 10 + (factor * 3)) - 6)
+    .attr('x2', lineend)
+    .attr('y2', (top + 10 + (factor * 3)) - 6);
+
+  vis.append('text').text('Civil Engineering').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10 + (factor * 4));
+
+  vis.append('line').attr('stroke', '#ad611d').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', (top + 10 + (factor * 4)) - 6)
+    .attr('x2', lineend)
+    .attr('y2', (top + 10 + (factor * 4)) - 6);
+
+  vis.append('text').text('Computer Engineering').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10 + (factor * 5));
+
+  vis.append('line').attr('stroke', '#7fccba').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', (top + 10 + (factor * 5)) - 6)
+    .attr('x2', lineend)
+    .attr('y2', (top + 10 + (factor * 5)) - 6);
+
+  vis.append('text').text('Electrical Engineering').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10 + (factor * 6));
+
+  vis.append('line').attr('stroke', '#0e707c').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', (top + 10 + (factor * 6)) - 6)
+    .attr('x2', lineend)
+    .attr('y2', (top + 10 + (factor * 6)) - 6);
+
+  vis.append('text').text('Computer Science').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10 + (factor * 7));
+
+  vis.append('line').attr('stroke', '#1aa0da').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', (top + 10 + (factor * 7)) - 6)
+    .attr('x2', lineend)
+    .attr('y2', (top + 10 + (factor * 7)) - 6);
+
+  vis.append('text').text('Engineering Mechanics').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10 + (factor * 8));
+
+  vis.append('line').attr('stroke', '#f38035').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', (top + 10 + (factor * 8)) - 6)
+    .attr('x2', lineend)
+    .attr('y2', (top + 10 + (factor * 8)) - 6);
+
+  vis.append('text').text('Engineering Physics').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10 + (factor * 9));
+
+  vis.append('line').attr('stroke', '#90999f').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', (top + 10 + (factor * 9)) - 6)
+    .attr('x2', lineend)
+    .attr('y2', (top + 10 + (factor * 9)) - 6);
+
+  vis.append('text').text('Industrial Engineering').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10 + (factor * 10));
+
+  vis.append('line').attr('stroke', '#16995d').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', (top + 10 + (factor * 10)) - 6)
+    .attr('x2', lineend)
+    .attr('y2', (top + 10 + (factor * 10)) - 6);
+
+  vis.append('text').text('Materials Science and Engineering').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10 + (factor * 11));
+
+  vis.append('line').attr('stroke', '#224697').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', (top + 10 + (factor * 11)) - 6)
+    .attr('x2', lineend)
+    .attr('y2', (top + 10 + (factor * 11)) - 6);
+
+  vis.append('text').text('Mechanical Engineering').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10 + (factor * 12));
+
+  vis.append('line').attr('stroke', '#f5a72f').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', (top + 10 + (factor * 12)) - 6)
+    .attr('x2', lineend)
+    .attr('y2', (top + 10 + (factor * 12)) - 6);
+
+  vis.append('text').text('Nuclear, Plasma, and Radiological Engineering').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10 + (factor * 13));
+
+  vis.append('line').attr('stroke', '#7abd31').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', (top + 10 + (factor * 13)) - 6)
+    .attr('x2', lineend)
+    .attr('y2', (top + 10 + (factor * 13)) - 6);
+
+  vis.append('text').text('Systems Engineering').attr('class', 'majortext')
+    .attr('x', textx)
+    .attr('y', top + 10 + (factor * 14));
+
+  vis.append('line').attr('stroke', '#000').style('stroke-width', 8)
+    .attr('x1', linestart)
+    .attr('y1', (top + 10 + (factor * 14)) - 6)
+    .attr('x2', lineend)
+    .attr('y2', (top + 10 + (factor * 14)) - 6);
 
   var edges = vis.selectAll('.edge').data(data.links);
   var nodes = vis.selectAll('.node').data(data.nodes);

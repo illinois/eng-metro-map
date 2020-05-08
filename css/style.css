@@ -5,10 +5,16 @@
 
 .d3-tip {
   background: #fff;
-  font-family: sans-serif;
-  font-size: 12px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11px;
   padding: 8px;
   border-radius: 15px;
   border: 2px solid #0f6db4;
-  width: 165px;
+  width: 185px;
+}
+
+.majortext {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
 }

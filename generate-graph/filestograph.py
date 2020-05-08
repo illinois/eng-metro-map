@@ -60,8 +60,6 @@ def read_in_files(foldr_name):
                     parentheses -= line.count(")")
 
             print(major_title)
-            print(len(courses))
-            print(courses)
 
             # add each course to nodes (if dne), and add an edge to the next node
             for x in range(0, len(courses)):
@@ -91,13 +89,13 @@ def read_in_files(foldr_name):
 
 
 file_name = str(datetime.datetime.now().time()) + "CoEgraph"
-G = read_in_files("CoE")
+G = read_in_files("major")
 
 # modified to save a snapshot of every iteration
 os.mkdir(file_name)
 
 # run coordinate algoritm
-G = assign_coordinates(G, 1000, 3, 50, file_name)
+G = assign_coordinates(G, 10, 10, 100, file_name)
 
 # create json file from graph
 j = json.dumps(json_graph.node_link_data(G))

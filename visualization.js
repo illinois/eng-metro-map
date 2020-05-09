@@ -262,10 +262,105 @@ var processLite = function(data, colors, courses) { // for individual / double l
       }
     }
   }
+
+  return nodesDict;
 };
 
-var visline = function(data, tip, divid) {
-  
+var visline = function(data, colors, courses, tip, divid) {
+  console.log(data);
+  let client_width = $("#sizer").width();
+  let scale_factor = client_width / 1200;
+
+  // boilerplate setup
+  let margin = { top: 50, right: 50, bottom: 50, left: 50 },
+     width = client_width - margin.left - margin.right,
+     height = 150 - margin.top - margin.bottom; // scale height???
+
+  let vis_line = d3.select(('#' + divid))
+  .append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .style("width", width + margin.left + margin.right)
+  .style("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "scale(" + scale_factor + ")")
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+  .call(tip);
+
+  let minx = data.nodes.reduce((min, p) => p.x < min ? p.x : min, data.nodes[0].x);
+  let miny = data.nodes.reduce((min, p) => p.y < min ? p.y : min, data.nodes[0].y);
+  for (n of data.nodes) {
+    n.x = (n.x - minx) * 2.8;
+    n.y = (n.y - miny) * 2.8;
+  }
+
+  nodesDict = processLite(data, colors, courses);
+
+  var edges = vis_line.selectAll('.edge').data(data.links);
+  var nodes = vis_line.selectAll('.node').data(data.nodes);
+
+  // render edges
+  edges.enter().append('line').attr('class', 'edge')
+  .attr('x1', function(d) {
+    if (d.x1) {
+      return d.x1;
+    }
+
+    return d.source.x;
+  })
+  .attr('y1', function(d) {
+    if (d.y1) {
+      return d.y1;
+    }
+
+    return d.source.y;
+  })
+  .attr('x2', function(d) {
+    if (d.x2) {
+      return d.x2;
+    }
+
+    return d.target.x;
+  })
+  .attr('y2', function(d) {
+    if (d.y2) {
+      return d.y2;
+    }
+
+    return d.target.y;
+  })
+  .attr('stroke', function(d) { // make edge color the major's color
+    return d.color;
+  })
+  .style('stroke-width', 4);
+
+  // render nodes
+  nodes.enter().append('g').attr('class', 'node').append('circle')
+  .attr('r', function(d) { // change size according to number of edges, default 5
+    if (d.edges) {
+      d.num = Math.ceil(d.edges.length / 2);
+
+      if (d.num > 1) {
+        d.radius = Math.ceil(((3 * (d.num)) / 2) + 1);
+        return d.radius;
+      }
+    }
+
+    return 4;
+  })
+  .attr('transform', function(d) {
+    return 'translate(' + d.x + ', ' + d.y + ')';
+  })
+  .style('stroke-width', function(d) {
+    if (d.num && (d.num > 6)) {
+      return 4;
+    }
+
+    return 3;
+  })
+  .on('mouseover', tip.show)
+  .on('mouseout', tip.hide);
 };
 
 var vismajors = function(data, colors, courses) {
@@ -295,6 +390,21 @@ var vismajors = function(data, colors, courses) {
     }
     return text;
   });
+
+  visline(data["Aerospace"], colors, courses, tip, 'Aerospace');
+  visline(data["Agricultural"], colors, courses, tip, 'Agricultural');
+  visline(data["Bioengineering"], colors, courses, tip, 'Bioengineering');
+  visline(data["Chemical"], colors, courses, tip, 'Chemical');
+  visline(data["Civil"], colors, courses, tip, 'Civil');
+  visline(data["ECE"], colors, courses, tip, 'ECE');
+  visline(data["CS"], colors, courses, tip, 'CS');
+  visline(data["Mechanics"], colors, courses, tip, 'Mechanics');
+  visline(data["Physics"], colors, courses, tip, 'Physics');
+  visline(data["Industrial"], colors, courses, tip, 'Industrial');
+  visline(data["MatSE"], colors, courses, tip, 'MatSE');
+  visline(data["Mechanical"], colors, courses, tip, 'Mechanical');
+  visline(data["NPRE"], colors, courses, tip, 'NPRE');
+  visline(data["Systems"], colors, courses, tip, 'Systems');
 };
 
 var visualize = function(data, colors, courses, nodesDict) {

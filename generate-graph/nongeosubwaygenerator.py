@@ -357,13 +357,7 @@ def find_new_location(n, G, height, width, r):
 
 
 def assign_initial_coordinates(G, scale): # create an initial layout
-    # generated_postitions = nx.kamada_kawai_layout(G, center=[1, 1])
-    generated_postitions = {}
-    x = 0
-    y = 5
-    for v in G.nodes():
-        generated_postitions[v] = (x, y)
-        x = x + 1
+    generated_postitions = nx.kamada_kawai_layout(G, center=[1, 1])
     positions = {}
 
     for node, pos in generated_postitions.items():

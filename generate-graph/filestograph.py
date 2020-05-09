@@ -60,6 +60,7 @@ def read_in_files(foldr_name):
                     parentheses -= line.count(")")
 
             print(major_title)
+            print(courses)
 
             # add each course to nodes (if dne), and add an edge to the next node
             for x in range(0, len(courses)):
@@ -95,7 +96,7 @@ G = read_in_files("major")
 os.mkdir(file_name)
 
 # run coordinate algoritm
-G = assign_coordinates(G, 10, 10, 100, file_name)
+G = assign_coordinates(G, 100, 100, 10, file_name) # G, scale, r, iterations, foldr_name
 
 # create json file from graph
 j = json.dumps(json_graph.node_link_data(G))

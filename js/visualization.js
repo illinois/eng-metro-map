@@ -2,7 +2,7 @@
 var data_ = null, colors_ = null, courses_ = null, nodesDict_ = null, majors_ = null, coordinates_ = null;
 
 $(function() {
-  d3.json("data/CoEGraph.json").then(function(coordinates) {
+  d3.json("data/CoEgraph.json").then(function(coordinates) {
     d3.csv("data/majorcolors.csv").then(function(colors) {
       d3.csv("data/coursecatalog.csv").then(function(courses) {
         d3.json("data/singlemajors.json").then(function(majors) {

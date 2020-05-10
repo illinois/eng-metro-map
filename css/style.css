@@ -19,6 +19,10 @@
   font-weight: bold;
 }
 
+.station-label {
+  font-family: 'Open Sans', sans-serif;
+}
+
 h3 {
   margin-top: 15px;
 }

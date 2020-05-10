@@ -292,8 +292,8 @@ var processLite = function(data, colors, courses) { // for individual / double l
 var nodesDictProcessed_ = {};
 var visline = function(data, colors, courses, tip, divid) {
   color = "black";
-  colorElement = colors.find(c => c.Title == data.links[0].major);
-  if (colorElement) { color = colorElement.Color; }
+  // colorElement = colors.find(c => c.Title == data.links[0].major);
+  // if (colorElement) { color = colorElement.Color; }
 
   let client_width = $("#sizer").width();
   let scale_factor = client_width / 1200;
@@ -387,7 +387,7 @@ var visline = function(data, colors, courses, tip, divid) {
     .attr('transform', function(d) {
       return 'translate(' + d.x + ', ' + d.y + ')';
     });
-  
+
   node_g.append('circle')
   .attr('class', 'node')
   .attr('r', function(d) { // change size according to number of edges, default 5
@@ -416,7 +416,7 @@ var visline = function(data, colors, courses, tip, divid) {
     "Agricultural": ["SE 101", "TAM 210", "TAM 212", "ECON 103"],
     "Chemical": ["IE 300"],
     "ECE": ["CS 173", "CS 225", "ECE 313", "CS 374", "ECE 445"],
-    "CS": ["CS 241", "CS 361"],
+    "CS": ["CS 241", "STAT 400"],
     "Physics": ["PHYS 435"],
     "Industrial": ["TAM 251"],
     "MatSE": ["ECE 205", "IE 300", "MSE 406", "MSE 402"],
@@ -424,16 +424,16 @@ var visline = function(data, colors, courses, tip, divid) {
     "NPRE": ["TAM 212"],
     "Systems": ["TAM 335"]
   };
-  
+
   let dontLabel = dontLabelDict[divid];
 
   node_g
-  .append("text")
+  .append("text").attr('class', 'station-label')
   .attr("fill", color)
   .attr('font-size', '10px')
   .attr('font-weight', 'bold')
-  .attr('x', '7')
-  .attr('y', '5')
+  .attr('x', '9')
+  .attr('y', '6')
   .attr('transform', 'rotate(45)')
   .style('display', function (d) {
     if (dontLabel && dontLabel.indexOf(d.id) != -1) { return 'none'; }
@@ -443,6 +443,7 @@ var visline = function(data, colors, courses, tip, divid) {
 };
 
 var vismajors = function(data, colors, courses) {
+  console.log(data);
   var tip = d3.tip().attr('class', 'd3-tip')
   .offset(function(d) {
     return [-8, 0];

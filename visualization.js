@@ -443,7 +443,6 @@ var visline = function(data, colors, courses, tip, divid) {
 };
 
 var vismajors = function(data, colors, courses) {
-  console.log(data);
   var tip = d3.tip().attr('class', 'd3-tip')
   .offset(function(d) {
     return [-8, 0];

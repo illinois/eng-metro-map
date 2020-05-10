@@ -1,9 +1,14 @@
 // read in data and call visualize
+var data_ = null, colors_ = null, courses_ = null, nodesDict_ = null, majors_ = null, coordinates_ = null;
+
 $(function() {
   d3.json("CoEGraph.json").then(function(coordinates) {
     d3.csv("majorcolors.csv").then(function(colors) {
       d3.csv("coursecatalog.csv").then(function(courses) {
         d3.json("singlemajors.json").then(function(majors) {
+          coordinates_ = coordinates;
+          majors_ = majors;
+
           process(coordinates, colors, courses);
           vismajors(majors, colors, courses);
         })
@@ -11,6 +16,20 @@ $(function() {
     })
   })
 })
+
+
+
+
+
+// -- resize --
+$(window).resize(function () {
+  if (data_ != null) {
+    visualize(data_, colors_, courses_, nodesDict_);
+    //process(coordinates_, colors_, courses_);
+    vismajors(majors_, colors_, courses_);
+  }
+});
+
 
 var process = function(data, colors, courses) {
   // create dictionary of nodes
@@ -147,6 +166,10 @@ var process = function(data, colors, courses) {
     }
   }
 
+  data_ = data;
+  colors_ = colors;
+  courses_ = courses;
+  nodesDict_ = nodesDict;
   visualize(data, colors, courses, nodesDict);
 };
 
@@ -266,36 +289,59 @@ var processLite = function(data, colors, courses) { // for individual / double l
   return nodesDict;
 };
 
+var nodesDictProcessed_ = {};
 var visline = function(data, colors, courses, tip, divid) {
-  console.log(data);
+  color = "black";
+  colorElement = colors.find(c => c.Title == data.links[0].major);
+  if (colorElement) { color = colorElement.Color; }
+
   let client_width = $("#sizer").width();
   let scale_factor = client_width / 1200;
 
-  // boilerplate setup
-  let margin = { top: 50, right: 50, bottom: 50, left: 50 },
-     width = client_width - margin.left - margin.right,
-     height = 150 - margin.top - margin.bottom; // scale height???
+  // Rescale data points for svg
+  let minx = data.nodes.reduce((min, p) => p.x < min ? p.x : min, data.nodes[0].x);
+  let miny = data.nodes.reduce((min, p) => p.y < min ? p.y : min, data.nodes[0].y);
+  if (!nodesDictProcessed_[divid]) {
+    for (n of data.nodes) {
+      n.x = (n.x - minx) * 2.8;
+      n.y = (n.y - miny) * 2.8;
+    }
+  }
 
+  // Calculate width/height
+  let maxx = data.nodes.reduce((max, p) => p.x > max ? p.x : max, data.nodes[0].x);
+  let maxy = data.nodes.reduce((max, p) => p.y > max ? p.y : max, data.nodes[0].y);
+
+  // boilerplate setup
+  let margin = { top: 10, right: 60, bottom: 60, left: 10 },
+     width = maxx,
+     height = maxy;
+
+  let totalw = (width + margin.left + margin.right) * scale_factor;
+  if (totalw < client_width) {
+    scale_factor *= client_width / totalw;
+  }
+  if (scale_factor > 1) { scale_factor = 1; }
+
+  $('#' + divid).html("");
   let vis_line = d3.select(('#' + divid))
   .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .style("width", width + margin.left + margin.right)
-  .style("height", height + margin.top + margin.bottom)
+  //.style('border', 'solid 2px ' + color)
+  .attr("width", (width + margin.left + margin.right) * scale_factor)
+  .attr("height", (height + margin.top + margin.bottom) * scale_factor)
+  .style("width", (width + margin.left + margin.right) * scale_factor)
+  .style("height", (height + margin.top + margin.bottom) * scale_factor)
   .append("g")
   .attr("transform", "scale(" + scale_factor + ")")
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
   .call(tip);
 
-  let minx = data.nodes.reduce((min, p) => p.x < min ? p.x : min, data.nodes[0].x);
-  let miny = data.nodes.reduce((min, p) => p.y < min ? p.y : min, data.nodes[0].y);
-  for (n of data.nodes) {
-    n.x = (n.x - minx) * 2.8;
-    n.y = (n.y - miny) * 2.8;
-  }
 
-  nodesDict = processLite(data, colors, courses);
+  if (!nodesDictProcessed_[divid]) {
+    processLite(data, colors, courses);
+    nodesDictProcessed_[divid] = true;
+  }
 
   var edges = vis_line.selectAll('.edge').data(data.links);
   var nodes = vis_line.selectAll('.node').data(data.nodes);
@@ -336,7 +382,14 @@ var visline = function(data, colors, courses, tip, divid) {
   .style('stroke-width', 4);
 
   // render nodes
-  nodes.enter().append('g').attr('class', 'node').append('circle')
+  var node_g = nodes.enter()
+    .append('g')
+    .attr('transform', function(d) {
+      return 'translate(' + d.x + ', ' + d.y + ')';
+    });
+  
+  node_g.append('circle')
+  .attr('class', 'node')
   .attr('r', function(d) { // change size according to number of edges, default 5
     if (d.edges) {
       d.num = Math.ceil(d.edges.length / 2);
@@ -349,9 +402,6 @@ var visline = function(data, colors, courses, tip, divid) {
 
     return 4;
   })
-  .attr('transform', function(d) {
-    return 'translate(' + d.x + ', ' + d.y + ')';
-  })
   .style('stroke-width', function(d) {
     if (d.num && (d.num > 6)) {
       return 4;
@@ -361,11 +411,38 @@ var visline = function(data, colors, courses, tip, divid) {
   })
   .on('mouseover', tip.show)
   .on('mouseout', tip.hide);
+
+  var dontLabelDict = {
+    "Agricultural": ["SE 101", "TAM 210", "TAM 212", "ECON 103"],
+    "Chemical": ["IE 300"],
+    "ECE": ["CS 173", "CS 225", "ECE 313", "CS 374", "ECE 445"],
+    "CS": ["CS 241", "CS 361"],
+    "Physics": ["PHYS 435"],
+    "Industrial": ["TAM 251"],
+    "MatSE": ["ECE 205", "IE 300", "MSE 406", "MSE 402"],
+    "Mechanical": ["TAM 251"],
+    "NPRE": ["TAM 212"],
+    "Systems": ["TAM 335"]
+  };
+  
+  let dontLabel = dontLabelDict[divid];
+
+  node_g
+  .append("text")
+  .attr("fill", color)
+  .attr('font-size', '10px')
+  .attr('font-weight', 'bold')
+  .attr('x', '7')
+  .attr('y', '5')
+  .attr('transform', 'rotate(45)')
+  .style('display', function (d) {
+    if (dontLabel && dontLabel.indexOf(d.id) != -1) { return 'none'; }
+    else { return null; }
+  })
+  .text(function(d) { return d.id; })
 };
 
 var vismajors = function(data, colors, courses) {
-  console.log(data);
-
   var tip = d3.tip().attr('class', 'd3-tip')
   .offset(function(d) {
     return [-8, 0];
@@ -416,8 +493,8 @@ var visualize = function(data, colors, courses, nodesDict) {
 
   // boilerplate setup
   var margin = { top: 50, right: 50, bottom: 50, left: 50 },
-     width = client_width - margin.left - margin.right,
-     height = 1000 - margin.top - margin.bottom; // scale height???
+     width = 1800,
+     height = 1800;
 
   var tip = d3.tip().attr('class', 'd3-tip')
   .offset(function(d) {
@@ -444,12 +521,13 @@ var visualize = function(data, colors, courses, nodesDict) {
     return text;
   });
 
+  $('#chart').html("");
   var vis = d3.select('#chart')
   .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .style("width", width + margin.left + margin.right)
-  .style("height", height + margin.top + margin.bottom)
+  .attr("width", (width + margin.left + margin.right) * scale_factor)
+  .attr("height", (height + margin.top + margin.bottom) * scale_factor)
+  .style("width", (width + margin.left + margin.right) * scale_factor)
+  .style("height", (height + margin.top + margin.bottom) * scale_factor)
   .append("g")
   .attr("transform", "scale(" + scale_factor + ")")
   .append("g")
@@ -703,12 +781,13 @@ var visualize = function(data, colors, courses, nodesDict) {
   .on('mouseover', tip.show)
   .on('mouseout', tip.hide);
 
+  $("#downtown").html("");
   var downtown = d3.select('#downtown')
   .append("svg")
-  .attr("width", (width / 2.89) + margin.left + margin.right)
-  .attr("height", (height / 6) + 20 + margin.top + margin.bottom)
-  .style("width", (width / 2.89) + margin.left + margin.right)
-  .style("height", (height / 6) + 20 + margin.top + margin.bottom)
+  .attr("width", (800 + margin.left + margin.right) * scale_factor )
+  .attr("height", (400 + margin.top + margin.bottom) * scale_factor )
+  .style("width", (800 + margin.left + margin.right) * scale_factor )
+  .style("height", (400 + margin.top + margin.bottom) * scale_factor )
   .append("g")
   .attr("transform", "scale(" + scale_factor + ")")
   .append("g")
@@ -742,33 +821,8 @@ var visualize = function(data, colors, courses, nodesDict) {
   }
 
   // adjust coordinates
-  let minx = downtown_nodes.reduce((min, p) => p.x < min ? p.x : min, downtown_nodes[0].x);
-  let miny = downtown_nodes.reduce((min, p) => p.y < min ? p.y : min, downtown_nodes[0].y);
-  for (n of downtown_nodes) {
-    n.x = (n.x - minx);
-    n.y = (n.y - miny);
-  }
-
-  for (d of downtown_edges) {
-    d.source = downtown_nodes[downtown_nodes.map(a => a.id).indexOf(d.source.id)];
-    d.target = downtown_nodes[downtown_nodes.map(a => a.id).indexOf(d.target.id)];
-
-    if (d.x1) {
-      d.x1 = (d.x1 - minx);
-    }
-
-    if (d.y1) {
-      d.y1 = (d.y1 - miny);
-    }
-
-    if (d.x2) {
-      d.x2 = (d.x2 - minx);
-    }
-
-    if (d.y2) {
-      d.y2 = (d.y2 - miny);
-    }
-  }
+  let dx = downtown_nodes.reduce((min, p) => p.x < min ? p.x : min, downtown_nodes[0].x);
+  let dy = downtown_nodes.reduce((min, p) => p.y < min ? p.y : min, downtown_nodes[0].y);
 
   var dnodes = downtown.selectAll('.node').data(downtown_nodes);
   var dedges = downtown.selectAll('.edge').data(downtown_edges);
@@ -777,31 +831,31 @@ var visualize = function(data, colors, courses, nodesDict) {
   dedges.enter().append('line').attr('class', 'edge')
   .attr('x1', function(d) {
     if (d.x1) {
-      return d.x1;
+      return d.x1 - dx;
     }
 
-    return d.source.x;
+    return d.source.x - dx;
   })
   .attr('y1', function(d) {
     if (d.y1) {
-      return d.y1;
+      return d.y1 - dy;
     }
 
-    return d.source.y;
+    return d.source.y - dy;
   })
   .attr('x2', function(d) {
     if (d.x2) {
-      return d.x2;
+      return d.x2 - dx;
     }
 
-    return d.target.x;
+    return d.target.x - dx;
   })
   .attr('y2', function(d) {
     if (d.y2) {
-      return d.y2;
+      return d.y2 - dy;
     }
 
-    return d.target.y;
+    return d.target.y - dy;
   })
   .attr('stroke', function(d) { // make edge color the major's color
     return d.color;
@@ -823,7 +877,7 @@ var visualize = function(data, colors, courses, nodesDict) {
     return 4;
   })
   .attr('transform', function(d) {
-    return 'translate(' + d.x + ', ' + d.y + ')';
+    return 'translate(' + (d.x - dx) + ', ' + (d.y - dy) + ')';
   })
   .style('stroke-width', function(d) {
     if (d.num && (d.num > 6)) {
@@ -838,7 +892,7 @@ var visualize = function(data, colors, courses, nodesDict) {
   // add 'bullseye' shape for large nodes
   dnodes.enter().append('g').attr('class', 'node').append('circle')
   .attr('transform', function(d) {
-    return 'translate(' + d.x + ', ' + d.y + ')';
+    return 'translate(' + (d.x - dx) + ', ' + (d.y - dy) + ')';
   })
   .attr('r', function(d) {
     if (d.num && d.radius) {

@@ -2,10 +2,10 @@
 var data_ = null, colors_ = null, courses_ = null, nodesDict_ = null, majors_ = null, coordinates_ = null;
 
 $(function() {
-  d3.json("CoEGraph.json").then(function(coordinates) {
-    d3.csv("majorcolors.csv").then(function(colors) {
-      d3.csv("coursecatalog.csv").then(function(courses) {
-        d3.json("singlemajors.json").then(function(majors) {
+  d3.json("data/CoEGraph.json").then(function(coordinates) {
+    d3.csv("data/majorcolors.csv").then(function(colors) {
+      d3.csv("data/coursecatalog.csv").then(function(courses) {
+        d3.json("data/singlemajors.json").then(function(majors) {
           coordinates_ = coordinates;
           majors_ = majors;
 

@@ -22,7 +22,7 @@
     <link rel="icon" type="image/png" href="/static/d7.png" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Arimo|Merriweather|Playfair+Display:400,700|Ropa+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Merriweather:400,700|Playfair+Display:400,700|Ropa+Sans&display=swap" rel="stylesheet">
 
     <link href="d7/d7.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" type="text/css">
@@ -79,7 +79,12 @@
     <p>Each station denotes a single course. Its radius indicates how many majors travel through the course. Hover over any station to learn more about the course, and view the majors connected to it.</p>
     <p>Each major is given a unique color, and represented as a train line.</p>
     <div id="sizer"></div>
-    <div id="chart"></div>
+    <div id="chart">
+      <div style="min-height: 600px; text-align: center; color: hsl(274, 54%, 25%);">
+        <div class="spinner-border" role="status"></div><br>
+        <b>Building the Subway Map...</b>
+      </div>
+    </div>
 
     <h3>The Downtown of Engineering</h3>
     <p>The left of the graph is dominated by a series of stations – ENG 100, MATH 221-241, PHYS 211 and 212 – that are required by all represented majors. As the algorithm used to computationally plot this metro map begins with a force-directed graph that is then iterated upon to prioritize metro-map-like shapes, these courses are displayed close together due to the large number of majors that travel between them. In many real world metro maps, the downtown area is more condensed, with many of the available lines converging into a cluster of the busiest stations. The layout of these most-traveled stations mimic that part of a metro map, if denser than normal: it is very unusual for a true metro system to contain any station that more than 8 lines travel through – much less 15!</p>

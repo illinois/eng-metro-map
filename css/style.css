@@ -18,3 +18,11 @@
   font-size: 20px;
   font-weight: bold;
 }
+
+h3 {
+  margin-top: 15px;
+}
+
+h3:first-of-type {
+  margin-top: 0px;
+}

@@ -89,8 +89,8 @@ def read_in_files(foldr_name):
     return G
 
 
-file_name = str(datetime.datetime.now().time()) + "CoEgraph"
-G = read_in_files("major")
+file_name = str(datetime.datetime.now().time())
+G = read_in_files("majors")
 
 # modified to save a snapshot of every iteration
 os.mkdir(file_name)

@@ -415,7 +415,8 @@ var visline = function(data, colors, courses, tip, divid) {
   var dontLabelDict = {
     "Agricultural": ["SE 101", "TAM 210", "TAM 212", "ECON 103"],
     "Chemical": ["IE 300"],
-    "ECE": ["CS 173", "CS 225", "ECE 313", "CS 374", "ECE 445"],
+    "Civil": ["TAM 335"],
+    "ECE": ["CS 173", "CS 225", "ECE 313", "CS 374", "ECE 445", "ECE 411"],
     "CS": ["CS 241", "STAT 400"],
     "Physics": ["PHYS 435"],
     "Industrial": ["TAM 251"],
@@ -726,7 +727,10 @@ var visualize = function(data, colors, courses, nodesDict) {
   .attr('stroke', function(d) { // make edge color the major's color
     return d.color;
   })
-  .style('stroke-width', 4);
+  .style('stroke-width', 4)
+  .append('title').text(function(d) {
+      return d.major;
+  });
 
   // render nodes
   nodes.enter().append('g').attr('class', 'node').append('circle')
